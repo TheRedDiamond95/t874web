@@ -1,0 +1,143 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Victor+Mono:wght@400;600;700&family=Work+Sans:wght@300;400;500;600;700&display=swap');
+
+/* Greyscale template styles */
+:root {
+  --primary: #64a19d;
+  --primary-dark: #558b87;
+  --secondary: #6c757d;
+  --light: #f8f9fa;
+  --dark: #212529;
+  --gray-100: #f8f9fa;
+  --gray-200: #e9ecef;
+  --gray-300: #dee2e6;
+  --gray-400: #ced4da;
+  --gray-500: #adb5bd;
+  --gray-600: #6c757d;
+  --gray-700: #495057;
+  --gray-800: #343a40;
+  --gray-900: #212529;
+}
+
+/* Base styles */
+body {
+  font-family: 'Work Sans', sans-serif;
+  color: var(--gray-800);
+  background-color: var(--gray-100);
+}
+
+h1, h2, h3, h4, h5, h6, .font-title {
+  font-family: 'Victor Mono', monospace;
+  font-weight: 700;
+}
+
+/* Sidebar styles */
+#sidebar {
+  background-color: white;
+  border-right: 1px solid var(--gray-200);
+}
+
+#sidebar .text-2xl {
+  color: var(--primary);
+}
+
+#sidebar a {
+  color: var(--gray-700);
+  transition: all 0.2s ease-in-out;
+}
+
+#sidebar a:hover {
+  background-color: var(--gray-100);
+  color: var(--primary);
+}
+
+#sidebar a.active {
+  color: var(--primary);
+  background-color: var(--gray-100);
+}
+
+/* Button styles */
+.btn-primary {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: white;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+#loginToggle {
+  background-color: var(--primary);
+  transition: all 0.2s ease-in-out;
+}
+
+#loginToggle:hover {
+  background-color: var(--primary-dark);
+}
+
+/* Card styles */
+.card {
+  background-color: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 0.5rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+/* Content styles */
+main {
+  background-color: var(--gray-100);
+}
+
+main h1 {
+  color: var(--gray-800);
+  font-weight: 700;
+}
+
+/* Announcement styles */
+#public-announcements li,
+#extra-announcements li {
+  background-color: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-in-out;
+}
+
+#public-announcements li:hover,
+#extra-announcements li:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Status text */
+#loginStatus {
+  color: var(--gray-600);
+  font-size: 0.875rem;
+}
+
+/* Transitions */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--gray-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gray-400);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gray-500);
+} 

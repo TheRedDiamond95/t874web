@@ -14,6 +14,8 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Heroicons CDN for sidebar icons -->
   <script src="https://unpkg.com/feather-icons"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css">
   <!-- Common JavaScript -->
   <script src="js/common.js"></script>
   <script>
@@ -29,13 +31,13 @@
   <!-- Sidebar Navigation -->
   <aside id="sidebar" class="w-64 bg-white h-screen shadow flex flex-col transition-all duration-300 ease-in-out hover:w-64 group">
     <div class="p-6 border-b whitespace-nowrap overflow-hidden">
-      <span class="text-2xl font-bold text-blue-600">My Portal</span>
+      <span class="text-2xl font-title">My Portal</span>
     </div>
     <nav class="flex-1 p-4 space-y-2">
       <a href="index.html" class="flex items-center p-2 rounded hover:bg-blue-100 text-blue-700 font-semibold whitespace-nowrap overflow-hidden">
         <i data-feather="home" class="mr-3 flex-shrink-0"></i> <span class="truncate">Cover Page</span>
       </a>
-      <a href="wiki.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+      <a href="wiki.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden active">
         <i data-feather="book-open" class="mr-3 flex-shrink-0"></i> <span class="truncate">Wiki</span>
       </a>
       <a href="dashboard.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
@@ -50,16 +52,16 @@
     </nav>
     <div class="p-4 border-t whitespace-nowrap overflow-hidden">
       <!-- Login toggle button -->
-      <button id="loginToggle" class="w-full py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600">
+      <button id="loginToggle" class="w-full py-2 px-4 btn-primary rounded">
         Login
       </button>
-      <div id="loginStatus" class="mt-2 text-center text-sm text-gray-600"></div>
+      <div id="loginStatus" class="mt-2 text-center text-sm"></div>
     </div>
   </aside>
   <!-- Main Content -->
   <main class="flex-1 p-10 transition-all duration-300 ease-in-out">
-    <h1 class="text-3xl font-bold mb-6">Wiki</h1>
-    <div class="bg-white p-6 rounded shadow">
+    <h1 class="text-3xl font-title mb-6">Wiki</h1>
+    <div class="card p-6">
       <p class="text-gray-600">Welcome to the Wiki section. This content is only visible to logged-in users.</p>
     </div>
   </main>
