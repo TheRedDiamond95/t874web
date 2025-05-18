@@ -1,0 +1,104 @@
+/*
+  Static Frontend-Only Website
+  - Sidebar navigation (always visible)
+  - Cover page with public/extra announcements
+  - Placeholder login logic (isLoggedIn variable)
+  - 5 pages: index.html, wiki.html, dashboard.html, communications.html, calendar.html
+  - Simple HTML, CSS (Tailwind CDN), and vanilla JS
+  - Well-commented and organized
+*/
+
+/* 
+  File: index.html (Cover Page)
+*/
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">0
+  <title>Cover Page - Announcements</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Heroicons CDN for sidebar icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body class="bg-gray-100 flex">
+  <!-- Sidebar Navigation -->
+  <aside class="w-64 bg-white h-screen shadow flex flex-col">
+    <div class="p-6 border-b">
+      <span class="text-2xl font-bold text-blue-600">My Portal</span>
+    </div>
+    <nav class="flex-1 p-4 space-y-2">
+      <a href="index.html" class="flex items-center p-2 rounded hover:bg-blue-100 text-blue-700 font-semibold">
+        <i data-feather="home" class="mr-3"></i> Cover Page
+      </a>
+      <a href="wiki.html" class="flex items-center p-2 rounded hover:bg-blue-100">
+        <i data-feather="book-open" class="mr-3"></i> Wiki
+      </a>
+      <a href="dashboard.html" class="flex items-center p-2 rounded hover:bg-blue-100">
+        <i data-feather="user" class="mr-3"></i> Account Dashboard
+      </a>
+      <a href="communications.html" class="flex items-center p-2 rounded hover:bg-blue-100">
+        <i data-feather="message-circle" class="mr-3"></i> Communications
+      </a>
+      <a href="calendar.html" class="flex items-center p-2 rounded hover:bg-blue-100">
+        <i data-feather="calendar" class="mr-3"></i> Calendar
+      </a>
+    </nav>
+    <div class="p-4 border-t">
+      <!-- Simulated login toggle for demo -->
+      <button id="loginToggle" class="w-full py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600">
+        Toggle Login
+      </button>
+      <div id="loginStatus" class="mt-2 text-center text-sm text-gray-600"></div>
+    </div>
+  </aside>
+  <!-- Main Content -->
+  <main class="flex-1 p-10">
+    <h1 class="text-3xl font-bold mb-6">Public Announcements</h1>
+    <ul class="space-y-4" id="public-announcements">
+      <li class="bg-white p-4 rounded shadow">
+        <span class="font-semibold">System Maintenance:</span> The portal will be down for maintenance on Saturday 10pm-12am.
+      </li>
+      <li class="bg-white p-4 rounded shadow">
+        <span class="font-semibold">Welcome:</span> New features have been added to the Communications Module!
+      </li>
+    </ul>
+    <div id="extra-announcements" class="mt-8 hidden">
+      <h2 class="text-2xl font-bold mb-4">Extra Announcements for Logged-in Users</h2>
+      <ul class="space-y-4">
+        <li class="bg-blue-50 p-4 rounded shadow">
+          <span class="font-semibold">Private Event:</span> Staff meeting on Friday at 2pm in Conference Room B.
+        </li>
+        <li class="bg-blue-50 p-4 rounded shadow">
+          <span class="font-semibold">Account Notice:</span> Your profile is 90% complete. <a href="dashboard.html" class="text-blue-600 underline">Complete it now</a>.
+        </li>
+      </ul>
+    </div>
+  </main>
+  <script>
+    // Simulated login status
+    let isLoggedIn = false;
+
+    // Update login status display and extra announcements
+    function updateLoginUI() {
+      document.getElementById('loginStatus').textContent = isLoggedIn ? "Logged in" : "Logged out";
+      document.getElementById('extra-announcements').classList.toggle('hidden', !isLoggedIn);
+    }
+
+    // Toggle login status for demo
+    document.getElementById('loginToggle').addEventListener('click', function() {
+      isLoggedIn = !isLoggedIn;
+      localStorage.setItem('isLoggedIn', isLoggedIn ? "1" : "0");
+      updateLoginUI();
+    });
+
+    // Persist login status across pages using localStorage
+    window.addEventListener('DOMContentLoaded', function() {
+      isLoggedIn = localStorage.getItem('isLoggedIn') === "1";
+      updateLoginUI();
+      if (window.feather) feather.replace();
+    });
+  </script>
+</body>
+</html>
