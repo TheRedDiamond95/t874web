@@ -9,149 +9,52 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Calendar</title>
+  <title>Calendar - My Portal</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Heroicons CDN for sidebar icons -->
   <script src="https://unpkg.com/feather-icons"></script>
+  <!-- Common JavaScript -->
+  <script src="js/common.js"></script>
 </head>
 <body class="bg-gray-100 flex">
-  <aside class="w-64 bg-white h-screen shadow flex flex-col">
-    <div class="p-6 border-b">
+  <!-- Sidebar Navigation -->
+  <aside id="sidebar" class="w-64 bg-white h-screen shadow flex flex-col transition-all duration-300 ease-in-out hover:w-64 group">
+    <div class="p-6 border-b whitespace-nowrap overflow-hidden">
       <span class="text-2xl font-bold text-blue-600">My Portal</span>
     </div>
     <nav class="flex-1 p-4 space-y-2">
-      <a href="index.html" class="flex items-center p-2 rounded hover:bg-blue-100">
-        <i data-feather="home" class="mr-3"></i> Cover Page
+      <a href="index.html" class="flex items-center p-2 rounded hover:bg-blue-100 text-blue-700 font-semibold whitespace-nowrap overflow-hidden">
+        <i data-feather="home" class="mr-3 flex-shrink-0"></i> <span class="truncate">Cover Page</span>
       </a>
-      <a href="wiki.html" class="flex items-center p-2 rounded hover:bg-blue-100">
-        <i data-feather="book-open" class="mr-3"></i> Wiki
+      <a href="wiki.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+        <i data-feather="book-open" class="mr-3 flex-shrink-0"></i> <span class="truncate">Wiki</span>
       </a>
-      <a href="dashboard.html" class="flex items-center p-2 rounded hover:bg-blue-100">
-        <i data-feather="user" class="mr-3"></i> Account Dashboard
+      <a href="dashboard.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+        <i data-feather="user" class="mr-3 flex-shrink-0"></i> <span class="truncate">Account Dashboard</span>
       </a>
-      <a href="communications.html" class="flex items-center p-2 rounded hover:bg-blue-100">
-        <i data-feather="message-circle" class="mr-3"></i> Communications
+      <a href="communications.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+        <i data-feather="message-circle" class="mr-3 flex-shrink-0"></i> <span class="truncate">Communications</span>
       </a>
-      <a href="calendar.html" class="flex items-center p-2 rounded hover:bg-blue-100 text-blue-700 font-semibold">
-        <i data-feather="calendar" class="mr-3"></i> Calendar
+      <a href="calendar.html" class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+        <i data-feather="calendar" class="mr-3 flex-shrink-0"></i> <span class="truncate">Calendar</span>
       </a>
     </nav>
-    <div class="p-4 border-t">
+    <div class="p-4 border-t whitespace-nowrap overflow-hidden">
+      <!-- Login toggle button -->
       <button id="loginToggle" class="w-full py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600">
-        Toggle Login
+        Login
       </button>
       <div id="loginStatus" class="mt-2 text-center text-sm text-gray-600"></div>
     </div>
   </aside>
-  <main class="flex-1 p-10">
+  <!-- Main Content -->
+  <main class="flex-1 p-10 transition-all duration-300 ease-in-out">
     <h1 class="text-3xl font-bold mb-6">Calendar</h1>
-    <!-- Simple calendar layout -->
-    <div class="overflow-x-auto">
-      <table class="min-w-full bg-white rounded shadow">
-        <thead>
-          <tr>
-            <th class="py-2 px-4 border-b">Sun</th>
-            <th class="py-2 px-4 border-b">Mon</th>
-            <th class="py-2 px-4 border-b">Tue</th>
-            <th class="py-2 px-4 border-b">Wed</th>
-            <th class="py-2 px-4 border-b">Thu</th>
-            <th class="py-2 px-4 border-b">Fri</th>
-            <th class="py-2 px-4 border-b">Sat</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Example: May 2024, starting on Wednesday (1st is Wed) -->
-          <tr>
-            <td class="py-2 px-4 border-b"></td>
-            <td class="py-2 px-4 border-b"></td>
-            <td class="py-2 px-4 border-b"></td>
-            <td class="py-2 px-4 border-b">1</td>
-            <td class="py-2 px-4 border-b">2</td>
-            <td class="py-2 px-4 border-b">3</td>
-            <td class="py-2 px-4 border-b">4</td>
-          </tr>
-          <tr>
-            <td class="py-2 px-4 border-b">5</td>
-            <td class="py-2 px-4 border-b">6</td>
-            <td class="py-2 px-4 border-b">7</td>
-            <td class="py-2 px-4 border-b">8</td>
-            <td class="py-2 px-4 border-b">9</td>
-            <td class="py-2 px-4 border-b">10</td>
-            <td class="py-2 px-4 border-b">11</td>
-          </tr>
-          <tr>
-            <td class="py-2 px-4 border-b">12</td>
-            <td class="py-2 px-4 border-b">13</td>
-            <td class="py-2 px-4 border-b">14</td>
-            <td class="py-2 px-4 border-b">15</td>
-            <td class="py-2 px-4 border-b">16</td>
-            <td class="py-2 px-4 border-b">17</td>
-            <td class="py-2 px-4 border-b">18</td>
-          </tr>
-          <tr>
-            <td class="py-2 px-4 border-b">19</td>
-            <td class="py-2 px-4 border-b">20</td>
-            <td class="py-2 px-4 border-b">21</td>
-            <td class="py-2 px-4 border-b">22</td>
-            <td class="py-2 px-4 border-b">23</td>
-            <td class="py-2 px-4 border-b">24</td>
-            <td class="py-2 px-4 border-b">25</td>
-          </tr>
-          <tr>
-            <td class="py-2 px-4 border-b">26</td>
-            <td class="py-2 px-4 border-b">27</td>
-            <td class="py-2 px-4 border-b">28</td>
-            <td class="py-2 px-4 border-b">29</td>
-            <td class="py-2 px-4 border-b">30</td>
-            <td class="py-2 px-4 border-b">31
-              <!-- Example event on 31st -->
-              <div class="mt-1">
-                <a href="#" class="event-link text-blue-600 underline" data-event="maintenance">Maintenance</a>
-              </div>
-            </td>
-            <td class="py-2 px-4 border-b"></td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="bg-white p-6 rounded shadow">
+      <p class="text-gray-600">Welcome to the Calendar section. This is a public page accessible to all users.</p>
     </div>
-    <div id="event-message" class="mt-6 text-lg text-green-700 font-semibold hidden"></div>
   </main>
-  <script>
-    let isLoggedIn = false;
-    function updateLoginUI() {
-      document.getElementById('loginStatus').textContent = isLoggedIn ? "Logged in" : "Logged out";
-      // Enable/disable event links
-      document.querySelectorAll('.event-link').forEach(function(link) {
-        if (isLoggedIn) {
-          link.classList.remove('pointer-events-none', 'opacity-50');
-          link.title = "View event details";
-        } else {
-          link.classList.add('pointer-events-none', 'opacity-50');
-          link.title = "Login to view event details";
-        }
-      });
-    }
-    document.getElementById('loginToggle').addEventListener('click', function() {
-      isLoggedIn = !isLoggedIn;
-      localStorage.setItem('isLoggedIn', isLoggedIn ? "1" : "0");
-      updateLoginUI();
-    });
-    window.addEventListener('DOMContentLoaded', function() {
-      isLoggedIn = localStorage.getItem('isLoggedIn') === "1";
-      updateLoginUI();
-      if (window.feather) feather.replace();
-
-      // Event link click handler
-      document.querySelectorAll('.event-link').forEach(function(link) {
-        link.addEventListener('click', function(e) {
-          e.preventDefault();
-          if (isLoggedIn) {
-            document.getElementById('event-message').textContent = "Event: System Maintenance on May 31st, 10pm-12am.";
-            document.getElementById('event-message').classList.remove('hidden');
-          }
-        });
-      });
-    });
-  </script>
 </body>
 </html>
