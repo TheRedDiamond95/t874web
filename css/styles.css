@@ -56,6 +56,7 @@ h1, h2, h3, h4, h5, h6, .font-title {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 #sidebar.minimized .text-2xl {
@@ -66,9 +67,15 @@ h1, h2, h3, h4, h5, h6, .font-title {
   content: '';
   width: 24px;
   height: 24px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d4af37' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2L2 7l10 5 10-5-10-5z'/%3E%3Cpath d='M2 17l10 5 10-5'/%3E%3Cpath d='M2 12l10 5 10-5'/%3E%3C/svg%3E");
-  background-size: contain;
-  background-repeat: no-repeat;
+  background-color: var(--secondary);
+  border-radius: 4px;
+  display: inline-block;
+  transition: all 0.3s ease-in-out;
+}
+
+#sidebar.minimized .text-2xl:hover::before {
+  transform: rotate(45deg);
+  background-color: var(--primary);
 }
 
 #sidebar a {
@@ -112,22 +119,36 @@ h1, h2, h3, h4, h5, h6, .font-title {
 
 #sidebar.minimized #loginToggle {
   padding: 0.5rem;
-  display: flex;
-  align-items: center;
   justify-content: center;
+}
+
+#sidebar.minimized #loginToggle i {
+  margin: 0;
+  font-size: 1.25rem;
 }
 
 #sidebar.minimized #loginToggle span {
   display: none;
 }
 
-#sidebar.minimized #loginToggle::before {
-  content: '';
-  width: 20px;
-  height: 20px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4'/%3E%3Cpolyline points='10 17 15 12 10 7'/%3E%3Cline x1='15' y1='12' x2='3' y2='12'/%3E%3C/svg%3E");
-  background-size: contain;
-  background-repeat: no-repeat;
+/* Login button styles */
+#loginToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+}
+
+#loginToggle i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+}
+
+#loginToggle span {
+  transition: all 0.3s ease-in-out;
 }
 
 /* Update font styles */
@@ -159,11 +180,6 @@ main {
 .btn-primary:hover {
   background-color: #991b1b !important; /* Darker red */
   border-color: #991b1b !important;
-}
-
-#loginToggle {
-  background-color: var(--primary);
-  transition: all 0.2s ease-in-out;
 }
 
 #loginToggle:hover {
