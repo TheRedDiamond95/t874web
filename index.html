@@ -45,26 +45,41 @@
     </div>
   </aside>
   <!-- Main Content -->
-  <main class="flex-1 p-10 transition-all duration-300 ease-in-out">
-    <h1 class="text-3xl font-title mb-6">Public Announcements</h1>
-    <ul class="space-y-4" id="public-announcements">
-      <li class="p-4 rounded card">
-        <span class="font-semibold">System Maintenance:</span> The portal will be down for maintenance on Saturday 10pm-12am.
-      </li>
-      <li class="p-4 rounded card">
-        <span class="font-semibold">Welcome:</span> New features have been added to the Communications Module!
-      </li>
-    </ul>
-    <div id="extra-announcements" class="mt-8 hidden">
-      <h2 class="text-2xl font-title mb-4">Extra Announcements for Logged-in Users</h2>
-      <ul class="space-y-4">
-        <li class="p-4 rounded card bg-blue-50">
-          <span class="font-semibold">Private Event:</span> Staff meeting on Friday at 2pm in Conference Room B.
+  <main class="flex-1 transition-all duration-300 ease-in-out page-transition">
+    <!-- Hero Banner -->
+    <div class="hero-banner relative h-[400px] w-full overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent to-bg-dark z-10"></div>
+      <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1920&h=400&blur=1" 
+           alt="Mountain Landscape" 
+           class="w-full h-full object-cover object-center filter grayscale brightness-50">
+      <div class="absolute inset-0 flex flex-col items-center justify-center text-center z-20 px-4">
+        <h1 class="text-5xl font-title mb-4 text-white">Welcome to Troop 874</h1>
+        <p class="text-xl text-gray-200 max-w-2xl">Building character, citizenship, and leadership through outdoor adventure and community service</p>
+      </div>
+    </div>
+
+    <!-- Rest of the content -->
+    <div class="p-10">
+      <h1 class="text-3xl font-title mb-6">Public Announcements</h1>
+      <ul class="space-y-4" id="public-announcements">
+        <li class="p-4 rounded card">
+          <span class="font-semibold">System Maintenance:</span> The portal will be down for maintenance on Saturday 10pm-12am.
         </li>
-        <li class="p-4 rounded card bg-blue-50">
-          <span class="font-semibold">Account Notice:</span> Your profile is 90% complete. <a href="dashboard.html" class="text-primary hover:text-primary-dark underline">Complete it now</a>.
+        <li class="p-4 rounded card">
+          <span class="font-semibold">Welcome:</span> New features have been added to the Communications Module!
         </li>
       </ul>
+      <div id="extra-announcements" class="mt-8 hidden">
+        <h2 class="text-2xl font-title mb-4">Extra Announcements for Logged-in Users</h2>
+        <ul class="space-y-4">
+          <li class="p-4 rounded card bg-blue-50">
+            <span class="font-semibold">Private Event:</span> Staff meeting on Friday at 2pm in Conference Room B.
+          </li>
+          <li class="p-4 rounded card bg-blue-50">
+            <span class="font-semibold">Account Notice:</span> Your profile is 90% complete. <a href="dashboard.html" class="text-primary hover:text-primary-dark underline">Complete it now</a>.
+          </li>
+        </ul>
+      </div>
     </div>
   </main>
   <script>
@@ -77,5 +92,38 @@
       }
     });
   </script>
+  <style>
+    .hero-banner {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .hero-banner::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100px;
+      background: linear-gradient(to bottom, transparent, var(--bg-dark));
+      z-index: 15;
+    }
+
+    .hero-banner img {
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .hero-banner:hover img {
+      transform: scale(1.02);
+    }
+
+    .hero-banner h1 {
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-banner p {
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+  </style>
 </body>
 </html>
