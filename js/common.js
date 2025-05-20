@@ -68,24 +68,44 @@ document.addEventListener('DOMContentLoaded', function() {
   if (window.feather) {
     feather.replace();
   }
+
+  // Initialize card tilting effect
+  const cards = document.querySelectorAll('.card, .wiki-article, .wiki-category, .stat-card, .profile-header, .banner');
+  
+  cards.forEach(card => {
+    card.addEventListener('mousemove', handleCardTilt);
+    card.addEventListener('mouseleave', resetCardTilt);
+  });
+
+  function handleCardTilt(e) {
+    const card = this;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left; // x position within the card
+    const y = e.clientY - rect.top; // y position within the card
+    
+    // Calculate rotation based on mouse position
+    // Center of the card is (rect.width/2, rect.height/2)
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    // Calculate rotation angles (in degrees)
+    // Max rotation of 5 degrees in any direction
+    const rotateY = ((x - centerX) / centerX) * 5;
+    const rotateX = -((y - centerY) / centerY) * 5;
+    
+    // Apply the transform
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+  }
+
+  function resetCardTilt() {
+    this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+  }
   
   // Initialize sidebar if it exists
   const sidebar = document.getElementById('sidebar');
   if (sidebar) {
-    // Initialize sidebar state from localStorage
-    const isMinimized = localStorage.getItem('sidebarMinimized') === 'true';
-    if (isMinimized) {
-      sidebar.classList.add('minimized');
-    }
-    
-    // Toggle sidebar on click
-    sidebar.addEventListener('click', (e) => {
-      if (e.target === sidebar || e.target.parentElement === sidebar) {
-        const newState = !sidebar.classList.contains('minimized');
-        sidebar.classList.toggle('minimized');
-        localStorage.setItem('sidebarMinimized', newState);
-      }
-    });
+    // Remove click-based toggle
+    sidebar.classList.add('minimized'); // Start minimized
     
     // Update login button text and icon based on state
     function updateLoginButton() {
