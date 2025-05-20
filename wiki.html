@@ -50,10 +50,11 @@
         <i data-feather="calendar" class="mr-3 flex-shrink-0"></i> <span class="truncate">Calendar</span>
       </a>
     </nav>
-    <div class="p-4 border-t whitespace-nowrap overflow-hidden">
+    <div class="p-4 border-t whitespace-nowrap overflow-hidden login-section">
       <!-- Login toggle button -->
-      <button id="loginToggle" class="w-full py-2 px-4 btn-primary rounded">
-        Login
+      <button id="loginToggle" class="w-full py-2 px-4 btn-primary rounded flex items-center justify-center">
+        <i data-feather="log-in" class="mr-2"></i>
+        <span>Login</span>
       </button>
       <div id="loginStatus" class="mt-2 text-center text-sm"></div>
     </div>
@@ -78,37 +79,51 @@
     <div class="wiki-directory mb-8">
       <div class="wiki-category">
         <div class="flex items-center space-x-3 mb-3">
-          <i data-feather="book" class="text-blue-500 icon-hover"></i>
+          <i data-feather="award" class="text-blue-500 icon-hover"></i>
+          <h3 class="font-bold">Merit Badges</h3>
+        </div>
+        <ul class="space-y-2 text-sm">
+          <li><a href="merit-badges/first-aid.html" class="text-blue-600 hover:text-blue-800">First Aid</a></li>
+          <li><a href="merit-badges/emergency-preparedness.html" class="text-blue-600 hover:text-blue-800">Emergency Preparedness</a></li>
+          <li><a href="merit-badges/safety.html" class="text-blue-600 hover:text-blue-800">Safety</a></li>
+          <li><a href="merit-badges/swimming.html" class="text-blue-600 hover:text-blue-800">Swimming</a></li>
+          <li><a href="merit-badges/lifesaving.html" class="text-blue-600 hover:text-blue-800">Lifesaving</a></li>
+        </ul>
+      </div>
+
+      <div class="wiki-category">
+        <div class="flex items-center space-x-3 mb-3">
+          <i data-feather="book" class="text-green-500 icon-hover"></i>
           <h3 class="font-bold">Getting Started</h3>
         </div>
         <ul class="space-y-2 text-sm">
-          <li><a href="#" class="text-blue-600 hover:text-blue-800">Quick Start Guide</a></li>
-          <li><a href="#" class="text-blue-600 hover:text-blue-800">Basic Navigation</a></li>
-          <li><a href="#" class="text-blue-600 hover:text-blue-800">Account Setup</a></li>
+          <li><a href="wiki/getting-started.html" class="text-blue-600 hover:text-blue-800">Quick Start Guide</a></li>
+          <li><a href="wiki/basic-navigation.html" class="text-blue-600 hover:text-blue-800">Basic Navigation</a></li>
+          <li><a href="wiki/account-setup.html" class="text-blue-600 hover:text-blue-800">Account Setup</a></li>
         </ul>
       </div>
 
       <div class="wiki-category">
         <div class="flex items-center space-x-3 mb-3">
-          <i data-feather="settings" class="text-green-500 icon-hover"></i>
-          <h3 class="font-bold">Features</h3>
+          <i data-feather="compass" class="text-purple-500 icon-hover"></i>
+          <h3 class="font-bold">Outdoor Skills</h3>
         </div>
         <ul class="space-y-2 text-sm">
-          <li><a href="#" class="text-blue-600 hover:text-blue-800">Calendar Integration</a></li>
-          <li><a href="#" class="text-blue-600 hover:text-blue-800">Message System</a></li>
-          <li><a href="#" class="text-blue-600 hover:text-blue-800">File Sharing</a></li>
+          <li><a href="wiki/camping-basics.html" class="text-blue-600 hover:text-blue-800">Camping Basics</a></li>
+          <li><a href="wiki/hiking-tips.html" class="text-blue-600 hover:text-blue-800">Hiking Tips</a></li>
+          <li><a href="wiki/outdoor-cooking.html" class="text-blue-600 hover:text-blue-800">Outdoor Cooking</a></li>
         </ul>
       </div>
 
       <div class="wiki-category">
         <div class="flex items-center space-x-3 mb-3">
-          <i data-feather="shield" class="text-purple-500 icon-hover"></i>
-          <h3 class="font-bold">Security</h3>
+          <i data-feather="shield" class="text-red-500 icon-hover"></i>
+          <h3 class="font-bold">Safety & Leadership</h3>
         </div>
         <ul class="space-y-2 text-sm">
-          <li><a href="#" class="text-blue-600 hover:text-blue-800">Account Security</a></li>
-          <li><a href="#" class="text-blue-600 hover:text-blue-800">Privacy Settings</a></li>
-          <li><a href="#" class="text-blue-600 hover:text-blue-800">Two-Factor Auth</a></li>
+          <li><a href="wiki/safety-guidelines.html" class="text-blue-600 hover:text-blue-800">Safety Guidelines</a></li>
+          <li><a href="wiki/leadership-skills.html" class="text-blue-600 hover:text-blue-800">Leadership Skills</a></li>
+          <li><a href="wiki/team-building.html" class="text-blue-600 hover:text-blue-800">Team Building</a></li>
         </ul>
       </div>
     </div>
@@ -119,48 +134,48 @@
       <article class="wiki-article">
         <div class="flex items-start justify-between">
           <div>
-            <h3 class="text-xl font-bold mb-2">Getting Started with My Portal</h3>
-            <p class="text-gray-600 mb-4">Learn the basics of using My Portal, from account creation to navigating the interface.</p>
+            <h3 class="text-xl font-bold mb-2">First Aid Merit Badge</h3>
+            <p class="text-gray-600 mb-4">Essential first aid skills and knowledge required for the First Aid merit badge, including emergency response and basic medical care.</p>
             <div class="flex items-center space-x-4 text-sm text-gray-500">
-              <span class="flex items-center"><i data-feather="clock" class="w-4 h-4 mr-1"></i> 5 min read</span>
+              <span class="flex items-center"><i data-feather="clock" class="w-4 h-4 mr-1"></i> 10 min read</span>
+              <span class="flex items-center"><i data-feather="calendar" class="w-4 h-4 mr-1"></i> Updated 1 day ago</span>
+            </div>
+          </div>
+          <a href="merit-badges/first-aid.html" class="p-2 text-blue-500 hover:text-blue-700 transition-colors">
+            <i data-feather="arrow-right" class="icon-hover"></i>
+          </a>
+        </div>
+      </article>
+
+      <article class="wiki-article">
+        <div class="flex items-start justify-between">
+          <div>
+            <h3 class="text-xl font-bold mb-2">Emergency Preparedness</h3>
+            <p class="text-gray-600 mb-4">Learn about emergency preparedness, disaster response, and how to keep yourself and others safe during emergencies.</p>
+            <div class="flex items-center space-x-4 text-sm text-gray-500">
+              <span class="flex items-center"><i data-feather="clock" class="w-4 h-4 mr-1"></i> 12 min read</span>
               <span class="flex items-center"><i data-feather="calendar" class="w-4 h-4 mr-1"></i> Updated 2 days ago</span>
             </div>
           </div>
-          <button class="p-2 text-blue-500 hover:text-blue-700 transition-colors">
+          <a href="merit-badges/emergency-preparedness.html" class="p-2 text-blue-500 hover:text-blue-700 transition-colors">
             <i data-feather="arrow-right" class="icon-hover"></i>
-          </button>
+          </a>
         </div>
       </article>
 
       <article class="wiki-article">
         <div class="flex items-start justify-between">
           <div>
-            <h3 class="text-xl font-bold mb-2">Advanced Calendar Features</h3>
-            <p class="text-gray-600 mb-4">Discover how to make the most of the calendar system, including recurring events and reminders.</p>
+            <h3 class="text-xl font-bold mb-2">Swimming & Lifesaving</h3>
+            <p class="text-gray-600 mb-4">Comprehensive guide to swimming techniques, water safety, and lifesaving skills required for these important merit badges.</p>
             <div class="flex items-center space-x-4 text-sm text-gray-500">
-              <span class="flex items-center"><i data-feather="clock" class="w-4 h-4 mr-1"></i> 8 min read</span>
-              <span class="flex items-center"><i data-feather="calendar" class="w-4 h-4 mr-1"></i> Updated 1 week ago</span>
-            </div>
-          </div>
-          <button class="p-2 text-blue-500 hover:text-blue-700 transition-colors">
-            <i data-feather="arrow-right" class="icon-hover"></i>
-          </button>
-        </div>
-      </article>
-
-      <article class="wiki-article">
-        <div class="flex items-start justify-between">
-          <div>
-            <h3 class="text-xl font-bold mb-2">Security Best Practices</h3>
-            <p class="text-gray-600 mb-4">Essential security tips to keep your account and data safe while using My Portal.</p>
-            <div class="flex items-center space-x-4 text-sm text-gray-500">
-              <span class="flex items-center"><i data-feather="clock" class="w-4 h-4 mr-1"></i> 6 min read</span>
+              <span class="flex items-center"><i data-feather="clock" class="w-4 h-4 mr-1"></i> 15 min read</span>
               <span class="flex items-center"><i data-feather="calendar" class="w-4 h-4 mr-1"></i> Updated 3 days ago</span>
             </div>
           </div>
-          <button class="p-2 text-blue-500 hover:text-blue-700 transition-colors">
+          <a href="merit-badges/swimming.html" class="p-2 text-blue-500 hover:text-blue-700 transition-colors">
             <i data-feather="arrow-right" class="icon-hover"></i>
-          </button>
+          </a>
         </div>
       </article>
     </div>

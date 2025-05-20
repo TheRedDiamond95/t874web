@@ -44,6 +44,7 @@ h1, h2, h3, h4, h5, h6, .font-title {
   background-color: var(--bg-dark);
   border-right: 1px solid var(--gray-800);
   transition: all 0.3s ease-in-out;
+  width: 16rem;
 }
 
 #sidebar.minimized {
@@ -55,27 +56,25 @@ h1, h2, h3, h4, h5, h6, .font-title {
   transition: all 0.3s ease-in-out;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   position: relative;
+  white-space: nowrap;
 }
 
 #sidebar.minimized .text-2xl {
   font-size: 0;
+  justify-content: center;
 }
 
 #sidebar.minimized .text-2xl::before {
   content: '';
   width: 24px;
   height: 24px;
-  background-color: var(--secondary);
-  border-radius: 4px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d4af37' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2L2 7l10 5 10-5-10-5z'/%3E%3Cpath d='M2 17l10 5 10-5'/%3E%3Cpath d='M2 12l10 5 10-5'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
   display: inline-block;
   transition: all 0.3s ease-in-out;
-}
-
-#sidebar.minimized .text-2xl:hover::before {
-  transform: rotate(45deg);
-  background-color: var(--primary);
 }
 
 #sidebar a {
@@ -84,6 +83,7 @@ h1, h2, h3, h4, h5, h6, .font-title {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  white-space: nowrap;
 }
 
 #sidebar.minimized a {
@@ -99,18 +99,9 @@ h1, h2, h3, h4, h5, h6, .font-title {
   margin: 0;
 }
 
-#sidebar a:hover {
-  background-color: #991b1b !important; /* Darker red */
-  color: var(--text-light);
-}
-
-#sidebar a.active {
-  color: var(--text-light);
-  background-color: var(--primary);
-}
-
 #sidebar .login-section {
   transition: all 0.3s ease-in-out;
+  white-space: nowrap;
 }
 
 #sidebar.minimized .login-section {
@@ -120,6 +111,7 @@ h1, h2, h3, h4, h5, h6, .font-title {
 #sidebar.minimized #loginToggle {
   padding: 0.5rem;
   justify-content: center;
+  width: auto;
 }
 
 #sidebar.minimized #loginToggle i {
@@ -138,6 +130,7 @@ h1, h2, h3, h4, h5, h6, .font-title {
   justify-content: center;
   width: 100%;
   transition: all 0.3s ease-in-out;
+  white-space: nowrap;
 }
 
 #loginToggle i {
@@ -145,6 +138,7 @@ h1, h2, h3, h4, h5, h6, .font-title {
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease-in-out;
+  margin-right: 0.5rem;
 }
 
 #loginToggle span {

@@ -58,6 +58,10 @@ document.addEventListener('DOMContentLoaded', function() {
   const loginToggle = document.getElementById('loginToggle');
   if (loginToggle) {
     loginToggle.addEventListener('click', toggleLogin);
+    // Add login icon
+    const loginIcon = document.createElement('i');
+    loginIcon.setAttribute('data-feather', 'log-in');
+    loginToggle.insertBefore(loginIcon, loginToggle.firstChild);
   }
   
   // Initialize Feather icons if available
@@ -68,23 +72,48 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initialize sidebar if it exists
   const sidebar = document.getElementById('sidebar');
   if (sidebar) {
-    let sidebarTimeout;
-    
-    function handleSidebarMouseEnter() {
-      clearTimeout(sidebarTimeout);
-      sidebar.classList.remove('w-16');
-      sidebar.classList.add('w-64');
+    // Initialize sidebar state from localStorage
+    const isMinimized = localStorage.getItem('sidebarMinimized') === 'true';
+    if (isMinimized) {
+      sidebar.classList.add('minimized');
     }
     
-    function handleSidebarMouseLeave() {
-      sidebarTimeout = setTimeout(() => {
-        sidebar.classList.remove('w-64');
-        sidebar.classList.add('w-16');
-      }, 500);
+    // Toggle sidebar on click
+    sidebar.addEventListener('click', (e) => {
+      if (e.target === sidebar || e.target.parentElement === sidebar) {
+        const newState = !sidebar.classList.contains('minimized');
+        sidebar.classList.toggle('minimized');
+        localStorage.setItem('sidebarMinimized', newState);
+      }
+    });
+    
+    // Update login button text and icon based on state
+    function updateLoginButton() {
+      if (loginToggle) {
+        const isLoggedIn = isUserLoggedIn();
+        const icon = loginToggle.querySelector('i');
+        const text = loginToggle.querySelector('span');
+        
+        if (icon) {
+          icon.setAttribute('data-feather', isLoggedIn ? 'log-out' : 'log-in');
+        }
+        if (text) {
+          text.textContent = isLoggedIn ? 'Logout' : 'Login';
+        }
+        if (window.feather) {
+          feather.replace();
+        }
+      }
     }
     
-    sidebar.addEventListener('mouseenter', handleSidebarMouseEnter);
-    sidebar.addEventListener('mouseleave', handleSidebarMouseLeave);
-    sidebar.classList.add('w-16');
+    // Update login button when login state changes
+    const originalUpdateLoginUI = updateLoginUI;
+    updateLoginUI = function() {
+      originalUpdateLoginUI();
+      updateLoginButton();
+    };
+    
+    // Initial update
+    updateLoginButton();
   }
 }); 
