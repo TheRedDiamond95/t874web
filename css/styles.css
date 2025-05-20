@@ -6,8 +6,11 @@
   --primary: #dc2626; /* Red */
   --primary-dark: #b91c1c;
   --secondary: #d4af37; /* Gold */
+  --text-light: #ffffff; /* White */
+  --text-dark: #000000; /* Black */
+  --bg-dark: #1a1a1a; /* Dark background */
+  --bg-light: #f3f4f6; /* Light background */
   --light: #f8f9fa;
-  --dark: #000000; /* Black */
   --gray-100: #f8f9fa;
   --gray-200: #e9ecef;
   --gray-300: #dee2e6;
@@ -23,7 +26,7 @@
 body {
   font-family: 'Work Sans', sans-serif;
   color: var(--gray-800);
-  background-color: var(--gray-100);
+  background-color: var(--bg-dark);
 }
 
 h1, h2, h3, h4, h5, h6, .font-title {
@@ -33,7 +36,7 @@ h1, h2, h3, h4, h5, h6, .font-title {
 
 /* Sidebar styles */
 #sidebar {
-  background-color: var(--dark);
+  background-color: var(--bg-dark);
   border-right: 1px solid var(--gray-800);
 }
 
@@ -42,25 +45,25 @@ h1, h2, h3, h4, h5, h6, .font-title {
 }
 
 #sidebar a {
-  color: white;
+  color: var(--text-light);
   transition: all 0.2s ease-in-out;
 }
 
 #sidebar a:hover {
-  background-color: var(--gray-800);
-  color: var(--secondary);
+  background-color: var(--primary);
+  color: var(--text-light);
 }
 
 #sidebar a.active {
-  color: var(--secondary);
-  background-color: var(--gray-800);
+  color: var(--text-light);
+  background-color: var(--primary);
 }
 
 /* Button styles */
 .btn-primary {
   background-color: var(--primary);
   border-color: var(--primary);
-  color: white;
+  color: var(--text-light);
   transition: all 0.2s ease-in-out;
 }
 
@@ -80,10 +83,10 @@ h1, h2, h3, h4, h5, h6, .font-title {
 
 /* Card styles */
 .card {
-  background-color: white;
+  background-color: var(--bg-dark);
   border: 1px solid var(--gray-200);
   border-radius: 0.5rem;
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 /* Content styles */
@@ -154,18 +157,14 @@ main h2 {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* Card hover effects */
-.card {
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-}
-
 .card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 /* Icon animations */
@@ -180,8 +179,8 @@ main h2 {
 /* Banner styles */
 .banner {
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-  color: white;
-  padding: 1rem;
+  color: var(--text-light);
+  padding: 2rem;
   border-radius: 0.5rem;
   margin-bottom: 1.5rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
@@ -189,30 +188,29 @@ main h2 {
 
 /* Dashboard stats */
 .stat-card {
-  background: white;
-  border-radius: 0.5rem;
+  background: var(--bg-dark);
+  color: var(--text-light);
   padding: 1.5rem;
-  transition: all 0.3s ease;
+  border-radius: 0.5rem;
+  transition: transform 0.2s ease-in-out;
 }
 
 .stat-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
 }
 
 /* Wiki article styles */
 .wiki-article {
-  background: white;
+  background: var(--bg-dark);
+  color: var(--text-light);
+  padding: 1.5rem;
   border-radius: 0.5rem;
-  padding: 2rem;
-  margin-bottom: 1.5rem;
-  transition: all 0.3s ease;
-  border: 1px solid var(--gray-200);
+  transition: all 0.2s ease-in-out;
 }
 
 .wiki-article:hover {
+  transform: translateY(-2px);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  border-color: var(--primary);
 }
 
 /* Wiki directory styles */
@@ -224,17 +222,16 @@ main h2 {
 }
 
 .wiki-category {
-  background: white;
-  border-radius: 0.5rem;
+  background: var(--bg-dark);
+  color: var(--text-light);
   padding: 1rem;
-  transition: all 0.3s ease;
-  border: 1px solid var(--gray-200);
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-in-out;
 }
 
 .wiki-category:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  border-color: var(--primary);
+  background: var(--primary);
+  color: var(--text-light);
 }
 
 .wiki-category h3 {
@@ -248,8 +245,8 @@ main h2 {
 
 /* Profile header */
 .profile-header {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-  color: white;
+  background: var(--bg-dark);
+  color: var(--text-light);
   padding: 2rem;
   border-radius: 0.5rem;
   margin-bottom: 2rem;
@@ -259,7 +256,7 @@ main h2 {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  border: 3px solid white;
+  border: 3px solid var(--secondary);
   transition: transform 0.3s ease;
 }
 
@@ -287,8 +284,8 @@ a.text-blue-600:hover {
 
 /* Update active states */
 .active {
-  color: var(--secondary) !important;
-  background-color: var(--gray-800) !important;
+  color: var(--text-light) !important;
+  background-color: var(--primary) !important;
 }
 
 /* Update focus states */
@@ -327,4 +324,268 @@ a.text-blue-600:hover {
 /* Update text colors for hover states */
 .hover\:text-blue-800:hover {
   color: var(--primary-dark) !important;
+}
+
+/* Custom styles for the portal */
+
+/* Fonts */
+@font-face {
+  font-family: 'Title';
+  src: url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+}
+
+.font-title {
+  font-family: 'Playfair Display', serif;
+  color: var(--secondary);
+}
+
+/* Cards */
+.card {
+  background: var(--bg-dark);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Icons */
+.icon-hover {
+  transition: transform 0.2s ease-in-out;
+}
+
+.icon-hover:hover {
+  transform: scale(1.1);
+}
+
+/* Banners */
+.banner {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: var(--text-light);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Dashboard Statistics */
+.stat-card {
+  background: var(--bg-dark);
+  color: var(--text-light);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Wiki Articles */
+.wiki-article {
+  background: var(--bg-dark);
+  color: var(--text-light);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.wiki-article:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.wiki-category {
+  background: var(--bg-dark);
+  color: var(--text-light);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.wiki-category:hover {
+  background: var(--primary);
+  color: var(--text-light);
+}
+
+/* Buttons */
+.btn-primary {
+  background: var(--primary);
+  color: var(--text-light);
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  transition: all 0.2s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: var(--secondary);
+  color: var(--text-dark);
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-secondary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  border: 3px solid var(--bg-light);
+  border-top: 3px solid var(--primary);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Sidebar */
+#sidebar {
+  background: var(--bg-dark);
+  color: var(--text-light);
+}
+
+#sidebar a {
+  color: var(--text-light);
+}
+
+#sidebar a:hover {
+  background: var(--primary);
+  color: var(--text-light);
+}
+
+#sidebar a.active {
+  background: var(--primary);
+  color: var(--text-light);
+}
+
+/* Rich Text Editor */
+.rich-text-toolbar {
+  background: var(--bg-dark);
+  border-color: var(--primary);
+}
+
+.rich-text-toolbar button {
+  color: var(--text-light);
+}
+
+.rich-text-toolbar button:hover {
+  background: var(--primary);
+}
+
+.rich-text-content {
+  background: var(--bg-dark);
+  color: var(--text-light);
+  border-color: var(--primary);
+}
+
+.rich-text-content:focus {
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 2px var(--secondary);
+}
+
+/* Form Elements */
+input, textarea, select {
+  background: var(--bg-dark);
+  color: var(--text-light);
+  border-color: var(--primary);
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 2px var(--secondary);
+}
+
+/* Calendar */
+.calendar-day {
+  background: var(--bg-dark);
+  color: var(--text-light);
+}
+
+.calendar-event {
+  background: var(--primary);
+  color: var(--text-light);
+}
+
+.calendar-event:hover {
+  background: var(--primary-dark);
+}
+
+/* User Profile */
+.profile-header {
+  background: var(--bg-dark);
+  color: var(--text-light);
+}
+
+.profile-avatar {
+  border: 3px solid var(--secondary);
+}
+
+/* Links */
+a {
+  color: var(--primary);
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+/* Text Colors */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--secondary);
+}
+
+p, span, div {
+  color: var(--text-light);
+}
+
+/* Background */
+body {
+  background: var(--bg-dark);
+}
+
+/* Calendar Navigation */
+.calendar-nav button {
+  color: var(--text-light);
+}
+
+.calendar-nav button:hover {
+  background: var(--primary);
+}
+
+/* Event Modal */
+.modal-content {
+  background: var(--bg-dark);
+  color: var(--text-light);
+}
+
+.modal-header {
+  border-bottom-color: var(--primary);
+}
+
+/* Context Menu */
+.context-menu {
+  background: var(--bg-dark);
+  color: var(--text-light);
+  border-color: var(--primary);
+}
+
+.context-menu-item:hover {
+  background: var(--primary);
 } 

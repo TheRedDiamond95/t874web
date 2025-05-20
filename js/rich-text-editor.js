@@ -23,37 +23,89 @@ class RichTextEditor {
         // Append elements
         this.container.appendChild(this.toolbar);
         this.container.appendChild(this.editor);
+
+        // Initialize editor with default content
+        this.editor.innerHTML = '<p><br></p>';
     }
 
     addToolbarButtons() {
         // Font family dropdown
         this.addDropdown('font-family', 'Font', [
             { value: 'Arial', label: 'Arial' },
-            { value: 'Victor Mono', label: 'Victor Mono' },
-            { value: 'Times New Roman', label: 'Times New Roman' }
-        ], (value) => this.execCommand('fontName', value));
+            { value: 'Times New Roman', label: 'Times New Roman' },
+            { value: 'Courier New', label: 'Courier New' },
+            { value: 'Georgia', label: 'Georgia' },
+            { value: 'Verdana', label: 'Verdana' }
+        ], (value) => {
+            document.execCommand('fontName', false, value);
+            this.editor.focus();
+        });
 
         // Font size dropdown
         this.addDropdown('font-size', 'Size', [
             { value: '1', label: 'Small' },
+            { value: '2', label: 'Medium' },
             { value: '3', label: 'Normal' },
-            { value: '5', label: 'Large' },
-            { value: '7', label: 'Huge' }
-        ], (value) => this.execCommand('fontSize', value));
+            { value: '4', label: 'Large' },
+            { value: '5', label: 'Huge' }
+        ], (value) => {
+            document.execCommand('fontSize', false, value);
+            this.editor.focus();
+        });
+
+        // Add separator
+        this.addSeparator();
+
+        // Text style buttons with icons
+        this.addButton('bold', '<i data-feather="bold"></i>', () => {
+            document.execCommand('bold', false, null);
+            this.editor.focus();
+        }, 'Bold');
+
+        this.addButton('italic', '<i data-feather="italic"></i>', () => {
+            document.execCommand('italic', false, null);
+            this.editor.focus();
+        }, 'Italic');
+
+        this.addButton('underline', '<i data-feather="underline"></i>', () => {
+            document.execCommand('underline', false, null);
+            this.editor.focus();
+        }, 'Underline');
+
+        this.addButton('strike', '<i data-feather="strikethrough"></i>', () => {
+            document.execCommand('strikeThrough', false, null);
+            this.editor.focus();
+        }, 'Strikethrough');
+
+        // Add separator
+        this.addSeparator();
 
         // Text alignment buttons
-        this.addButton('align-left', 'Left Align', 'alignLeft');
-        this.addButton('align-center', 'Center', 'alignCenter');
-        this.addButton('align-right', 'Right Align', 'alignRight');
+        this.addButton('align-left', '<i data-feather="align-left"></i>', () => {
+            document.execCommand('justifyLeft', false, null);
+            this.editor.focus();
+        }, 'Align Left');
 
-        // Text style buttons
-        this.addButton('bold', 'Bold', 'bold');
-        this.addButton('italic', 'Italic', 'italic');
-        this.addButton('underline', 'Underline', 'underline');
-        this.addButton('strike', 'Strikethrough', 'strikeThrough');
+        this.addButton('align-center', '<i data-feather="align-center"></i>', () => {
+            document.execCommand('justifyCenter', false, null);
+            this.editor.focus();
+        }, 'Align Center');
+
+        this.addButton('align-right', '<i data-feather="align-right"></i>', () => {
+            document.execCommand('justifyRight', false, null);
+            this.editor.focus();
+        }, 'Align Right');
+
+        // Add separator
+        this.addSeparator();
 
         // Color picker
         this.addColorPicker();
+
+        // Initialize Feather icons in toolbar
+        if (window.feather) {
+            feather.replace();
+        }
     }
 
     addDropdown(id, label, options, onChange) {
@@ -85,13 +137,19 @@ class RichTextEditor {
         this.toolbar.appendChild(container);
     }
 
-    addButton(id, label, command) {
+    addButton(id, icon, onClick, title) {
         const button = document.createElement('button');
         button.className = 'p-2 rounded hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary';
-        button.innerHTML = `<i data-feather="${id}"></i>`;
-        button.title = label;
-        button.addEventListener('click', () => this.execCommand(command));
+        button.innerHTML = icon;
+        button.title = title;
+        button.addEventListener('click', onClick);
         this.toolbar.appendChild(button);
+    }
+
+    addSeparator() {
+        const separator = document.createElement('div');
+        separator.className = 'w-px h-6 bg-gray-200 mx-1';
+        this.toolbar.appendChild(separator);
     }
 
     addColorPicker() {
@@ -102,15 +160,13 @@ class RichTextEditor {
         input.type = 'color';
         input.className = 'w-8 h-8 p-1 border border-gray-200 rounded cursor-pointer';
         input.title = 'Text Color';
-        input.addEventListener('change', (e) => this.execCommand('foreColor', e.target.value));
+        input.addEventListener('change', (e) => {
+            document.execCommand('foreColor', false, e.target.value);
+            this.editor.focus();
+        });
 
         container.appendChild(input);
         this.toolbar.appendChild(container);
-    }
-
-    execCommand(command, value = null) {
-        document.execCommand(command, false, value);
-        this.editor.focus();
     }
 
     getContent() {
@@ -122,7 +178,7 @@ class RichTextEditor {
     }
 
     clear() {
-        this.editor.innerHTML = '';
+        this.editor.innerHTML = '<p><br></p>';
     }
 }
 
