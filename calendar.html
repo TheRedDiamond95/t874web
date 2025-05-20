@@ -2,8 +2,7 @@
   File: calendar.html
 ========================= -->
 <!--
-  Calendar page with simple HTML/CSS calendar.
-  - Only allow clicking event links if user is "logged in"
+  Modern calendar system with admin-only event management
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -19,6 +18,8 @@
   <link rel="stylesheet" href="css/styles.css">
   <!-- Common JavaScript -->
   <script src="js/common.js"></script>
+  <!-- Calendar Database -->
+  <script src="js/calendar-database.js"></script>
 </head>
 <body class="bg-gray-100 flex">
   <!-- Sidebar Navigation -->
@@ -52,11 +53,296 @@
     </div>
   </aside>
   <!-- Main Content -->
-  <main class="flex-1 p-10 transition-all duration-300 ease-in-out">
-    <h1 class="text-3xl font-title mb-6">Calendar</h1>
-    <div class="card p-6">
-      <p class="text-gray-600">Welcome to the Calendar section. This is a public page accessible to all users.</p>
+  <main class="flex-1 p-10 transition-all duration-300 ease-in-out page-transition">
+    <!-- Banner -->
+    <div class="banner mb-8">
+      <div class="flex justify-between items-center">
+        <div>
+          <h1 class="text-3xl font-title">Calendar</h1>
+          <p class="mt-2">View and manage events</p>
+        </div>
+        <!-- Admin Controls -->
+        <div id="adminControls" class="hidden">
+          <button id="addEventBtn" class="btn-primary flex items-center">
+            <i data-feather="plus" class="mr-2"></i>
+            Add Event
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Calendar Navigation -->
+    <div class="card p-4 mb-6">
+      <div class="flex justify-between items-center">
+        <div class="flex items-center space-x-4">
+          <button id="prevMonth" class="p-2 hover:bg-gray-100 rounded-lg">
+            <i data-feather="chevron-left"></i>
+          </button>
+          <h2 id="currentMonth" class="text-xl font-semibold">March 2024</h2>
+          <button id="nextMonth" class="p-2 hover:bg-gray-100 rounded-lg">
+            <i data-feather="chevron-right"></i>
+          </button>
+        </div>
+        <button id="todayBtn" class="px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 rounded-lg">
+          Today
+        </button>
+      </div>
+    </div>
+
+    <!-- Calendar Grid -->
+    <div class="card p-4">
+      <!-- Weekday Headers -->
+      <div class="grid grid-cols-7 gap-px bg-gray-200 mb-1">
+        <div class="bg-white p-2 text-center text-sm font-medium text-gray-500">Sun</div>
+        <div class="bg-white p-2 text-center text-sm font-medium text-gray-500">Mon</div>
+        <div class="bg-white p-2 text-center text-sm font-medium text-gray-500">Tue</div>
+        <div class="bg-white p-2 text-center text-sm font-medium text-gray-500">Wed</div>
+        <div class="bg-white p-2 text-center text-sm font-medium text-gray-500">Thu</div>
+        <div class="bg-white p-2 text-center text-sm font-medium text-gray-500">Fri</div>
+        <div class="bg-white p-2 text-center text-sm font-medium text-gray-500">Sat</div>
+      </div>
+      <!-- Calendar Days -->
+      <div id="calendarGrid" class="grid grid-cols-7 gap-px bg-gray-200">
+        <!-- Days will be populated by JavaScript -->
+      </div>
+    </div>
+
+    <!-- Add Event Modal -->
+    <div id="addEventModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center">
+      <div class="bg-white rounded-lg p-6 w-full max-w-md">
+        <h3 class="text-xl font-bold mb-4">Add New Event</h3>
+        <form id="addEventForm" class="space-y-4">
+          <div>
+            <label for="eventTitle" class="block text-sm font-medium text-gray-700">Title</label>
+            <input type="text" id="eventTitle" required
+                   class="mt-1 w-full p-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+          </div>
+          <div>
+            <label for="eventDate" class="block text-sm font-medium text-gray-700">Date & Time</label>
+            <input type="datetime-local" id="eventDate" required
+                   class="mt-1 w-full p-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+          </div>
+          <div>
+            <label for="eventLocation" class="block text-sm font-medium text-gray-700">Location</label>
+            <input type="text" id="eventLocation" required
+                   class="mt-1 w-full p-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+          </div>
+          <div>
+            <label for="eventDescription" class="block text-sm font-medium text-gray-700">Description</label>
+            <textarea id="eventDescription" required
+                      class="mt-1 w-full p-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
+          </div>
+          <div class="flex justify-end space-x-3">
+            <button type="button" id="cancelAddEvent"
+                    class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50">
+              Cancel
+            </button>
+            <button type="submit"
+                    class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark">
+              Add Event
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Context Menu -->
+    <div id="contextMenu" class="fixed hidden bg-white rounded-lg shadow-lg border border-gray-200 py-1 z-50">
+      <button class="w-full px-4 py-2 text-left text-red-600 hover:bg-gray-100" id="deleteEventBtn">
+        Delete Event
+      </button>
     </div>
   </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize Feather icons
+      if (window.feather) {
+        feather.replace();
+      }
+
+      // Calendar state
+      let currentDate = new Date();
+      let selectedEventId = null;
+
+      // DOM Elements
+      const calendarGrid = document.getElementById('calendarGrid');
+      const currentMonthEl = document.getElementById('currentMonth');
+      const prevMonthBtn = document.getElementById('prevMonth');
+      const nextMonthBtn = document.getElementById('nextMonth');
+      const todayBtn = document.getElementById('todayBtn');
+      const adminControls = document.getElementById('adminControls');
+      const addEventModal = document.getElementById('addEventModal');
+      const addEventForm = document.getElementById('addEventForm');
+      const cancelAddEventBtn = document.getElementById('cancelAddEvent');
+      const contextMenu = document.getElementById('contextMenu');
+      const deleteEventBtn = document.getElementById('deleteEventBtn');
+
+      // Show/hide admin controls based on login status
+      function updateAdminControls() {
+        adminControls.classList.toggle('hidden', !window.calendarDatabase.isAdmin());
+      }
+
+      // Generate calendar grid
+      function generateCalendar() {
+        const year = currentDate.getFullYear();
+        const month = currentDate.getMonth();
+        
+        // Update month/year display
+        currentMonthEl.textContent = new Date(year, month).toLocaleString('default', { 
+          month: 'long', 
+          year: 'numeric' 
+        });
+
+        // Get first day of month and total days
+        const firstDay = new Date(year, month, 1);
+        const lastDay = new Date(year, month + 1, 0);
+        const totalDays = lastDay.getDate();
+        const startingDay = firstDay.getDay();
+
+        // Clear existing calendar
+        calendarGrid.innerHTML = '';
+
+        // Add empty cells for days before month starts
+        for (let i = 0; i < startingDay; i++) {
+          const emptyCell = document.createElement('div');
+          emptyCell.className = 'bg-white min-h-[100px] p-2';
+          calendarGrid.appendChild(emptyCell);
+        }
+
+        // Get events for current month
+        const events = window.calendarDatabase.getEventsForMonth(year, month);
+
+        // Add days
+        for (let day = 1; day <= totalDays; day++) {
+          const cell = document.createElement('div');
+          cell.className = 'bg-white min-h-[100px] p-2 relative';
+          
+          // Add day number
+          const dayNumber = document.createElement('div');
+          dayNumber.className = 'text-sm font-medium mb-1';
+          dayNumber.textContent = day;
+          cell.appendChild(dayNumber);
+
+          // Add events for this day
+          const dayEvents = events.filter(event => {
+            const eventDate = new Date(event.date);
+            return eventDate.getDate() === day;
+          });
+
+          dayEvents.forEach(event => {
+            const eventEl = document.createElement('div');
+            eventEl.className = 'text-xs p-1 mb-1 rounded bg-blue-100 text-blue-800 cursor-pointer hover:bg-blue-200';
+            eventEl.textContent = event.title;
+            eventEl.dataset.eventId = event.id;
+            
+            // Add click handler for event details
+            eventEl.addEventListener('click', (e) => {
+              e.stopPropagation();
+              window.location.href = `calendar-event.html?id=${event.id}`;
+            });
+
+            // Add context menu for admin
+            if (window.calendarDatabase.isAdmin()) {
+              eventEl.addEventListener('contextmenu', (e) => {
+                e.preventDefault();
+                selectedEventId = event.id;
+                contextMenu.style.left = `${e.pageX}px`;
+                contextMenu.style.top = `${e.pageY}px`;
+                contextMenu.classList.remove('hidden');
+              });
+            }
+
+            cell.appendChild(eventEl);
+          });
+
+          calendarGrid.appendChild(cell);
+        }
+      }
+
+      // Event Handlers
+      prevMonthBtn.addEventListener('click', () => {
+        currentDate.setMonth(currentDate.getMonth() - 1);
+        generateCalendar();
+      });
+
+      nextMonthBtn.addEventListener('click', () => {
+        currentDate.setMonth(currentDate.getMonth() + 1);
+        generateCalendar();
+      });
+
+      todayBtn.addEventListener('click', () => {
+        currentDate = new Date();
+        generateCalendar();
+      });
+
+      // Add Event Modal
+      document.getElementById('addEventBtn').addEventListener('click', () => {
+        addEventModal.classList.remove('hidden');
+        addEventModal.classList.add('flex');
+      });
+
+      cancelAddEventBtn.addEventListener('click', () => {
+        addEventModal.classList.add('hidden');
+        addEventModal.classList.remove('flex');
+        addEventForm.reset();
+      });
+
+      addEventForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        try {
+          const newEvent = {
+            title: document.getElementById('eventTitle').value,
+            date: document.getElementById('eventDate').value,
+            location: document.getElementById('eventLocation').value,
+            description: document.getElementById('eventDescription').value
+          };
+
+          window.calendarDatabase.addEvent(newEvent);
+          addEventModal.classList.add('hidden');
+          addEventModal.classList.remove('flex');
+          addEventForm.reset();
+          generateCalendar();
+        } catch (error) {
+          alert(error.message);
+        }
+      });
+
+      // Context Menu
+      document.addEventListener('click', () => {
+        contextMenu.classList.add('hidden');
+      });
+
+      deleteEventBtn.addEventListener('click', () => {
+        if (selectedEventId && confirm('Are you sure you want to delete this event?')) {
+          try {
+            window.calendarDatabase.deleteEvent(selectedEventId);
+            contextMenu.classList.add('hidden');
+            generateCalendar();
+          } catch (error) {
+            alert(error.message);
+          }
+        }
+      });
+
+      // Handle login toggle
+      const loginToggle = document.getElementById('loginToggle');
+      const loginStatus = document.getElementById('loginStatus');
+      
+      loginToggle.addEventListener('click', function() {
+        const isLoggedIn = localStorage.getItem('isLoggedIn') === "1";
+        localStorage.setItem('isLoggedIn', isLoggedIn ? "0" : "1");
+        loginStatus.textContent = isLoggedIn ? "Logged out" : "Logged in";
+        updateAdminControls();
+        generateCalendar();
+      });
+
+      // Initialize
+      updateAdminControls();
+      generateCalendar();
+      loginStatus.textContent = localStorage.getItem('isLoggedIn') === "1" ? "Logged in" : "Logged out";
+    });
+  </script>
 </body>
 </html>

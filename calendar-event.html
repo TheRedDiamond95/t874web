@@ -1,0 +1,166 @@
+<!-- =========================
+  File: calendar-event.html
+========================= -->
+<!--
+  Calendar event detail page template
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Details - My Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Heroicons CDN for sidebar icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Common JavaScript -->
+    <script src="js/common.js"></script>
+    <!-- Calendar Database -->
+    <script src="js/calendar-database.js"></script>
+</head>
+<body class="bg-gray-100 flex">
+    <!-- Sidebar Navigation -->
+    <aside id="sidebar" class="w-64 bg-white h-screen shadow flex flex-col transition-all duration-300 ease-in-out hover:w-64 group">
+        <div class="p-6 border-b whitespace-nowrap overflow-hidden">
+            <span class="text-2xl font-title">My Portal</span>
+        </div>
+        <nav class="flex-1 p-4 space-y-2">
+            <a href="index.html" class="flex items-center p-2 rounded hover:bg-blue-100 text-blue-700 font-semibold whitespace-nowrap overflow-hidden">
+                <i data-feather="home" class="mr-3 flex-shrink-0"></i> <span class="truncate">Cover Page</span>
+            </a>
+            <a href="wiki.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+                <i data-feather="book-open" class="mr-3 flex-shrink-0"></i> <span class="truncate">Wiki</span>
+            </a>
+            <a href="dashboard.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+                <i data-feather="user" class="mr-3 flex-shrink-0"></i> <span class="truncate">Account Dashboard</span>
+            </a>
+            <a href="communications.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+                <i data-feather="message-circle" class="mr-3 flex-shrink-0"></i> <span class="truncate">Communications</span>
+            </a>
+            <a href="calendar.html" class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden active">
+                <i data-feather="calendar" class="mr-3 flex-shrink-0"></i> <span class="truncate">Calendar</span>
+            </a>
+        </nav>
+        <div class="p-4 border-t whitespace-nowrap overflow-hidden">
+            <button id="loginToggle" class="w-full py-2 px-4 btn-primary rounded">
+                Login
+            </button>
+            <div id="loginStatus" class="mt-2 text-center text-sm"></div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-10 transition-all duration-300 ease-in-out page-transition">
+        <!-- Banner -->
+        <div class="banner mb-8">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h1 class="text-3xl font-title" id="eventTitle">Event Details</h1>
+                    <p class="mt-2" id="eventDate">Loading event details...</p>
+                </div>
+                <a href="calendar.html" class="btn-primary flex items-center">
+                    <i data-feather="arrow-left" class="mr-2"></i>
+                    Back to Calendar
+                </a>
+            </div>
+        </div>
+
+        <!-- Event Details Card -->
+        <div class="card p-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Event Information -->
+                <div class="space-y-4">
+                    <div>
+                        <h3 class="text-sm font-medium text-gray-500">Location</h3>
+                        <p class="mt-1" id="eventLocation">Loading...</p>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-medium text-gray-500">Description</h3>
+                        <p class="mt-1" id="eventDescription">Loading...</p>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-medium text-gray-500">Created By</h3>
+                        <p class="mt-1" id="eventCreator">Loading...</p>
+                    </div>
+                </div>
+
+                <!-- Event Actions (Admin Only) -->
+                <div id="adminActions" class="hidden">
+                    <div class="space-y-4">
+                        <button id="deleteEvent" class="w-full px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
+                            Delete Event
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Feather icons
+            if (window.feather) {
+                feather.replace();
+            }
+
+            // Get event ID from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const eventId = urlParams.get('id');
+
+            if (!eventId) {
+                window.location.href = 'calendar.html';
+                return;
+            }
+
+            // Load event details
+            const event = window.calendarDatabase.getEventById(eventId);
+            if (!event) {
+                window.location.href = 'calendar.html';
+                return;
+            }
+
+            // Update page content
+            document.title = `${event.title} - My Portal`;
+            document.getElementById('eventTitle').textContent = event.title;
+            document.getElementById('eventDate').textContent = new Date(event.date).toLocaleString();
+            document.getElementById('eventLocation').textContent = event.location;
+            document.getElementById('eventDescription').textContent = event.description;
+            document.getElementById('eventCreator').textContent = event.createdBy;
+
+            // Show admin actions if user is admin
+            if (window.calendarDatabase.isAdmin()) {
+                document.getElementById('adminActions').classList.remove('hidden');
+                
+                // Handle delete event
+                document.getElementById('deleteEvent').addEventListener('click', function() {
+                    if (confirm('Are you sure you want to delete this event?')) {
+                        try {
+                            window.calendarDatabase.deleteEvent(eventId);
+                            window.location.href = 'calendar.html';
+                        } catch (error) {
+                            alert(error.message);
+                        }
+                    }
+                });
+            }
+
+            // Handle login toggle
+            const loginToggle = document.getElementById('loginToggle');
+            const loginStatus = document.getElementById('loginStatus');
+            
+            loginToggle.addEventListener('click', function() {
+                const isLoggedIn = localStorage.getItem('isLoggedIn') === "1";
+                localStorage.setItem('isLoggedIn', isLoggedIn ? "0" : "1");
+                loginStatus.textContent = isLoggedIn ? "Logged out" : "Logged in";
+                location.reload();
+            });
+
+            // Update login status
+            loginStatus.textContent = localStorage.getItem('isLoggedIn') === "1" ? "Logged in" : "Logged out";
+        });
+    </script>
+</body>
+</html> 
