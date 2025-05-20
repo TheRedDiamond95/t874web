@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Citizenship in the Nation - Merit Badge Wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Heroicons CDN for sidebar icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../../css/styles.css">
+  <!-- Common JavaScript -->
+  <script src="../../js/common.js"></script>
+  <script>
+    // Protect this page from unauthorized access
+    document.addEventListener('DOMContentLoaded', function() {
+      if (!isUserLoggedIn()) {
+        window.location.href = '../../index.html';
+      }
+    });
+  </script>
+</head>
+<body class="bg-gray-100 flex">
+  <!-- Sidebar Navigation -->
+  <aside id="sidebar" class="w-64 bg-white h-screen shadow flex flex-col transition-all duration-300 ease-in-out hover:w-64 group">
+    <div class="p-6 border-b whitespace-nowrap overflow-hidden">
+      <span class="text-2xl font-title">Troop 874</span>
+    </div>
+    <nav class="flex-1 p-4 space-y-2">
+      <a href="../../index.html" class="flex items-center p-2 rounded hover:bg-blue-100 text-blue-700 font-semibold whitespace-nowrap overflow-hidden">
+        <i data-feather="home" class="mr-3 flex-shrink-0"></i> <span class="truncate">Cover Page</span>
+      </a>
+      <a href="../../wiki.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden active">
+        <i data-feather="book-open" class="mr-3 flex-shrink-0"></i> <span class="truncate">Wiki</span>
+      </a>
+      <a href="../../dashboard.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+        <i data-feather="user" class="mr-3 flex-shrink-0"></i> <span class="truncate">Account Dashboard</span>
+      </a>
+      <a href="../../communications.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+        <i data-feather="message-circle" class="mr-3 flex-shrink-0"></i> <span class="truncate">Communications</span>
+      </a>
+      <a href="../../calendar.html" class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+        <i data-feather="calendar" class="mr-3 flex-shrink-0"></i> <span class="truncate">Calendar</span>
+      </a>
+    </nav>
+    <div class="p-4 border-t whitespace-nowrap overflow-hidden">
+      <!-- Login toggle button -->
+      <button id="loginToggle" class="w-full py-2 px-4 btn-primary rounded flex items-center justify-center">
+        <i data-feather="log-in" class="mr-2"></i>
+        <span>Login</span>
+      </button>
+      <div id="loginStatus" class="mt-2 text-center text-sm"></div>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 p-10 transition-all duration-300 ease-in-out page-transition">
+    <!-- Article Navigation -->
+    <div class="flex items-center space-x-4 mb-8">
+      <a href="../../wiki.html" class="text-blue-600 hover:text-blue-800 flex items-center">
+        <i data-feather="arrow-left" class="w-4 h-4 mr-2"></i>
+        Back to Wiki
+      </a>
+      <span class="text-gray-400">/</span>
+      <a href="../merit-badges.html" class="text-blue-600 hover:text-blue-800">Merit Badges</a>
+      <span class="text-gray-400">/</span>
+      <span class="text-gray-600">Citizenship in the Nation</span>
+    </div>
+
+    <!-- Article Header -->
+    <div class="banner mb-8">
+      <h1 class="text-3xl font-title">Citizenship in the Nation</h1>
+      <div class="flex items-center space-x-4 mt-2 text-sm">
+        <span class="flex items-center"><i data-feather="award" class="w-4 h-4 mr-1"></i> Eagle Required</span>
+        <span class="flex items-center"><i data-feather="clock" class="w-4 h-4 mr-1"></i> Last updated: March 15, 2024</span>
+      </div>
+    </div>
+
+    <!-- Article Content -->
+    <div class="wiki-article">
+      <div class="prose max-w-none">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div class="p-4 bg-gray-700 rounded-lg">
+            <h3 class="text-xl font-bold mb-2 text-secondary">Workbook</h3>
+            <a href="https://filestore.scouting.org/filestore/merit_badge_reqandres/Citizenship_in_the_Nation.pdf" 
+               class="text-primary hover:text-primary-dark flex items-center" 
+               target="_blank">
+              <i data-feather="download" class="w-4 h-4 mr-2"></i>
+              Download Workbook (PDF)
+            </a>
+          </div>
+          <div class="p-4 bg-gray-700 rounded-lg">
+            <h3 class="text-xl font-bold mb-2 text-secondary">Pamphlet</h3>
+            <a href="https://www.scoutshop.org/citizenship-in-the-nation-merit-badge-pamphlet-35871.html" 
+               class="text-primary hover:text-primary-dark flex items-center" 
+               target="_blank">
+              <i data-feather="shopping-cart" class="w-4 h-4 mr-2"></i>
+              Purchase Pamphlet
+            </a>
+          </div>
+        </div>
+
+        <h2>Description</h2>
+        <p>The Citizenship in the Nation merit badge helps Scouts understand what it means to be a good citizen of the United States of America. Scouts learn about the rights, duties, and obligations of citizenship, and how these are reflected in our Constitution and Bill of Rights.</p>
+
+        <h3>Requirements</h3>
+        <ol class="list-decimal pl-6 space-y-2">
+          <li>Explain what citizenship in the nation means and what it takes to be a good citizen of this country.</li>
+          <li>Do TWO of the following:
+            <ul class="list-disc pl-6 mt-2">
+              <li>Visit a place that is listed as a National Historic Landmark or that is on the National Register of Historic Places.</li>
+              <li>Tour your state capitol building or the U.S. Capitol.</li>
+              <li>Tour a federal facility.</li>
+              <li>Choose a national monument that interests you.</li>
+            </ul>
+          </li>
+          <li>Watch the national evening news five days in a row OR read the front page of a major daily newspaper five days in a row.</li>
+          <li>Discuss each of the following documents with your counselor:
+            <ul class="list-disc pl-6 mt-2">
+              <li>Declaration of Independence</li>
+              <li>Preamble to the Constitution</li>
+              <li>Constitution</li>
+              <li>Bill of Rights</li>
+              <li>Amendments to the Constitution</li>
+            </ul>
+          </li>
+          <li>List the six functions of government as noted in the preamble to the Constitution.</li>
+          <li>Name your representatives in the United States Congress.</li>
+          <li>Write a letter about a national issue and send it to one of these elected officials.</li>
+        </ol>
+
+        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 my-6">
+          <div class="flex">
+            <div class="flex-shrink-0">
+              <i data-feather="info" class="text-blue-500"></i>
+            </div>
+            <div class="ml-3">
+              <p class="text-sm text-blue-700">
+                <strong>Pro Tip:</strong> Start working on requirement 3 (news watching/reading) early, as it takes five consecutive days to complete. Also, consider visiting your state capitol or a national monument during a troop outing to fulfill requirement 2.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <h2>Resources</h2>
+        <ul class="list-disc pl-6 space-y-2">
+          <li><a href="https://www.archives.gov/founding-docs" class="text-primary hover:text-primary-dark" target="_blank">National Archives - Founding Documents</a></li>
+          <li><a href="https://www.congress.gov" class="text-primary hover:text-primary-dark" target="_blank">Congress.gov - Find Your Representatives</a></li>
+          <li><a href="https://www.nps.gov/subjects/nationalhistoriclandmarks/index.htm" class="text-primary hover:text-primary-dark" target="_blank">National Historic Landmarks Program</a></li>
+        </ul>
+      </div>
+
+      <!-- Article Footer -->
+      <div class="mt-8 pt-6 border-t">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-4">
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="thumbs-up" class="icon-hover"></i>
+              <span>Helpful</span>
+            </button>
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="message-square" class="icon-hover"></i>
+              <span>Comment</span>
+            </button>
+          </div>
+          <div class="flex items-center space-x-4">
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="share-2" class="icon-hover"></i>
+              <span>Share</span>
+            </button>
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="bookmark" class="icon-hover"></i>
+              <span>Save</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Related Articles -->
+    <div class="mt-8">
+      <h2 class="text-2xl font-bold mb-4">Related Merit Badges</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <a href="citizenship-in-the-world.html" class="wiki-article block">
+          <h3 class="text-lg font-bold mb-2">Citizenship in the World</h3>
+          <p class="text-gray-600">Learn about international citizenship and global awareness.</p>
+        </a>
+        <a href="citizenship-in-the-community.html" class="wiki-article block">
+          <h3 class="text-lg font-bold mb-2">Citizenship in the Community</h3>
+          <p class="text-gray-600">Understand your role in your local community.</p>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Initialize Feather icons
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.feather) {
+        feather.replace();
+      }
+    });
+  </script>
+</body>
+</html> 

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cycling - Merit Badge Wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Heroicons CDN for sidebar icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../../css/styles.css">
+  <!-- Common JavaScript -->
+  <script src="../../js/common.js"></script>
+  <script>
+    // Protect this page from unauthorized access
+    document.addEventListener('DOMContentLoaded', function() {
+      if (!isUserLoggedIn()) {
+        window.location.href = '../../index.html';
+      }
+    });
+  </script>
+</head>
+<body class="bg-gray-100 flex">
+  <!-- Sidebar Navigation -->
+  <aside id="sidebar" class="w-64 bg-white h-screen shadow flex flex-col transition-all duration-300 ease-in-out hover:w-64 group">
+    <div class="p-6 border-b whitespace-nowrap overflow-hidden">
+      <span class="text-2xl font-title">Troop 874</span>
+    </div>
+    <nav class="flex-1 p-4 space-y-2">
+      <a href="../../index.html" class="flex items-center p-2 rounded hover:bg-blue-100 text-blue-700 font-semibold whitespace-nowrap overflow-hidden">
+        <i data-feather="home" class="mr-3 flex-shrink-0"></i> <span class="truncate">Cover Page</span>
+      </a>
+      <a href="../../wiki.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden active">
+        <i data-feather="book-open" class="mr-3 flex-shrink-0"></i> <span class="truncate">Wiki</span>
+      </a>
+      <a href="../../dashboard.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+        <i data-feather="user" class="mr-3 flex-shrink-0"></i> <span class="truncate">Account Dashboard</span>
+      </a>
+      <a href="../../communications.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+        <i data-feather="message-circle" class="mr-3 flex-shrink-0"></i> <span class="truncate">Communications</span>
+      </a>
+      <a href="../../calendar.html" class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+        <i data-feather="calendar" class="mr-3 flex-shrink-0"></i> <span class="truncate">Calendar</span>
+      </a>
+    </nav>
+    <div class="p-4 border-t whitespace-nowrap overflow-hidden">
+      <!-- Login toggle button -->
+      <button id="loginToggle" class="w-full py-2 px-4 btn-primary rounded flex items-center justify-center">
+        <i data-feather="log-in" class="mr-2"></i>
+        <span>Login</span>
+      </button>
+      <div id="loginStatus" class="mt-2 text-center text-sm"></div>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 p-10 transition-all duration-300 ease-in-out page-transition">
+    <!-- Article Navigation -->
+    <div class="flex items-center space-x-4 mb-8">
+      <a href="../../wiki.html" class="text-blue-600 hover:text-blue-800 flex items-center">
+        <i data-feather="arrow-left" class="w-4 h-4 mr-2"></i>
+        Back to Wiki
+      </a>
+      <span class="text-gray-400">/</span>
+      <a href="index.html" class="text-blue-600 hover:text-blue-800">Merit Badges</a>
+      <span class="text-gray-400">/</span>
+      <span class="text-gray-600">Cycling</span>
+    </div>
+
+    <!-- Article Header -->
+    <div class="banner mb-8">
+      <h1 class="text-3xl font-title">Cycling</h1>
+      <div class="flex items-center space-x-4 mt-2 text-sm">
+        <span class="flex items-center"><i data-feather="award" class="w-4 h-4 mr-1"></i> Eagle Required</span>
+        <span class="flex items-center"><i data-feather="clock" class="w-4 h-4 mr-1"></i> Last updated: March 15, 2024</span>
+      </div>
+    </div>
+
+    <!-- Article Content -->
+    <div class="wiki-article">
+      <div class="prose max-w-none">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div class="p-4 bg-gray-700 rounded-lg">
+            <h3 class="text-xl font-bold mb-2 text-secondary">Workbook</h3>
+            <a href="https://www.scouting.org/merit-badges/cycling/" 
+               class="text-primary hover:text-primary-dark flex items-center" 
+               target="_blank">
+              <i data-feather="download" class="w-4 h-4 mr-2"></i>
+              Download Workbook (PDF)
+            </a>
+          </div>
+          <div class="p-4 bg-gray-700 rounded-lg">
+            <h3 class="text-xl font-bold mb-2 text-secondary">Pamphlet</h3>
+            <a href="https://www.scouting.org/merit-badges/cycling/" 
+               class="text-primary hover:text-primary-dark flex items-center" 
+               target="_blank">
+              <i data-feather="shopping-cart" class="w-4 h-4 mr-2"></i>
+              Purchase Pamphlet
+            </a>
+          </div>
+        </div>
+
+        <h2>Description</h2>
+        <p>The Cycling merit badge teaches Scouts essential skills for safe and enjoyable cycling adventures. This merit badge helps Scouts develop physical fitness, mechanical knowledge, and safety awareness while learning how to plan and execute cycling trips.</p>
+
+        <h3>Requirements</h3>
+        <ol class="list-decimal pl-6 space-y-2">
+          <li>Bicycle Selection and Fit
+            <ul class="list-disc pl-6 mt-2">
+              <li>Learn about different types of bicycles</li>
+              <li>Understand proper bike sizing</li>
+              <li>Know how to adjust a bike for fit</li>
+              <li>Learn about essential accessories</li>
+            </ul>
+          </li>
+          <li>Safety and Maintenance
+            <ul class="list-disc pl-6 mt-2">
+              <li>Learn bicycle safety rules</li>
+              <li>Understand traffic laws</li>
+              <li>Practice proper maintenance</li>
+              <li>Know how to perform basic repairs</li>
+            </ul>
+          </li>
+          <li>Riding Skills
+            <ul class="list-disc pl-6 mt-2">
+              <li>Master basic riding techniques</li>
+              <li>Learn proper hand signals</li>
+              <li>Practice emergency maneuvers</li>
+              <li>Understand group riding etiquette</li>
+            </ul>
+          </li>
+          <li>Physical Conditioning
+            <ul class="list-disc pl-6 mt-2">
+              <li>Develop cycling fitness</li>
+              <li>Learn proper nutrition</li>
+              <li>Understand hydration needs</li>
+              <li>Practice proper warm-up exercises</li>
+            </ul>
+          </li>
+          <li>Trip Planning
+            <ul class="list-disc pl-6 mt-2">
+              <li>Learn to plan cycling routes</li>
+              <li>Understand map reading</li>
+              <li>Know how to pack for trips</li>
+              <li>Practice trip logistics</li>
+            </ul>
+          </li>
+          <li>Cycling Trips
+            <ul class="list-disc pl-6 mt-2">
+              <li>Complete a 10-mile ride</li>
+              <li>Complete a 15-mile ride</li>
+              <li>Complete a 25-mile ride</li>
+              <li>Complete a 50-mile ride</li>
+            </ul>
+          </li>
+        </ol>
+
+        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 my-6">
+          <div class="flex">
+            <div class="flex-shrink-0">
+              <i data-feather="info" class="text-blue-500"></i>
+            </div>
+            <div class="ml-3">
+              <p class="text-sm text-blue-700">
+                <strong>Pro Tip:</strong> For requirement 6, start with shorter rides and gradually increase distance. Plan your routes in advance, check weather conditions, and always ride with a buddy. Keep a cycling journal to track your progress and experiences.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <h2>Resources</h2>
+        <ul class="list-disc pl-6 space-y-2">
+          <li><a href="https://www.scouting.org/merit-badges/cycling/" class="text-primary hover:text-primary-dark" target="_blank">Official Merit Badge Pamphlet</a></li>
+          <li><a href="https://www.scouting.org/merit-badges/cycling/" class="text-primary hover:text-primary-dark" target="_blank">Merit Badge Workbook</a></li>
+          <li><a href="https://www.scouting.org/outdoor-programs/high-adventure/" class="text-primary hover:text-primary-dark" target="_blank">BSA High Adventure Programs</a></li>
+          <li><a href="https://www.leagueofamericanbicyclists.org/" class="text-primary hover:text-primary-dark" target="_blank">League of American Bicyclists</a></li>
+        </ul>
+
+        <h2>Pro Tips</h2>
+        <ol class="list-decimal pl-6 space-y-4">
+          <li>
+            <strong>Start Small</strong>
+            <ul class="list-disc pl-6 mt-2">
+              <li>Begin with short rides</li>
+              <li>Gradually increase distance</li>
+              <li>Build endurance slowly</li>
+              <li>Listen to your body</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Safety First</strong>
+            <ul class="list-disc pl-6 mt-2">
+              <li>Always wear a helmet</li>
+              <li>Follow traffic laws</li>
+              <li>Use proper hand signals</li>
+              <li>Stay visible to drivers</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Maintenance Matters</strong>
+            <ul class="list-disc pl-6 mt-2">
+              <li>Check your bike regularly</li>
+              <li>Keep tires properly inflated</li>
+              <li>Maintain brakes and gears</li>
+              <li>Learn basic repairs</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Proper Preparation</strong>
+            <ul class="list-disc pl-6 mt-2">
+              <li>Plan routes in advance</li>
+              <li>Check weather conditions</li>
+              <li>Pack essential supplies</li>
+              <li>Stay hydrated</li>
+            </ul>
+          </li>
+        </ol>
+
+        <h2>Related Merit Badges</h2>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Hiking</li>
+          <li>Backpacking</li>
+          <li>First Aid</li>
+          <li>Personal Fitness</li>
+          <li>Emergency Preparedness</li>
+        </ul>
+
+        <h2>Organizations to Contact</h2>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Local cycling clubs</li>
+          <li>Bike shops</li>
+          <li>Community cycling programs</li>
+          <li>Bicycle advocacy groups</li>
+          <li>Outdoor recreation organizations</li>
+        </ul>
+
+        <div class="mt-8 p-4 bg-gray-50 rounded-lg">
+          <p class="text-gray-700">
+            <strong>Remember:</strong> Cycling is not just a merit badge requirement but a lifelong skill that promotes health, environmental awareness, and independence. Take your training seriously, practice regularly, and always prioritize safety. The skills you learn will help you become a responsible cyclist and outdoor enthusiast.
+          </p>
+        </div>
+      </div>
+
+      <!-- Article Footer -->
+      <div class="mt-8 pt-6 border-t">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-4">
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="thumbs-up" class="icon-hover"></i>
+              <span>Helpful</span>
+            </button>
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="message-square" class="icon-hover"></i>
+              <span>Comment</span>
+            </button>
+          </div>
+          <div class="flex items-center space-x-4">
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="share-2" class="icon-hover"></i>
+              <span>Share</span>
+            </button>
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="bookmark" class="icon-hover"></i>
+              <span>Save</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Related Articles -->
+    <div class="mt-8">
+      <h2 class="text-2xl font-bold mb-4">Related Merit Badges</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <a href="hiking.html" class="wiki-article block">
+          <h3 class="text-lg font-bold mb-2">Hiking</h3>
+          <p class="text-gray-600">Learn essential hiking skills and outdoor navigation.</p>
+        </a>
+        <a href="personal-fitness.html" class="wiki-article block">
+          <h3 class="text-lg font-bold mb-2">Personal Fitness</h3>
+          <p class="text-gray-600">Develop physical fitness and healthy habits.</p>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Initialize Feather icons
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.feather) {
+        feather.replace();
+      }
+    });
+  </script>
+</body>
+</html> 

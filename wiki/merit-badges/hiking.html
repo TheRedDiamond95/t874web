@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hiking - Merit Badge Wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Heroicons CDN for sidebar icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../../css/styles.css">
+  <!-- Common JavaScript -->
+  <script src="../../js/common.js"></script>
+  <script>
+    // Protect this page from unauthorized access
+    document.addEventListener('DOMContentLoaded', function() {
+      if (!isUserLoggedIn()) {
+        window.location.href = '../../index.html';
+      }
+    });
+  </script>
+</head>
+<body class="bg-gray-100 flex">
+  <!-- Sidebar Navigation -->
+  <aside id="sidebar" class="w-64 bg-white h-screen shadow flex flex-col transition-all duration-300 ease-in-out hover:w-64 group">
+    <div class="p-6 border-b whitespace-nowrap overflow-hidden">
+      <span class="text-2xl font-title">Troop 874</span>
+    </div>
+    <nav class="flex-1 p-4 space-y-2">
+      <a href="../../index.html" class="flex items-center p-2 rounded hover:bg-blue-100 text-blue-700 font-semibold whitespace-nowrap overflow-hidden">
+        <i data-feather="home" class="mr-3 flex-shrink-0"></i> <span class="truncate">Cover Page</span>
+      </a>
+      <a href="../../wiki.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden active">
+        <i data-feather="book-open" class="mr-3 flex-shrink-0"></i> <span class="truncate">Wiki</span>
+      </a>
+      <a href="../../dashboard.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+        <i data-feather="user" class="mr-3 flex-shrink-0"></i> <span class="truncate">Account Dashboard</span>
+      </a>
+      <a href="../../communications.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+        <i data-feather="message-circle" class="mr-3 flex-shrink-0"></i> <span class="truncate">Communications</span>
+      </a>
+      <a href="../../calendar.html" class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+        <i data-feather="calendar" class="mr-3 flex-shrink-0"></i> <span class="truncate">Calendar</span>
+      </a>
+    </nav>
+    <div class="p-4 border-t whitespace-nowrap overflow-hidden">
+      <!-- Login toggle button -->
+      <button id="loginToggle" class="w-full py-2 px-4 btn-primary rounded flex items-center justify-center">
+        <i data-feather="log-in" class="mr-2"></i>
+        <span>Login</span>
+      </button>
+      <div id="loginStatus" class="mt-2 text-center text-sm"></div>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 p-10 transition-all duration-300 ease-in-out page-transition">
+    <!-- Article Navigation -->
+    <div class="flex items-center space-x-4 mb-8">
+      <a href="../../wiki.html" class="text-blue-600 hover:text-blue-800 flex items-center">
+        <i data-feather="arrow-left" class="w-4 h-4 mr-2"></i>
+        Back to Wiki
+      </a>
+      <span class="text-gray-400">/</span>
+      <a href="index.html" class="text-blue-600 hover:text-blue-800">Merit Badges</a>
+      <span class="text-gray-400">/</span>
+      <span class="text-gray-600">Hiking</span>
+    </div>
+
+    <!-- Article Header -->
+    <div class="banner mb-8">
+      <h1 class="text-3xl font-title">Hiking</h1>
+      <div class="flex items-center space-x-4 mt-2 text-sm">
+        <span class="flex items-center"><i data-feather="award" class="w-4 h-4 mr-1"></i> Eagle Required</span>
+        <span class="flex items-center"><i data-feather="clock" class="w-4 h-4 mr-1"></i> Last updated: March 15, 2024</span>
+      </div>
+    </div>
+
+    <!-- Article Content -->
+    <div class="wiki-article">
+      <div class="prose max-w-none">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div class="p-4 bg-gray-700 rounded-lg">
+            <h3 class="text-xl font-bold mb-2 text-secondary">Workbook</h3>
+            <a href="https://www.scouting.org/merit-badges/hiking/" 
+               class="text-primary hover:text-primary-dark flex items-center" 
+               target="_blank">
+              <i data-feather="download" class="w-4 h-4 mr-2"></i>
+              Download Workbook (PDF)
+            </a>
+          </div>
+          <div class="p-4 bg-gray-700 rounded-lg">
+            <h3 class="text-xl font-bold mb-2 text-secondary">Pamphlet</h3>
+            <a href="https://www.scouting.org/merit-badges/hiking/" 
+               class="text-primary hover:text-primary-dark flex items-center" 
+               target="_blank">
+              <i data-feather="shopping-cart" class="w-4 h-4 mr-2"></i>
+              Purchase Pamphlet
+            </a>
+          </div>
+        </div>
+
+        <h2>Description</h2>
+        <p>The Hiking merit badge teaches Scouts essential skills for safe and enjoyable hiking adventures. This merit badge helps Scouts develop physical fitness, outdoor skills, and an appreciation for nature while learning how to plan and execute hiking trips.</p>
+
+        <h3>Requirements</h3>
+        <ol class="list-decimal pl-6 space-y-2">
+          <li>Physical Preparation
+            <ul class="list-disc pl-6 mt-2">
+              <li>Complete a physical examination</li>
+              <li>Develop a fitness plan</li>
+              <li>Build hiking endurance</li>
+              <li>Learn proper nutrition for hiking</li>
+            </ul>
+          </li>
+          <li>Hiking Skills
+            <ul class="list-disc pl-6 mt-2">
+              <li>Learn proper hiking techniques</li>
+              <li>Understand pace and rest stops</li>
+              <li>Practice proper foot care</li>
+              <li>Learn about hiking hazards</li>
+            </ul>
+          </li>
+          <li>Equipment and Clothing
+            <ul class="list-disc pl-6 mt-2">
+              <li>Learn about essential gear</li>
+              <li>Understand proper clothing</li>
+              <li>Practice packing a backpack</li>
+              <li>Know how to maintain equipment</li>
+            </ul>
+          </li>
+          <li>Navigation
+            <ul class="list-disc pl-6 mt-2">
+              <li>Learn to read maps</li>
+              <li>Use a compass</li>
+              <li>Understand GPS devices</li>
+              <li>Practice route planning</li>
+            </ul>
+          </li>
+          <li>Safety and First Aid
+            <ul class="list-disc pl-6 mt-2">
+              <li>Learn hiking safety rules</li>
+              <li>Understand first aid for hiking</li>
+              <li>Know how to handle emergencies</li>
+              <li>Practice Leave No Trace principles</li>
+            </ul>
+          </li>
+          <li>Hiking Trips
+            <ul class="list-disc pl-6 mt-2">
+              <li>Complete five 10-mile hikes</li>
+              <li>Complete one 20-mile hike</li>
+              <li>Plan and lead a hike</li>
+              <li>Document your experiences</li>
+            </ul>
+          </li>
+        </ol>
+
+        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 my-6">
+          <div class="flex">
+            <div class="flex-shrink-0">
+              <i data-feather="info" class="text-blue-500"></i>
+            </div>
+            <div class="ml-3">
+              <p class="text-sm text-blue-700">
+                <strong>Pro Tip:</strong> For requirement 6, start with shorter hikes and gradually increase distance. Plan your hikes in advance, check weather conditions, and always hike with a buddy. Keep a hiking journal to track your progress and experiences.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <h2>Resources</h2>
+        <ul class="list-disc pl-6 space-y-2">
+          <li><a href="https://www.scouting.org/merit-badges/hiking/" class="text-primary hover:text-primary-dark" target="_blank">Official Merit Badge Pamphlet</a></li>
+          <li><a href="https://www.scouting.org/merit-badges/hiking/" class="text-primary hover:text-primary-dark" target="_blank">Merit Badge Workbook</a></li>
+          <li><a href="https://www.scouting.org/outdoor-programs/high-adventure/" class="text-primary hover:text-primary-dark" target="_blank">BSA High Adventure Programs</a></li>
+          <li><a href="https://lnt.org/" class="text-primary hover:text-primary-dark" target="_blank">Leave No Trace Center for Outdoor Ethics</a></li>
+        </ul>
+
+        <h2>Pro Tips</h2>
+        <ol class="list-decimal pl-6 space-y-4">
+          <li>
+            <strong>Start Small</strong>
+            <ul class="list-disc pl-6 mt-2">
+              <li>Begin with short hikes</li>
+              <li>Gradually increase distance</li>
+              <li>Build endurance slowly</li>
+              <li>Listen to your body</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Proper Preparation</strong>
+            <ul class="list-disc pl-6 mt-2">
+              <li>Plan routes in advance</li>
+              <li>Check weather conditions</li>
+              <li>Pack appropriate gear</li>
+              <li>Study the terrain</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Safety First</strong>
+            <ul class="list-disc pl-6 mt-2">
+              <li>Always hike with a buddy</li>
+              <li>Stay on marked trails</li>
+              <li>Carry emergency supplies</li>
+              <li>Know your limits</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Leave No Trace</strong>
+            <ul class="list-disc pl-6 mt-2">
+              <li>Pack out all trash</li>
+              <li>Respect wildlife</li>
+              <li>Stay on trails</li>
+              <li>Minimize impact</li>
+            </ul>
+          </li>
+        </ol>
+
+        <h2>Related Merit Badges</h2>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Backpacking</li>
+          <li>Camping</li>
+          <li>Orienteering</li>
+          <li>First Aid</li>
+          <li>Personal Fitness</li>
+        </ul>
+
+        <h2>Organizations to Contact</h2>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Local hiking clubs</li>
+          <li>National parks</li>
+          <li>State parks</li>
+          <li>Outdoor recreation groups</li>
+          <li>Conservation organizations</li>
+        </ul>
+
+        <div class="mt-8 p-4 bg-gray-50 rounded-lg">
+          <p class="text-gray-700">
+            <strong>Remember:</strong> Hiking is not just about reaching the destination but enjoying the journey. Take time to appreciate nature, learn from your experiences, and develop a lifelong love for the outdoors. The skills you learn will help you become a responsible outdoor enthusiast.
+          </p>
+        </div>
+      </div>
+
+      <!-- Article Footer -->
+      <div class="mt-8 pt-6 border-t">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-4">
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="thumbs-up" class="icon-hover"></i>
+              <span>Helpful</span>
+            </button>
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="message-square" class="icon-hover"></i>
+              <span>Comment</span>
+            </button>
+          </div>
+          <div class="flex items-center space-x-4">
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="share-2" class="icon-hover"></i>
+              <span>Share</span>
+            </button>
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="bookmark" class="icon-hover"></i>
+              <span>Save</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Related Articles -->
+    <div class="mt-8">
+      <h2 class="text-2xl font-bold mb-4">Related Merit Badges</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <a href="backpacking.html" class="wiki-article block">
+          <h3 class="text-lg font-bold mb-2">Backpacking</h3>
+          <p class="text-gray-600">Learn extended hiking and camping skills.</p>
+        </a>
+        <a href="orienteering.html" class="wiki-article block">
+          <h3 class="text-lg font-bold mb-2">Orienteering</h3>
+          <p class="text-gray-600">Develop navigation and map reading skills.</p>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Initialize Feather icons
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.feather) {
+        feather.replace();
+      }
+    });
+  </script>
+</body>
+</html> 

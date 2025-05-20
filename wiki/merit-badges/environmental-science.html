@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Environmental Science - Merit Badge Wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Heroicons CDN for sidebar icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../../css/styles.css">
+  <!-- Common JavaScript -->
+  <script src="../../js/common.js"></script>
+  <script>
+    // Protect this page from unauthorized access
+    document.addEventListener('DOMContentLoaded', function() {
+      if (!isUserLoggedIn()) {
+        window.location.href = '../../index.html';
+      }
+    });
+  </script>
+</head>
+<body class="bg-gray-100 flex">
+  <!-- Sidebar Navigation -->
+  <aside id="sidebar" class="w-64 bg-white h-screen shadow flex flex-col transition-all duration-300 ease-in-out hover:w-64 group">
+    <div class="p-6 border-b whitespace-nowrap overflow-hidden">
+      <span class="text-2xl font-title">Troop 874</span>
+    </div>
+    <nav class="flex-1 p-4 space-y-2">
+      <a href="../../index.html" class="flex items-center p-2 rounded hover:bg-blue-100 text-blue-700 font-semibold whitespace-nowrap overflow-hidden">
+        <i data-feather="home" class="mr-3 flex-shrink-0"></i> <span class="truncate">Cover Page</span>
+      </a>
+      <a href="../../wiki.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden active">
+        <i data-feather="book-open" class="mr-3 flex-shrink-0"></i> <span class="truncate">Wiki</span>
+      </a>
+      <a href="../../dashboard.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+        <i data-feather="user" class="mr-3 flex-shrink-0"></i> <span class="truncate">Account Dashboard</span>
+      </a>
+      <a href="../../communications.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+        <i data-feather="message-circle" class="mr-3 flex-shrink-0"></i> <span class="truncate">Communications</span>
+      </a>
+      <a href="../../calendar.html" class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+        <i data-feather="calendar" class="mr-3 flex-shrink-0"></i> <span class="truncate">Calendar</span>
+      </a>
+    </nav>
+    <div class="p-4 border-t whitespace-nowrap overflow-hidden">
+      <!-- Login toggle button -->
+      <button id="loginToggle" class="w-full py-2 px-4 btn-primary rounded flex items-center justify-center">
+        <i data-feather="log-in" class="mr-2"></i>
+        <span>Login</span>
+      </button>
+      <div id="loginStatus" class="mt-2 text-center text-sm"></div>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 p-10 transition-all duration-300 ease-in-out page-transition">
+    <!-- Article Navigation -->
+    <div class="flex items-center space-x-4 mb-8">
+      <a href="../../wiki.html" class="text-blue-600 hover:text-blue-800 flex items-center">
+        <i data-feather="arrow-left" class="w-4 h-4 mr-2"></i>
+        Back to Wiki
+      </a>
+      <span class="text-gray-400">/</span>
+      <a href="index.html" class="text-blue-600 hover:text-blue-800">Merit Badges</a>
+      <span class="text-gray-400">/</span>
+      <span class="text-gray-600">Environmental Science</span>
+    </div>
+
+    <!-- Article Header -->
+    <div class="banner mb-8">
+      <h1 class="text-3xl font-title">Environmental Science</h1>
+      <div class="flex items-center space-x-4 mt-2 text-sm">
+        <span class="flex items-center"><i data-feather="award" class="w-4 h-4 mr-1"></i> Eagle Required</span>
+        <span class="flex items-center"><i data-feather="clock" class="w-4 h-4 mr-1"></i> Last updated: March 15, 2024</span>
+      </div>
+    </div>
+
+    <!-- Article Content -->
+    <div class="wiki-article">
+      <div class="prose max-w-none">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div class="p-4 bg-gray-700 rounded-lg">
+            <h3 class="text-xl font-bold mb-2 text-secondary">Workbook</h3>
+            <a href="https://filestore.scouting.org/filestore/merit_badge_reqandres/Environmental_Science.pdf" 
+               class="text-primary hover:text-primary-dark flex items-center" 
+               target="_blank">
+              <i data-feather="download" class="w-4 h-4 mr-2"></i>
+              Download Workbook (PDF)
+            </a>
+          </div>
+          <div class="p-4 bg-gray-700 rounded-lg">
+            <h3 class="text-xl font-bold mb-2 text-secondary">Pamphlet</h3>
+            <a href="https://www.scoutshop.org/environmental-science-merit-badge-pamphlet-35918.html" 
+               class="text-primary hover:text-primary-dark flex items-center" 
+               target="_blank">
+              <i data-feather="shopping-cart" class="w-4 h-4 mr-2"></i>
+              Purchase Pamphlet
+            </a>
+          </div>
+        </div>
+
+        <h2>Description</h2>
+        <p>The Environmental Science merit badge teaches Scouts about the natural world and how humans interact with it. Scouts learn about ecosystems, environmental issues, and how to make a positive impact on the environment. This merit badge emphasizes scientific understanding and practical conservation skills.</p>
+
+        <h3>Requirements</h3>
+        <ol class="list-decimal pl-6 space-y-2">
+          <li>Make a timeline of the history of environmental science in America. Identify the contribution made by the Boy Scouts of America to environmental science. Include dates, names of people or organizations, and important events.</li>
+          <li>Define the following terms: population, community, ecosystem, biosphere, symbiosis, niche, habitat, conservation, threatened species, endangered species, extinction, pollution prevention, brownfield, ozone, watershed, airshed, nonpoint source, hybrid vehicle, fuel cell.</li>
+          <li>Do ONE activity from SEVEN of the following EIGHT categories (using the activities in this pamphlet as the basis for planning and carrying out your projects):
+            <ul class="list-disc pl-6 mt-2">
+              <li>Ecology
+                <ul class="list-disc pl-6 mt-2">
+                  <li>Conduct an experiment to find out how living things respond to changes in their environments. Discuss your observations with your counselor.</li>
+                  <li>Conduct an experiment illustrating the greenhouse effect. Keep a journal of your data and observations. Discuss your conclusions with your counselor.</li>
+                  <li>Discuss what is an ecosystem. Tell how it is maintained in nature and how it survives.</li>
+                </ul>
+              </li>
+              <li>Air Pollution
+                <ul class="list-disc pl-6 mt-2">
+                  <li>Perform an experiment to test for particulates that contribute to air pollution. Discuss your findings with your counselor.</li>
+                  <li>Record the trips taken, mileage, and fuel consumption of a family car for seven days, and calculate how many miles per gallon the car gets. Determine whether any trips could have been combined ("chained") rather than taken out and back. Using the idea of trip chaining, determine how many miles and gallons of gas could have been saved in those seven days.</li>
+                  <li>Explain what is acid rain. In your explanation, tell how it affects plants and the environment and the steps society can take to help reduce its effects.</li>
+                </ul>
+              </li>
+              <li>Water Pollution
+                <ul class="list-disc pl-6 mt-2">
+                  <li>Conduct an experiment to show how living things react to thermal pollution. Discuss your observations with your counselor.</li>
+                  <li>Conduct an experiment to identify the methods that could be used to mediate (reduce) the effects of an oil spill on waterfowl. Discuss your results with your counselor.</li>
+                  <li>Describe the impact of a waterborne pollutant on an aquatic community. Write a 100-word report on how that pollutant affected aquatic life, what the effect was, and whether the effect is linked to biomagnification.</li>
+                </ul>
+              </li>
+              <li>Land Pollution
+                <ul class="list-disc pl-6 mt-2">
+                  <li>Conduct an experiment to illustrate soil erosion by water. Take photographs or make a drawing of the soil before and after your experiment, and make a poster showing your results. Present your poster to your patrol or troop.</li>
+                  <li>Perform an experiment to determine the effect of an oil spill on land. Discuss your conclusions with your counselor.</li>
+                  <li>Photograph an area affected by erosion. Share your photographs with your counselor and discuss why the area has eroded and what might be done to help alleviate the erosion.</li>
+                </ul>
+              </li>
+              <li>Endangered Species
+                <ul class="list-disc pl-6 mt-2">
+                  <li>Do research on one endangered species found in your state. Find out what its natural habitat is, why it is endangered, what is being done to preserve it, and how many individual organisms are left in the wild. Prepare a 100-word report about the organism, including a drawing. Present your report to your patrol or troop.</li>
+                  <li>Do research on one species that was endangered or threatened but which has now recovered. Find out how the organism recovered, and what its new status is. Write a 100-word report on the species and discuss it with your counselor.</li>
+                  <li>With your parent's and counselor's approval, work with a natural resource professional to identify two projects that have been approved to improve the habitat for a threatened or endangered species in your area. Visit the site of one of these projects and report on what you saw.</li>
+                </ul>
+              </li>
+              <li>Pollution Prevention, Resource Recovery, and Conservation
+                <ul class="list-disc pl-6 mt-2">
+                  <li>Look around your home and determine 10 ways your family can help reduce pollution. Practice at least two of these methods for seven days and discuss with your counselor what you have learned.</li>
+                  <li>Determine 10 ways to conserve resources or use resources more efficiently in your home, at school, or at camp. Practice at least two of these methods for seven days and discuss with your counselor what you have learned.</li>
+                  <li>Perform an experiment on packaging materials to find out which ones are biodegradable. Discuss your conclusions with your counselor.</li>
+                </ul>
+              </li>
+              <li>Pollution Prevention, Resource Recovery, and Conservation
+                <ul class="list-disc pl-6 mt-2">
+                  <li>Find out if your local community has a recycling program in effect. If it does, find out what items are recycled, and who pays for recycling. If your community doesn't have a recycling program, write questions for your local solid waste management official to find out how you might organize one.</li>
+                  <li>Determine whether your local community provides a way for you to recycle materials (aluminum, glass, plastic, paper, etc.) and how you would recycle these materials. Do ONE of the following:
+                    <ul class="list-disc pl-6 mt-2">
+                      <li>Make a trip to a facility that recycles household items or household hazardous materials. Report what you learned to your counselor.</li>
+                      <li>Make a trip to a recycling center or a solid-waste management plant in your community. Make a report on what you saw to your counselor.</li>
+                    </ul>
+                  </li>
+                  <li>Find out if your local community has a composting program or an organic waste collection program in effect. If it does, find out what items are composted or collected. If your community doesn't have such a program, write questions for your local solid waste management official to find out how you might organize one.</li>
+                </ul>
+              </li>
+              <li>Energy
+                <ul class="list-disc pl-6 mt-2">
+                  <li>Find out about the energy sources used by your local utility to provide electricity to your community.</li>
+                  <li>Conduct an energy audit of your home. Keep a 14-day log that records what you and your family did to reduce energy use. Include the following in your report and, after the 14-day period, discuss what you have learned with your counselor.
+                    <ul class="list-disc pl-6 mt-2">
+                      <li>List the types of energy used in your home such as electricity, wood, oil, liquid petroleum, and natural gas, and tell how each is delivered and measured, and the current cost; OR record the transportation fuel used, miles driven, miles per gallon, and trips using your family car or another vehicle.</li>
+                      <li>Describe ways you and your family can use energy resources more wisely. In preparing your discussion, consider the energy required for the things you do and use on a daily basis (cooking, showering, using lights, driving, watching TV, using the computer). Explain what is meant by sustainable energy sources. Explain how you can change your energy use through reuse and recycling.</li>
+                    </ul>
+                  </li>
+                  <li>In a notebook, identify and describe five examples of energy waste in your school or community. Suggest in each case possible ways to reduce this waste. Describe the idea of trade-offs in energy use. In your response, do the following:
+                    <ul class="list-disc pl-6 mt-2">
+                      <li>Explain how the changes you suggest would lower costs, reduce pollution, or otherwise improve your community.</li>
+                      <li>Explain what changes to routines, habits, or convenience are necessary to reduce energy waste. Tell why people might resist the changes you suggest.</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>Choose two outdoor study areas that are very different from one another (e.g., hilltop vs. bottom of a hill; field vs. forest; swamp vs. dry land). For BOTH study areas, do ONE of the following:
+            <ul class="list-disc pl-6 mt-2">
+              <li>Mark off a plot of 4 square yards in each study area, and count the number of species found there. Estimate how much space is occupied by each plant species and the type and number of nonplant species you find. Write a report that adequately discusses the biodiversity and population density of these study areas. Discuss your report with your counselor.</li>
+              <li>Make at least three visits to each of the two study areas (for a total of six visits), staying for at least 20 minutes each time, to observe the living and nonliving parts of the ecosystem. Space each visit far enough apart that there are readily apparent differences in the observations. Keep a journal that includes the differences you observe. Then, write a short report that adequately addresses your observations, including the changes in the ecosystems, and discuss this with your counselor.</li>
+            </ul>
+          </li>
+          <li>Identify the items that would need to be included in an environmental impact statement for a construction project such as building a house, adding a new building to your Scout camp, or one you create on your own that is approved by your counselor.</li>
+          <li>Find out about three career opportunities in environmental science. Pick one and find out the education, training, and experience required for this profession. Discuss this with your counselor, and explain why this profession might interest you.</li>
+        </ol>
+
+        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 my-6">
+          <div class="flex">
+            <div class="flex-shrink-0">
+              <i data-feather="info" class="text-blue-500"></i>
+            </div>
+            <div class="ml-3">
+              <p class="text-sm text-blue-700">
+                <strong>Pro Tip:</strong> For requirement 3, choose activities that you can complete in your local area and that interest you. Many of these experiments can be done at home or in your backyard. Keep detailed notes and take photos of your experiments to document your work. Consider working with a partner or small group to make the activities more engaging and to share resources.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <h2>Resources</h2>
+        <ul class="list-disc pl-6 space-y-2">
+          <li><a href="https://www.epa.gov/" class="text-primary hover:text-primary-dark" target="_blank">Environmental Protection Agency (EPA)</a></li>
+          <li><a href="https://www.nature.org/" class="text-primary hover:text-primary-dark" target="_blank">The Nature Conservancy</a></li>
+          <li><a href="https://www.audubon.org/" class="text-primary hover:text-primary-dark" target="_blank">National Audubon Society</a></li>
+          <li><a href="https://www.scouting.org/outdoors/nature-and-environment/" class="text-primary hover:text-primary-dark" target="_blank">BSA Nature & Environment</a></li>
+        </ul>
+      </div>
+
+      <!-- Article Footer -->
+      <div class="mt-8 pt-6 border-t">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-4">
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="thumbs-up" class="icon-hover"></i>
+              <span>Helpful</span>
+            </button>
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="message-square" class="icon-hover"></i>
+              <span>Comment</span>
+            </button>
+          </div>
+          <div class="flex items-center space-x-4">
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="share-2" class="icon-hover"></i>
+              <span>Share</span>
+            </button>
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="bookmark" class="icon-hover"></i>
+              <span>Save</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Related Articles -->
+    <div class="mt-8">
+      <h2 class="text-2xl font-bold mb-4">Related Merit Badges</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <a href="sustainability.html" class="wiki-article block">
+          <h3 class="text-lg font-bold mb-2">Sustainability</h3>
+          <p class="text-gray-600">Learn about sustainable practices and environmental conservation.</p>
+        </a>
+        <a href="nature.html" class="wiki-article block">
+          <h3 class="text-lg font-bold mb-2">Nature</h3>
+          <p class="text-gray-600">Explore the natural world and learn about plants and animals.</p>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Initialize Feather icons
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.feather) {
+        feather.replace();
+      }
+    });
+  </script>
+</body>
+</html> 

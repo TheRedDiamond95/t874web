@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Personal Fitness - Merit Badge Wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Heroicons CDN for sidebar icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../../css/styles.css">
+  <!-- Common JavaScript -->
+  <script src="../../js/common.js"></script>
+  <script>
+    // Protect this page from unauthorized access
+    document.addEventListener('DOMContentLoaded', function() {
+      if (!isUserLoggedIn()) {
+        window.location.href = '../../index.html';
+      }
+    });
+  </script>
+</head>
+<body class="bg-gray-100 flex">
+  <!-- Sidebar Navigation -->
+  <aside id="sidebar" class="w-64 bg-white h-screen shadow flex flex-col transition-all duration-300 ease-in-out hover:w-64 group">
+    <div class="p-6 border-b whitespace-nowrap overflow-hidden">
+      <span class="text-2xl font-title">Troop 874</span>
+    </div>
+    <nav class="flex-1 p-4 space-y-2">
+      <a href="../../index.html" class="flex items-center p-2 rounded hover:bg-blue-100 text-blue-700 font-semibold whitespace-nowrap overflow-hidden">
+        <i data-feather="home" class="mr-3 flex-shrink-0"></i> <span class="truncate">Cover Page</span>
+      </a>
+      <a href="../../wiki.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden active">
+        <i data-feather="book-open" class="mr-3 flex-shrink-0"></i> <span class="truncate">Wiki</span>
+      </a>
+      <a href="../../dashboard.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+        <i data-feather="user" class="mr-3 flex-shrink-0"></i> <span class="truncate">Account Dashboard</span>
+      </a>
+      <a href="../../communications.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+        <i data-feather="message-circle" class="mr-3 flex-shrink-0"></i> <span class="truncate">Communications</span>
+      </a>
+      <a href="../../calendar.html" class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+        <i data-feather="calendar" class="mr-3 flex-shrink-0"></i> <span class="truncate">Calendar</span>
+      </a>
+    </nav>
+    <div class="p-4 border-t whitespace-nowrap overflow-hidden">
+      <!-- Login toggle button -->
+      <button id="loginToggle" class="w-full py-2 px-4 btn-primary rounded flex items-center justify-center">
+        <i data-feather="log-in" class="mr-2"></i>
+        <span>Login</span>
+      </button>
+      <div id="loginStatus" class="mt-2 text-center text-sm"></div>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 p-10 transition-all duration-300 ease-in-out page-transition">
+    <!-- Article Navigation -->
+    <div class="flex items-center space-x-4 mb-8">
+      <a href="../../wiki.html" class="text-blue-600 hover:text-blue-800 flex items-center">
+        <i data-feather="arrow-left" class="w-4 h-4 mr-2"></i>
+        Back to Wiki
+      </a>
+      <span class="text-gray-400">/</span>
+      <a href="index.html" class="text-blue-600 hover:text-blue-800">Merit Badges</a>
+      <span class="text-gray-400">/</span>
+      <span class="text-gray-600">Personal Fitness</span>
+    </div>
+
+    <!-- Article Header -->
+    <div class="banner mb-8">
+      <h1 class="text-3xl font-title">Personal Fitness</h1>
+      <div class="flex items-center space-x-4 mt-2 text-sm">
+        <span class="flex items-center"><i data-feather="award" class="w-4 h-4 mr-1"></i> Eagle Required</span>
+        <span class="flex items-center"><i data-feather="clock" class="w-4 h-4 mr-1"></i> Last updated: March 15, 2024</span>
+      </div>
+    </div>
+
+    <!-- Article Content -->
+    <div class="wiki-article">
+      <div class="prose max-w-none">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div class="p-4 bg-gray-700 rounded-lg">
+            <h3 class="text-xl font-bold mb-2 text-secondary">Workbook</h3>
+            <a href="https://www.scouting.org/merit-badges/personal-fitness/" 
+               class="text-primary hover:text-primary-dark flex items-center" 
+               target="_blank">
+              <i data-feather="download" class="w-4 h-4 mr-2"></i>
+              Download Workbook (PDF)
+            </a>
+          </div>
+          <div class="p-4 bg-gray-700 rounded-lg">
+            <h3 class="text-xl font-bold mb-2 text-secondary">Pamphlet</h3>
+            <a href="https://www.scouting.org/merit-badges/personal-fitness/" 
+               class="text-primary hover:text-primary-dark flex items-center" 
+               target="_blank">
+              <i data-feather="shopping-cart" class="w-4 h-4 mr-2"></i>
+              Purchase Pamphlet
+            </a>
+          </div>
+        </div>
+
+        <h2>Description</h2>
+        <p>The Personal Fitness merit badge helps Scouts develop and maintain a healthy lifestyle through physical fitness, proper nutrition, and good habits. This merit badge encourages Scouts to set personal fitness goals and work towards achieving them.</p>
+
+        <h3>Requirements</h3>
+        <ol class="list-decimal pl-6 space-y-2">
+          <li>Physical Examination
+            <ul class="list-disc pl-6 mt-2">
+              <li>Complete a physical examination by a licensed health-care provider</li>
+              <li>Get approval to begin a fitness program</li>
+              <li>Document your current fitness level</li>
+            </ul>
+          </li>
+          <li>Fitness Assessment
+            <ul class="list-disc pl-6 mt-2">
+              <li>Complete the BSA Physical Fitness Test</li>
+              <li>Record your results for:
+                <ul class="list-disc pl-6 mt-2">
+                  <li>Push-ups</li>
+                  <li>Sit-ups</li>
+                  <li>Pull-ups</li>
+                  <li>1-mile run/walk</li>
+                  <li>Body composition</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>12-Week Fitness Program
+            <ul class="list-disc pl-6 mt-2">
+              <li>Design a 12-week fitness program</li>
+              <li>Include exercises for:
+                <ul class="list-disc pl-6 mt-2">
+                  <li>Cardiorespiratory endurance</li>
+                  <li>Muscular strength</li>
+                  <li>Muscular endurance</li>
+                  <li>Flexibility</li>
+                </ul>
+              </li>
+              <li>Track your progress weekly</li>
+            </ul>
+          </li>
+          <li>Nutrition Plan
+            <ul class="list-disc pl-6 mt-2">
+              <li>Create a nutrition plan</li>
+              <li>Learn about:
+                <ul class="list-disc pl-6 mt-2">
+                  <li>Basic food groups</li>
+                  <li>Portion sizes</li>
+                  <li>Healthy eating habits</li>
+                  <li>Hydration</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>Lifestyle Changes
+            <ul class="list-disc pl-6 mt-2">
+              <li>Identify unhealthy habits</li>
+              <li>Develop strategies to improve them</li>
+              <li>Track your progress</li>
+              <li>Document challenges and solutions</li>
+            </ul>
+          </li>
+          <li>Final Assessment
+            <ul class="list-disc pl-6 mt-2">
+              <li>Retake the BSA Physical Fitness Test</li>
+              <li>Compare results with initial assessment</li>
+              <li>Document improvements</li>
+              <li>Set new fitness goals</li>
+            </ul>
+          </li>
+        </ol>
+
+        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 my-6">
+          <div class="flex">
+            <div class="flex-shrink-0">
+              <i data-feather="info" class="text-blue-500"></i>
+            </div>
+            <div class="ml-3">
+              <p class="text-sm text-blue-700">
+                <strong>Pro Tip:</strong> For requirement 3, start with a manageable fitness program and gradually increase intensity. This will help you stay motivated and avoid injury. Consider working with a physical education teacher or fitness trainer to develop your program.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <h2>Resources</h2>
+        <ul class="list-disc pl-6 space-y-2">
+          <li><a href="https://www.scouting.org/merit-badges/personal-fitness/" class="text-primary hover:text-primary-dark" target="_blank">Official Merit Badge Pamphlet</a></li>
+          <li><a href="https://www.scouting.org/merit-badges/personal-fitness/" class="text-primary hover:text-primary-dark" target="_blank">Merit Badge Workbook</a></li>
+          <li><a href="https://www.scouting.org/health-and-safety/physical-fitness/" class="text-primary hover:text-primary-dark" target="_blank">BSA Physical Fitness Test</a></li>
+          <li><a href="https://www.myplate.gov/" class="text-primary hover:text-primary-dark" target="_blank">MyPlate.gov - Nutrition guidelines</a></li>
+        </ul>
+
+        <h2>Pro Tips</h2>
+        <ol class="list-decimal pl-6 space-y-4">
+          <li>
+            <strong>Start Slow</strong>
+            <ul class="list-disc pl-6 mt-2">
+              <li>Begin with manageable goals</li>
+              <li>Gradually increase intensity</li>
+              <li>Listen to your body</li>
+              <li>Rest when needed</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Stay Consistent</strong>
+            <ul class="list-disc pl-6 mt-2">
+              <li>Schedule regular workout times</li>
+              <li>Find activities you enjoy</li>
+              <li>Track your progress</li>
+              <li>Celebrate small victories</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Nutrition Matters</strong>
+            <ul class="list-disc pl-6 mt-2">
+              <li>Plan meals ahead</li>
+              <li>Stay hydrated</li>
+              <li>Eat balanced meals</li>
+              <li>Limit processed foods</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Safety First</strong>
+            <ul class="list-disc pl-6 mt-2">
+              <li>Warm up properly</li>
+              <li>Use correct form</li>
+              <li>Stay within your limits</li>
+              <li>Get proper rest</li>
+            </ul>
+          </li>
+        </ol>
+
+        <h2>Related Merit Badges</h2>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Swimming</li>
+          <li>Lifesaving</li>
+          <li>Hiking</li>
+          <li>Cycling</li>
+          <li>Sports</li>
+        </ul>
+
+        <h2>Organizations to Contact</h2>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Local gyms and fitness centers</li>
+          <li>School physical education departments</li>
+          <li>Community sports programs</li>
+          <li>Nutritionists or dietitians</li>
+          <li>Health clinics</li>
+        </ul>
+
+        <div class="mt-8 p-4 bg-gray-50 rounded-lg">
+          <p class="text-gray-700">
+            <strong>Remember:</strong> Personal fitness is a lifelong journey. The habits you develop while earning this merit badge can help you maintain a healthy lifestyle throughout your life. Focus on making sustainable changes and finding activities you enjoy.
+          </p>
+        </div>
+      </div>
+
+      <!-- Article Footer -->
+      <div class="mt-8 pt-6 border-t">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-4">
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="thumbs-up" class="icon-hover"></i>
+              <span>Helpful</span>
+            </button>
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="message-square" class="icon-hover"></i>
+              <span>Comment</span>
+            </button>
+          </div>
+          <div class="flex items-center space-x-4">
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="share-2" class="icon-hover"></i>
+              <span>Share</span>
+            </button>
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="bookmark" class="icon-hover"></i>
+              <span>Save</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Related Articles -->
+    <div class="mt-8">
+      <h2 class="text-2xl font-bold mb-4">Related Merit Badges</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <a href="swimming.html" class="wiki-article block">
+          <h3 class="text-lg font-bold mb-2">Swimming</h3>
+          <p class="text-gray-600">Learn essential swimming skills and water safety.</p>
+        </a>
+        <a href="hiking.html" class="wiki-article block">
+          <h3 class="text-lg font-bold mb-2">Hiking</h3>
+          <p class="text-gray-600">Develop hiking skills and outdoor navigation.</p>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Initialize Feather icons
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.feather) {
+        feather.replace();
+      }
+    });
+  </script>
+</body>
+</html> 

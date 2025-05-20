@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Emergency Preparedness - Merit Badge Wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Heroicons CDN for sidebar icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../../css/styles.css">
+  <!-- Common JavaScript -->
+  <script src="../../js/common.js"></script>
+  <script>
+    // Protect this page from unauthorized access
+    document.addEventListener('DOMContentLoaded', function() {
+      if (!isUserLoggedIn()) {
+        window.location.href = '../../index.html';
+      }
+    });
+  </script>
+</head>
+<body class="bg-gray-100 flex">
+  <!-- Sidebar Navigation -->
+  <aside id="sidebar" class="w-64 bg-white h-screen shadow flex flex-col transition-all duration-300 ease-in-out hover:w-64 group">
+    <div class="p-6 border-b whitespace-nowrap overflow-hidden">
+      <span class="text-2xl font-title">Troop 874</span>
+    </div>
+    <nav class="flex-1 p-4 space-y-2">
+      <a href="../../index.html" class="flex items-center p-2 rounded hover:bg-blue-100 text-blue-700 font-semibold whitespace-nowrap overflow-hidden">
+        <i data-feather="home" class="mr-3 flex-shrink-0"></i> <span class="truncate">Cover Page</span>
+      </a>
+      <a href="../../wiki.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden active">
+        <i data-feather="book-open" class="mr-3 flex-shrink-0"></i> <span class="truncate">Wiki</span>
+      </a>
+      <a href="../../dashboard.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+        <i data-feather="user" class="mr-3 flex-shrink-0"></i> <span class="truncate">Account Dashboard</span>
+      </a>
+      <a href="../../communications.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+        <i data-feather="message-circle" class="mr-3 flex-shrink-0"></i> <span class="truncate">Communications</span>
+      </a>
+      <a href="../../calendar.html" class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+        <i data-feather="calendar" class="mr-3 flex-shrink-0"></i> <span class="truncate">Calendar</span>
+      </a>
+    </nav>
+    <div class="p-4 border-t whitespace-nowrap overflow-hidden">
+      <!-- Login toggle button -->
+      <button id="loginToggle" class="w-full py-2 px-4 btn-primary rounded flex items-center justify-center">
+        <i data-feather="log-in" class="mr-2"></i>
+        <span>Login</span>
+      </button>
+      <div id="loginStatus" class="mt-2 text-center text-sm"></div>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 p-10 transition-all duration-300 ease-in-out page-transition">
+    <!-- Article Navigation -->
+    <div class="flex items-center space-x-4 mb-8">
+      <a href="../../wiki.html" class="text-blue-600 hover:text-blue-800 flex items-center">
+        <i data-feather="arrow-left" class="w-4 h-4 mr-2"></i>
+        Back to Wiki
+      </a>
+      <span class="text-gray-400">/</span>
+      <a href="index.html" class="text-blue-600 hover:text-blue-800">Merit Badges</a>
+      <span class="text-gray-400">/</span>
+      <span class="text-gray-600">Emergency Preparedness</span>
+    </div>
+
+    <!-- Article Header -->
+    <div class="banner mb-8">
+      <h1 class="text-3xl font-title">Emergency Preparedness</h1>
+      <div class="flex items-center space-x-4 mt-2 text-sm">
+        <span class="flex items-center"><i data-feather="award" class="w-4 h-4 mr-1"></i> Eagle Required</span>
+        <span class="flex items-center"><i data-feather="clock" class="w-4 h-4 mr-1"></i> Last updated: March 15, 2024</span>
+      </div>
+    </div>
+
+    <!-- Article Content -->
+    <div class="wiki-article">
+      <div class="prose max-w-none">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div class="p-4 bg-gray-700 rounded-lg">
+            <h3 class="text-xl font-bold mb-2 text-secondary">Workbook</h3>
+            <a href="https://www.scouting.org/merit-badges/emergency-preparedness/" 
+               class="text-primary hover:text-primary-dark flex items-center" 
+               target="_blank">
+              <i data-feather="download" class="w-4 h-4 mr-2"></i>
+              Download Workbook (PDF)
+            </a>
+          </div>
+          <div class="p-4 bg-gray-700 rounded-lg">
+            <h3 class="text-xl font-bold mb-2 text-secondary">Pamphlet</h3>
+            <a href="https://www.scouting.org/merit-badges/emergency-preparedness/" 
+               class="text-primary hover:text-primary-dark flex items-center" 
+               target="_blank">
+              <i data-feather="shopping-cart" class="w-4 h-4 mr-2"></i>
+              Purchase Pamphlet
+            </a>
+          </div>
+        </div>
+
+        <h2>Description</h2>
+        <p>The Emergency Preparedness merit badge teaches Scouts essential skills for preparing for and responding to emergencies. This merit badge helps Scouts develop the knowledge and abilities needed to handle various emergency situations, from natural disasters to personal emergencies.</p>
+
+        <h3>Requirements</h3>
+        <ol class="list-decimal pl-6 space-y-2">
+          <li>Emergency Planning
+            <ul class="list-disc pl-6 mt-2">
+              <li>Learn emergency planning basics</li>
+              <li>Create a family emergency plan</li>
+              <li>Understand emergency contacts</li>
+              <li>Know evacuation procedures</li>
+            </ul>
+          </li>
+          <li>Emergency Kits
+            <ul class="list-disc pl-6 mt-2">
+              <li>Learn essential supplies</li>
+              <li>Create a home emergency kit</li>
+              <li>Prepare a portable kit</li>
+              <li>Know kit maintenance</li>
+            </ul>
+          </li>
+          <li>Emergency Communications
+            <ul class="list-disc pl-6 mt-2">
+              <li>Learn communication methods</li>
+              <li>Practice emergency signals</li>
+              <li>Understand radio use</li>
+              <li>Know alert systems</li>
+            </ul>
+          </li>
+          <li>Natural Disasters
+            <ul class="list-disc pl-6 mt-2">
+              <li>Learn about common disasters</li>
+              <li>Practice safety procedures</li>
+              <li>Understand warning signs</li>
+              <li>Know response actions</li>
+            </ul>
+          </li>
+          <li>First Aid and Safety
+            <ul class="list-disc pl-6 mt-2">
+              <li>Learn emergency first aid</li>
+              <li>Practice safety measures</li>
+              <li>Understand triage</li>
+              <li>Know rescue basics</li>
+            </ul>
+          </li>
+          <li>Community Service
+            <ul class="list-disc pl-6 mt-2">
+              <li>Learn about emergency services</li>
+              <li>Practice community involvement</li>
+              <li>Understand volunteer roles</li>
+              <li>Know how to help</li>
+            </ul>
+          </li>
+        </ol>
+
+        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 my-6">
+          <div class="flex">
+            <div class="flex-shrink-0">
+              <i data-feather="info" class="text-blue-500"></i>
+            </div>
+            <div class="ml-3">
+              <p class="text-sm text-blue-700">
+                <strong>Pro Tip:</strong> For requirement 2, create comprehensive emergency kits for different scenarios. Include items for both home and portable use. Practice using each item in your kits and regularly check expiration dates. Remember to customize kits based on your family's specific needs.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <h2>Resources</h2>
+        <ul class="list-disc pl-6 space-y-2">
+          <li><a href="https://www.scouting.org/merit-badges/emergency-preparedness/" class="text-primary hover:text-primary-dark" target="_blank">Official Merit Badge Pamphlet</a></li>
+          <li><a href="https://www.scouting.org/merit-badges/emergency-preparedness/" class="text-primary hover:text-primary-dark" target="_blank">Merit Badge Workbook</a></li>
+          <li><a href="https://www.ready.gov/" class="text-primary hover:text-primary-dark" target="_blank">Ready.gov Emergency Preparedness</a></li>
+          <li><a href="https://www.redcross.org/get-help/how-to-prepare-for-emergencies.html" class="text-primary hover:text-primary-dark" target="_blank">American Red Cross Emergency Preparedness</a></li>
+        </ul>
+
+        <h2>Pro Tips</h2>
+        <ol class="list-decimal pl-6 space-y-4">
+          <li>
+            <strong>Be Prepared</strong>
+            <ul class="list-disc pl-6 mt-2">
+              <li>Create detailed plans</li>
+              <li>Maintain emergency kits</li>
+              <li>Practice regularly</li>
+              <li>Stay informed</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Stay Organized</strong>
+            <ul class="list-disc pl-6 mt-2">
+              <li>Keep supplies updated</li>
+              <li>Document procedures</li>
+              <li>Maintain contact lists</li>
+              <li>Review plans often</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Get Involved</strong>
+            <ul class="list-disc pl-6 mt-2">
+              <li>Join emergency teams</li>
+              <li>Volunteer locally</li>
+              <li>Share knowledge</li>
+              <li>Practice with others</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Stay Current</strong>
+            <ul class="list-disc pl-6 mt-2">
+              <li>Learn new techniques</li>
+              <li>Update skills regularly</li>
+              <li>Follow best practices</li>
+              <li>Monitor changes</li>
+            </ul>
+          </li>
+        </ol>
+
+        <h2>Related Merit Badges</h2>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>First Aid</li>
+          <li>Safety</li>
+          <li>Lifesaving</li>
+          <li>Public Health</li>
+          <li>Communications</li>
+        </ul>
+
+        <h2>Organizations to Contact</h2>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Local emergency management</li>
+          <li>American Red Cross</li>
+          <li>Community emergency response teams</li>
+          <li>Emergency medical services</li>
+          <li>Disaster relief organizations</li>
+        </ul>
+
+        <div class="mt-8 p-4 bg-gray-50 rounded-lg">
+          <p class="text-gray-700">
+            <strong>Remember:</strong> Emergency preparedness is not just about having supplies, but about being mentally and physically ready to handle emergencies. Take your training seriously, practice regularly, and stay informed. These skills can make a crucial difference in emergency situations.
+          </p>
+        </div>
+      </div>
+
+      <!-- Article Footer -->
+      <div class="mt-8 pt-6 border-t">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-4">
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="thumbs-up" class="icon-hover"></i>
+              <span>Helpful</span>
+            </button>
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="message-square" class="icon-hover"></i>
+              <span>Comment</span>
+            </button>
+          </div>
+          <div class="flex items-center space-x-4">
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="share-2" class="icon-hover"></i>
+              <span>Share</span>
+            </button>
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="bookmark" class="icon-hover"></i>
+              <span>Save</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Related Articles -->
+    <div class="mt-8">
+      <h2 class="text-2xl font-bold mb-4">Related Merit Badges</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <a href="first-aid.html" class="wiki-article block">
+          <h3 class="text-lg font-bold mb-2">First Aid</h3>
+          <p class="text-gray-600">Learn essential emergency care and life-saving skills.</p>
+        </a>
+        <a href="safety.html" class="wiki-article block">
+          <h3 class="text-lg font-bold mb-2">Safety</h3>
+          <p class="text-gray-600">Develop essential safety awareness and prevention skills.</p>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Initialize Feather icons
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.feather) {
+        feather.replace();
+      }
+    });
+  </script>
+</body>
+</html> 

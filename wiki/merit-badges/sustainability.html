@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sustainability - Merit Badge Wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Heroicons CDN for sidebar icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../../css/styles.css">
+  <!-- Common JavaScript -->
+  <script src="../../js/common.js"></script>
+  <script>
+    // Protect this page from unauthorized access
+    document.addEventListener('DOMContentLoaded', function() {
+      if (!isUserLoggedIn()) {
+        window.location.href = '../../index.html';
+      }
+    });
+  </script>
+</head>
+<body class="bg-gray-100 flex">
+  <!-- Sidebar Navigation -->
+  <aside id="sidebar" class="w-64 bg-white h-screen shadow flex flex-col transition-all duration-300 ease-in-out hover:w-64 group">
+    <div class="p-6 border-b whitespace-nowrap overflow-hidden">
+      <span class="text-2xl font-title">Troop 874</span>
+    </div>
+    <nav class="flex-1 p-4 space-y-2">
+      <a href="../../index.html" class="flex items-center p-2 rounded hover:bg-blue-100 text-blue-700 font-semibold whitespace-nowrap overflow-hidden">
+        <i data-feather="home" class="mr-3 flex-shrink-0"></i> <span class="truncate">Cover Page</span>
+      </a>
+      <a href="../../wiki.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden active">
+        <i data-feather="book-open" class="mr-3 flex-shrink-0"></i> <span class="truncate">Wiki</span>
+      </a>
+      <a href="../../dashboard.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+        <i data-feather="user" class="mr-3 flex-shrink-0"></i> <span class="truncate">Account Dashboard</span>
+      </a>
+      <a href="../../communications.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+        <i data-feather="message-circle" class="mr-3 flex-shrink-0"></i> <span class="truncate">Communications</span>
+      </a>
+      <a href="../../calendar.html" class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+        <i data-feather="calendar" class="mr-3 flex-shrink-0"></i> <span class="truncate">Calendar</span>
+      </a>
+    </nav>
+    <div class="p-4 border-t whitespace-nowrap overflow-hidden">
+      <!-- Login toggle button -->
+      <button id="loginToggle" class="w-full py-2 px-4 btn-primary rounded flex items-center justify-center">
+        <i data-feather="log-in" class="mr-2"></i>
+        <span>Login</span>
+      </button>
+      <div id="loginStatus" class="mt-2 text-center text-sm"></div>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 p-10 transition-all duration-300 ease-in-out page-transition">
+    <!-- Article Navigation -->
+    <div class="flex items-center space-x-4 mb-8">
+      <a href="../../wiki.html" class="text-blue-600 hover:text-blue-800 flex items-center">
+        <i data-feather="arrow-left" class="w-4 h-4 mr-2"></i>
+        Back to Wiki
+      </a>
+      <span class="text-gray-400">/</span>
+      <a href="index.html" class="text-blue-600 hover:text-blue-800">Merit Badges</a>
+      <span class="text-gray-400">/</span>
+      <span class="text-gray-600">Sustainability</span>
+    </div>
+
+    <!-- Article Header -->
+    <div class="banner mb-8">
+      <h1 class="text-3xl font-title">Sustainability</h1>
+      <div class="flex items-center space-x-4 mt-2 text-sm">
+        <span class="flex items-center"><i data-feather="award" class="w-4 h-4 mr-1"></i> Eagle Required</span>
+        <span class="flex items-center"><i data-feather="clock" class="w-4 h-4 mr-1"></i> Last updated: March 15, 2024</span>
+      </div>
+    </div>
+
+    <!-- Article Content -->
+    <div class="wiki-article">
+      <div class="prose max-w-none">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div class="p-4 bg-gray-700 rounded-lg">
+            <h3 class="text-xl font-bold mb-2 text-secondary">Workbook</h3>
+            <a href="https://filestore.scouting.org/filestore/merit_badge_reqandres/Sustainability.pdf" 
+               class="text-primary hover:text-primary-dark flex items-center" 
+               target="_blank">
+              <i data-feather="download" class="w-4 h-4 mr-2"></i>
+              Download Workbook (PDF)
+            </a>
+          </div>
+          <div class="p-4 bg-gray-700 rounded-lg">
+            <h3 class="text-xl font-bold mb-2 text-secondary">Pamphlet</h3>
+            <a href="https://www.scoutshop.org/sustainability-merit-badge-pamphlet-35919.html" 
+               class="text-primary hover:text-primary-dark flex items-center" 
+               target="_blank">
+              <i data-feather="shopping-cart" class="w-4 h-4 mr-2"></i>
+              Purchase Pamphlet
+            </a>
+          </div>
+        </div>
+
+        <h2>Description</h2>
+        <p>The Sustainability merit badge teaches Scouts about the importance of sustainable practices and how to make environmentally conscious decisions. Scouts learn about the three pillars of sustainability (environmental, economic, and social) and how to apply these principles in their daily lives. This merit badge emphasizes practical actions that can help create a more sustainable future.</p>
+
+        <h3>Requirements</h3>
+        <ol class="list-decimal pl-6 space-y-2">
+          <li>Before starting work on any other requirements for this merit badge, write in your own words the meaning of sustainability. Explain how you think conservation and stewardship of our natural resources relate to sustainability. Have a family meeting, and ask family members to write down what they think sustainability means. Be sure to take notes. You will need this information again for requirement 5.</li>
+          <li>Do the following:
+            <ul class="list-disc pl-6 mt-2">
+              <li>Water. Do A AND either B OR C.
+                <ul class="list-disc pl-6 mt-2">
+                  <li>Develop and implement a plan that attempts to reduce your family's water usage. As a family, discuss water usage. To aid in your discussion, if past water bills are available, you may choose to examine a few. As a family, choose three ways to help reduce consumption. Implement those ideas for one month. Share what you learn with your counselor, and tell how you think your plan affected your family's water usage.</li>
+                  <li>Using a diagram you have created, explain to your counselor how your household gets its clean water from a natural source and what happens with the water after you use it. Tell two ways to preserve your family's access to clean water in the future.</li>
+                  <li>Discuss with your counselor two areas in the world that have been affected by drought over the last three years. For each area, identify a water conservation practice (successful or unsuccessful) that has been used. Tell whether the practice was effective and why. Discuss what water conservation practice you would have tried and why.</li>
+                </ul>
+              </li>
+              <li>Food. Do A AND either B OR C.
+                <ul class="list-disc pl-6 mt-2">
+                  <li>Develop and implement a plan that attempts to reduce your household food waste. Establish a baseline and then track and record your results for two weeks. Report your results to your family and counselor.</li>
+                  <li>Discuss with your counselor the ways individuals, families, and communities can create their own food sources (potted plants, family garden, rooftop garden, neighborhood or community garden). Tell how this plan might contribute to a more sustainable way of life if practiced globally.</li>
+                  <li>Discuss with your counselor factors that limit the availability of food and food production in different regions of the world. Tell three ways these factors influence the sustainability of worldwide food supplies.</li>
+                </ul>
+              </li>
+              <li>Community. Do A AND either B OR C.
+                <ul class="list-disc pl-6 mt-2">
+                  <li>Draw a rough sketch depicting how you would design a sustainable community. Share your design with your counselor, and explain how the housing, working locations, shops, schools, and transportation systems affect energy, pollution, natural resources, and the economy of the community.</li>
+                  <li>With your parent's permission and your counselor's approval, interview a local architect, engineer, contractor, or building materials supplier. Find out the factors that are considered when using sustainable materials in renovating or building a home. Share what you learn with your counselor.</li>
+                  <li>Review a current housing needs assessment for your town, city, county, or state. Discuss with your counselor how birth and death rates affect sufficient housing, and why a proper balance is important to the health of a community.</li>
+                </ul>
+              </li>
+              <li>Energy. Do A AND either B OR C.
+                <ul class="list-disc pl-6 mt-2">
+                  <li>Learn about the sustainability of different energy sources, including fossil fuels, solar, wind, nuclear, hydropower, and geothermal. Find out how the production and consumption of each of these energy sources affects the environment and what the term "carbon footprint" means. Discuss what you learn with your counselor, and explain how you think your family can reduce its carbon footprint.</li>
+                  <li>Develop and implement a plan that attempts to reduce consumption for one of your family's household utilities. Examine your family's bills for that utility reflecting usage for three months (past or current). As a family, choose three ways to help reduce consumption and be a better steward of this resource. Implement those ideas for one month. Share what you learn with your counselor, and tell how your plan affected your family's usage.</li>
+                  <li>Evaluate your family's fuel and transportation usage. Review your family's transportation-related bills (gasoline, diesel, electric, public transportation, etc.) reflecting usage for three months (past or current). As a family, choose three ways to help reduce consumption and be a better steward of this resource. Implement those ideas for one month. Share what you learn with your counselor, and tell how your plan affected your family's transportation habits.</li>
+                </ul>
+              </li>
+              <li>Stuff. Do A AND either B OR C.
+                <ul class="list-disc pl-6 mt-2">
+                  <li>Keep a log of the "stuff" your family purchases (excluding food items) for two weeks. In your log, categorize each purchase as an essential need (such as soap) or a desirable want (such as a DVD). Share what you learn with your counselor.</li>
+                  <li>Plan a project that involves the participation of your family to identify the "stuff" your family no longer needs. Complete your regular trash pickup for a week, and categorize the trash found. Identify any waste that could have been repurposed or recycled. Have a discussion with your family or organization about what you see and what can be done to reduce the waste. Discuss what you learn with your counselor, and tell how you and your family plan to do your part to minimize your consumption of stuff.</li>
+                  <li>With your parent's or guardian's approval, connect with your Scoutmaster or another Scouting leader about the amount of stuff that might be found in a typical Scout camp. Discover what happens to the stuff that remains after a camp, and make a list of 10 ways to minimize the waste you might find in a camp. Share what you learn with your counselor about how these ways minimize waste, and discuss what another Scouting unit or camp could do to minimize the waste in their own location.</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>Do the following:
+            <ul class="list-disc pl-6 mt-2">
+              <li>Explain to your counselor how the planetary life-support systems (soil, climate, freshwater, atmospheric, nutrient, oceanic, ecosystems, and species) support life on Earth and interact with one another.</li>
+              <li>Tell how the harvesting or production of raw materials (by extraction or recycling), along with distribution of the resulting products, consumption, and disposal/repurposing, influences current and future sustainability thinking and planning.</li>
+            </ul>
+          </li>
+          <li>Explore TWO of the following categories. Have a discussion with your family about the two you select. In your discussion, include your observations, and best and worst practices. Share what you learn with your counselor.
+            <ul class="list-disc pl-6 mt-2">
+              <li>Plastic waste. Discuss the impact plastic waste has on the environment (land, water, air). Learn about the number system for plastic recyclables, and determine which plastics are more commonly recycled. Find out what the trash vortex is and how it was formed.</li>
+              <li>Electronic waste. Choose three electronic devices in your household. Find out the average lifespan of each, what happens to these devices once they pass their useful life, and whether they can be recycled in whole or part. Discuss the impact of electronic waste on the environment.</li>
+              <li>Food waste. Learn about the value of composting and how to start a compost pile. Start a compost pile appropriate for your living situation. Tell what can be done with the compost when it is ready for use.</li>
+              <li>Species decline. Explain the term species (plant or animal) decline. Discuss the human activities that contribute to species decline, what can be done to help reverse the decline, and its impact on a sustainable environment.</li>
+              <li>World population. Learn how the world's population affects the sustainability of Earth. Discuss three human activities that may contribute to putting Earth at risk, now and in the future.</li>
+              <li>Climate change. Find a world map that shows the pattern of temperature change for a period of at least 100 years. Share this map with your counselor, and discuss three factors that scientists believe affect the global weather and temperature.</li>
+            </ul>
+          </li>
+          <li>Do the following:
+            <ul class="list-disc pl-6 mt-2">
+              <li>After completing requirements 1 through 4, have a family meeting. Discuss what your family has learned about what it means to be a sustainable citizen. Talk about the behavioral changes and life choices your family can make to live more sustainably. Share what you learn with your counselor.</li>
+              <li>Discuss with your counselor how living by the Scout Oath and Scout Law in your daily life helps promote sustainability and good stewardship.</li>
+            </ul>
+          </li>
+          <li>Learn about career opportunities in the sustainability field. Pick one and find out the education, training, and experience required. Discuss what you have learned with your counselor and explain why this career might interest you.</li>
+        </ol>
+
+        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 my-6">
+          <div class="flex">
+            <div class="flex-shrink-0">
+              <i data-feather="info" class="text-blue-500"></i>
+            </div>
+            <div class="ml-3">
+              <p class="text-sm text-blue-700">
+                <strong>Pro Tip:</strong> For requirement 2, consider starting with the water and energy categories as they often have the most immediate impact and are easiest to measure. Keep detailed records of your family's usage before and after implementing changes. This will help you better understand the impact of your sustainability efforts and make for a more meaningful discussion with your counselor.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <h2>Resources</h2>
+        <ul class="list-disc pl-6 space-y-2">
+          <li><a href="https://www.epa.gov/sustainability" class="text-primary hover:text-primary-dark" target="_blank">EPA Sustainability</a></li>
+          <li><a href="https://www.un.org/sustainabledevelopment/" class="text-primary hover:text-primary-dark" target="_blank">UN Sustainable Development Goals</a></li>
+          <li><a href="https://www.energy.gov/eere/energy-efficiency" class="text-primary hover:text-primary-dark" target="_blank">U.S. Department of Energy - Energy Efficiency</a></li>
+          <li><a href="https://www.scouting.org/outdoors/sustainability/" class="text-primary hover:text-primary-dark" target="_blank">BSA Sustainability</a></li>
+        </ul>
+      </div>
+
+      <!-- Article Footer -->
+      <div class="mt-8 pt-6 border-t">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-4">
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="thumbs-up" class="icon-hover"></i>
+              <span>Helpful</span>
+            </button>
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="message-square" class="icon-hover"></i>
+              <span>Comment</span>
+            </button>
+          </div>
+          <div class="flex items-center space-x-4">
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="share-2" class="icon-hover"></i>
+              <span>Share</span>
+            </button>
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="bookmark" class="icon-hover"></i>
+              <span>Save</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Related Articles -->
+    <div class="mt-8">
+      <h2 class="text-2xl font-bold mb-4">Related Merit Badges</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <a href="environmental-science.html" class="wiki-article block">
+          <h3 class="text-lg font-bold mb-2">Environmental Science</h3>
+          <p class="text-gray-600">Learn about ecosystems and environmental issues.</p>
+        </a>
+        <a href="energy.html" class="wiki-article block">
+          <h3 class="text-lg font-bold mb-2">Energy</h3>
+          <p class="text-gray-600">Explore different forms of energy and conservation.</p>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Initialize Feather icons
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.feather) {
+        feather.replace();
+      }
+    });
+  </script>
+</body>
+</html> 

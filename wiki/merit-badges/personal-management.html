@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Personal Management - Merit Badge Wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Heroicons CDN for sidebar icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../../css/styles.css">
+  <!-- Common JavaScript -->
+  <script src="../../js/common.js"></script>
+  <script>
+    // Protect this page from unauthorized access
+    document.addEventListener('DOMContentLoaded', function() {
+      if (!isUserLoggedIn()) {
+        window.location.href = '../../index.html';
+      }
+    });
+  </script>
+</head>
+<body class="bg-gray-100 flex">
+  <!-- Sidebar Navigation -->
+  <aside id="sidebar" class="w-64 bg-white h-screen shadow flex flex-col transition-all duration-300 ease-in-out hover:w-64 group">
+    <div class="p-6 border-b whitespace-nowrap overflow-hidden">
+      <span class="text-2xl font-title">Troop 874</span>
+    </div>
+    <nav class="flex-1 p-4 space-y-2">
+      <a href="../../index.html" class="flex items-center p-2 rounded hover:bg-blue-100 text-blue-700 font-semibold whitespace-nowrap overflow-hidden">
+        <i data-feather="home" class="mr-3 flex-shrink-0"></i> <span class="truncate">Cover Page</span>
+      </a>
+      <a href="../../wiki.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden active">
+        <i data-feather="book-open" class="mr-3 flex-shrink-0"></i> <span class="truncate">Wiki</span>
+      </a>
+      <a href="../../dashboard.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+        <i data-feather="user" class="mr-3 flex-shrink-0"></i> <span class="truncate">Account Dashboard</span>
+      </a>
+      <a href="../../communications.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+        <i data-feather="message-circle" class="mr-3 flex-shrink-0"></i> <span class="truncate">Communications</span>
+      </a>
+      <a href="../../calendar.html" class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+        <i data-feather="calendar" class="mr-3 flex-shrink-0"></i> <span class="truncate">Calendar</span>
+      </a>
+    </nav>
+    <div class="p-4 border-t whitespace-nowrap overflow-hidden">
+      <!-- Login toggle button -->
+      <button id="loginToggle" class="w-full py-2 px-4 btn-primary rounded flex items-center justify-center">
+        <i data-feather="log-in" class="mr-2"></i>
+        <span>Login</span>
+      </button>
+      <div id="loginStatus" class="mt-2 text-center text-sm"></div>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 p-10 transition-all duration-300 ease-in-out page-transition">
+    <!-- Article Navigation -->
+    <div class="flex items-center space-x-4 mb-8">
+      <a href="../../wiki.html" class="text-blue-600 hover:text-blue-800 flex items-center">
+        <i data-feather="arrow-left" class="w-4 h-4 mr-2"></i>
+        Back to Wiki
+      </a>
+      <span class="text-gray-400">/</span>
+      <a href="index.html" class="text-blue-600 hover:text-blue-800">Merit Badges</a>
+      <span class="text-gray-400">/</span>
+      <span class="text-gray-600">Personal Management</span>
+    </div>
+
+    <!-- Article Header -->
+    <div class="banner mb-8">
+      <h1 class="text-3xl font-title">Personal Management</h1>
+      <div class="flex items-center space-x-4 mt-2 text-sm">
+        <span class="flex items-center"><i data-feather="award" class="w-4 h-4 mr-1"></i> Eagle Required</span>
+        <span class="flex items-center"><i data-feather="clock" class="w-4 h-4 mr-1"></i> Last updated: March 15, 2024</span>
+      </div>
+    </div>
+
+    <!-- Article Content -->
+    <div class="wiki-article">
+      <div class="prose max-w-none">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div class="p-4 bg-gray-700 rounded-lg">
+            <h3 class="text-xl font-bold mb-2 text-secondary">Workbook</h3>
+            <a href="https://filestore.scouting.org/filestore/merit_badge_reqandres/Personal_Management.pdf" 
+               class="text-primary hover:text-primary-dark flex items-center" 
+               target="_blank">
+              <i data-feather="download" class="w-4 h-4 mr-2"></i>
+              Download Workbook (PDF)
+            </a>
+          </div>
+          <div class="p-4 bg-gray-700 rounded-lg">
+            <h3 class="text-xl font-bold mb-2 text-secondary">Pamphlet</h3>
+            <a href="https://www.scoutshop.org/personal-management-merit-badge-pamphlet-35916.html" 
+               class="text-primary hover:text-primary-dark flex items-center" 
+               target="_blank">
+              <i data-feather="shopping-cart" class="w-4 h-4 mr-2"></i>
+              Purchase Pamphlet
+            </a>
+          </div>
+        </div>
+
+        <h2>Description</h2>
+        <p>The Personal Management merit badge teaches Scouts essential life skills in managing their time, money, and resources effectively. Scouts learn about budgeting, saving, investing, and making informed financial decisions. This merit badge emphasizes practical skills that will help Scouts become responsible adults and make sound financial choices throughout their lives.</p>
+
+        <h3>Requirements</h3>
+        <ol class="list-decimal pl-6 space-y-2">
+          <li>Do the following:
+            <ul class="list-disc pl-6 mt-2">
+              <li>Choose an item that your family might want to purchase that is considered a major expense.</li>
+              <li>Write a plan that tells how your family would save money for the purchase identified in requirement 1a.
+                <ul class="list-disc pl-6 mt-2">
+                  <li>Discuss the plan with your merit badge counselor.</li>
+                  <li>Discuss the plan with your family.</li>
+                  <li>If the plan is approved by your family, follow the plan for three months.</li>
+                </ul>
+              </li>
+              <li>Complete the following requirements after three months of saving:
+                <ul class="list-disc pl-6 mt-2">
+                  <li>Create a record of your saving and spending for three months.</li>
+                  <li>Explain to your merit badge counselor what you learned about saving and spending habits.</li>
+                  <li>Explain to your merit badge counselor what you learned about yourself and your family's spending habits.</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>Do the following:
+            <ul class="list-disc pl-6 mt-2">
+              <li>Prepare a budget reflecting your expected income (allowance, gifts, wages), expenses, and savings. Track your actual income, expenses, and savings for 13 consecutive weeks. (You may use the forms provided in this pamphlet, devise your own, or use a computer generated version.) When complete, present the results to your merit badge counselor.</li>
+              <li>Compare expected income with expected expenses.
+                <ul class="list-disc pl-6 mt-2">
+                  <li>If expenses exceed income, determine steps to balance your budget.</li>
+                  <li>If income exceeds expenses, state how you would use the excess money (new goal, savings).</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>Do the following:
+            <ul class="list-disc pl-6 mt-2">
+              <li>Choose a career you might want to enter after high school or college graduation.</li>
+              <li>Research the limitations and advantages of this career.</li>
+              <li>Explain the education and training required for this career.</li>
+              <li>Describe the starting and advancement opportunities for this career.</li>
+              <li>Tell what the future employment outlook is for this career.</li>
+              <li>Describe a written plan you would use for getting education or training required for this career.</li>
+              <li>Explain to your merit badge counselor what you have learned about this career and what you would do to prepare for it.</li>
+            </ul>
+          </li>
+          <li>Do the following:
+            <ul class="list-disc pl-6 mt-2">
+              <li>Explain to your merit badge counselor the following:
+                <ul class="list-disc pl-6 mt-2">
+                  <li>Common types of investments (savings accounts, certificates of deposit, stocks, bonds, and mutual funds)</li>
+                  <li>Risk and return and the importance of diversification</li>
+                  <li>Why it is important to be a wise consumer of financial products and services</li>
+                  <li>The difference between saving and investing</li>
+                  <li>The concepts of return on investment and risk</li>
+                  <li>The concept of diversification of investments</li>
+                  <li>The concept of the time value of money</li>
+                  <li>The concept of compound interest and how it affects your savings and investments</li>
+                </ul>
+              </li>
+              <li>Explain to your merit badge counselor the following:
+                <ul class="list-disc pl-6 mt-2">
+                  <li>What a loan is, what interest is, and how the annual percentage rate (APR) measures the true cost of a loan</li>
+                  <li>The different ways to borrow money</li>
+                  <li>The differences between a charge card, debit card, and credit card</li>
+                  <li>Credit reports and how personal responsibility can affect your credit report</li>
+                  <li>Ways to reduce or eliminate debt</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>Do the following:
+            <ul class="list-disc pl-6 mt-2">
+              <li>Explain to your merit badge counselor the following:
+                <ul class="list-disc pl-6 mt-2">
+                  <li>The concept of insurance and its importance</li>
+                  <li>The following types of insurance: health, life, homeowner's/renter's, auto, and liability</li>
+                  <li>The concept of risk management</li>
+                  <li>The concept of cost of insurance</li>
+                  <li>The importance of having adequate insurance</li>
+                </ul>
+              </li>
+              <li>Explain to your merit badge counselor the following:
+                <ul class="list-disc pl-6 mt-2">
+                  <li>The concept of financial planning and its importance</li>
+                  <li>The concept of budgeting and its importance</li>
+                  <li>The concept of tax planning and its importance</li>
+                  <li>The concept of retirement planning and its importance</li>
+                  <li>The concept of estate planning and its importance</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>Do the following:
+            <ul class="list-disc pl-6 mt-2">
+              <li>Explain to your merit badge counselor the following:
+                <ul class="list-disc pl-6 mt-2">
+                  <li>The concept of financial planning and its importance</li>
+                  <li>The concept of budgeting and its importance</li>
+                  <li>The concept of tax planning and its importance</li>
+                  <li>The concept of retirement planning and its importance</li>
+                  <li>The concept of estate planning and its importance</li>
+                </ul>
+              </li>
+              <li>Explain to your merit badge counselor the following:
+                <ul class="list-disc pl-6 mt-2">
+                  <li>The concept of financial planning and its importance</li>
+                  <li>The concept of budgeting and its importance</li>
+                  <li>The concept of tax planning and its importance</li>
+                  <li>The concept of retirement planning and its importance</li>
+                  <li>The concept of estate planning and its importance</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>Do the following:
+            <ul class="list-disc pl-6 mt-2">
+              <li>Explain to your merit badge counselor the following:
+                <ul class="list-disc pl-6 mt-2">
+                  <li>The concept of financial planning and its importance</li>
+                  <li>The concept of budgeting and its importance</li>
+                  <li>The concept of tax planning and its importance</li>
+                  <li>The concept of retirement planning and its importance</li>
+                  <li>The concept of estate planning and its importance</li>
+                </ul>
+              </li>
+              <li>Explain to your merit badge counselor the following:
+                <ul class="list-disc pl-6 mt-2">
+                  <li>The concept of financial planning and its importance</li>
+                  <li>The concept of budgeting and its importance</li>
+                  <li>The concept of tax planning and its importance</li>
+                  <li>The concept of retirement planning and its importance</li>
+                  <li>The concept of estate planning and its importance</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ol>
+
+        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 my-6">
+          <div class="flex">
+            <div class="flex-shrink-0">
+              <i data-feather="info" class="text-blue-500"></i>
+            </div>
+            <div class="ml-3">
+              <p class="text-sm text-blue-700">
+                <strong>Pro Tip:</strong> For requirement 1, choose a realistic savings goal that your family can achieve within three months. This will help you learn about saving while keeping the project manageable. Use a spreadsheet or budgeting app to track your progress, and don't forget to include unexpected expenses in your planning.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <h2>Resources</h2>
+        <ul class="list-disc pl-6 space-y-2">
+          <li><a href="https://www.consumerfinance.gov/consumer-tools/" class="text-primary hover:text-primary-dark" target="_blank">Consumer Financial Protection Bureau</a></li>
+          <li><a href="https://www.investor.gov/" class="text-primary hover:text-primary-dark" target="_blank">U.S. Securities and Exchange Commission - Investor.gov</a></li>
+          <li><a href="https://www.irs.gov/" class="text-primary hover:text-primary-dark" target="_blank">Internal Revenue Service</a></li>
+          <li><a href="https://www.scouting.org/finance-impact/" class="text-primary hover:text-primary-dark" target="_blank">BSA Financial Literacy</a></li>
+        </ul>
+      </div>
+
+      <!-- Article Footer -->
+      <div class="mt-8 pt-6 border-t">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-4">
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="thumbs-up" class="icon-hover"></i>
+              <span>Helpful</span>
+            </button>
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="message-square" class="icon-hover"></i>
+              <span>Comment</span>
+            </button>
+          </div>
+          <div class="flex items-center space-x-4">
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="share-2" class="icon-hover"></i>
+              <span>Share</span>
+            </button>
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="bookmark" class="icon-hover"></i>
+              <span>Save</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Related Articles -->
+    <div class="mt-8">
+      <h2 class="text-2xl font-bold mb-4">Related Merit Badges</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <a href="family-life.html" class="wiki-article block">
+          <h3 class="text-lg font-bold mb-2">Family Life</h3>
+          <p class="text-gray-600">Learn about family relationships and responsibilities.</p>
+        </a>
+        <a href="communications.html" class="wiki-article block">
+          <h3 class="text-lg font-bold mb-2">Communications</h3>
+          <p class="text-gray-600">Develop effective communication skills.</p>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Initialize Feather icons
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.feather) {
+        feather.replace();
+      }
+    });
+  </script>
+</body>
+</html> 

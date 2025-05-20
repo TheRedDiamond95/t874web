@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cooking - Merit Badge Wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Heroicons CDN for sidebar icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../../css/styles.css">
+  <!-- Common JavaScript -->
+  <script src="../../js/common.js"></script>
+  <script>
+    // Protect this page from unauthorized access
+    document.addEventListener('DOMContentLoaded', function() {
+      if (!isUserLoggedIn()) {
+        window.location.href = '../../index.html';
+      }
+    });
+  </script>
+</head>
+<body class="bg-gray-100 flex">
+  <!-- Sidebar Navigation -->
+  <aside id="sidebar" class="w-64 bg-white h-screen shadow flex flex-col transition-all duration-300 ease-in-out hover:w-64 group">
+    <div class="p-6 border-b whitespace-nowrap overflow-hidden">
+      <span class="text-2xl font-title">Troop 874</span>
+    </div>
+    <nav class="flex-1 p-4 space-y-2">
+      <a href="../../index.html" class="flex items-center p-2 rounded hover:bg-blue-100 text-blue-700 font-semibold whitespace-nowrap overflow-hidden">
+        <i data-feather="home" class="mr-3 flex-shrink-0"></i> <span class="truncate">Cover Page</span>
+      </a>
+      <a href="../../wiki.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden active">
+        <i data-feather="book-open" class="mr-3 flex-shrink-0"></i> <span class="truncate">Wiki</span>
+      </a>
+      <a href="../../dashboard.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+        <i data-feather="user" class="mr-3 flex-shrink-0"></i> <span class="truncate">Account Dashboard</span>
+      </a>
+      <a href="../../communications.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+        <i data-feather="message-circle" class="mr-3 flex-shrink-0"></i> <span class="truncate">Communications</span>
+      </a>
+      <a href="../../calendar.html" class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+        <i data-feather="calendar" class="mr-3 flex-shrink-0"></i> <span class="truncate">Calendar</span>
+      </a>
+    </nav>
+    <div class="p-4 border-t whitespace-nowrap overflow-hidden">
+      <!-- Login toggle button -->
+      <button id="loginToggle" class="w-full py-2 px-4 btn-primary rounded flex items-center justify-center">
+        <i data-feather="log-in" class="mr-2"></i>
+        <span>Login</span>
+      </button>
+      <div id="loginStatus" class="mt-2 text-center text-sm"></div>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 p-10 transition-all duration-300 ease-in-out page-transition">
+    <!-- Article Navigation -->
+    <div class="flex items-center space-x-4 mb-8">
+      <a href="../../wiki.html" class="text-blue-600 hover:text-blue-800 flex items-center">
+        <i data-feather="arrow-left" class="w-4 h-4 mr-2"></i>
+        Back to Wiki
+      </a>
+      <span class="text-gray-400">/</span>
+      <a href="index.html" class="text-blue-600 hover:text-blue-800">Merit Badges</a>
+      <span class="text-gray-400">/</span>
+      <span class="text-gray-600">Cooking</span>
+    </div>
+
+    <!-- Article Header -->
+    <div class="banner mb-8">
+      <h1 class="text-3xl font-title">Cooking</h1>
+      <div class="flex items-center space-x-4 mt-2 text-sm">
+        <span class="flex items-center"><i data-feather="award" class="w-4 h-4 mr-1"></i> Eagle Required</span>
+        <span class="flex items-center"><i data-feather="clock" class="w-4 h-4 mr-1"></i> Last updated: March 15, 2024</span>
+      </div>
+    </div>
+
+    <!-- Article Content -->
+    <div class="wiki-article">
+      <div class="prose max-w-none">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div class="p-4 bg-gray-700 rounded-lg">
+            <h3 class="text-xl font-bold mb-2 text-secondary">Workbook</h3>
+            <a href="https://filestore.scouting.org/filestore/merit_badge_reqandres/Cooking.pdf" 
+               class="text-primary hover:text-primary-dark flex items-center" 
+               target="_blank">
+              <i data-feather="download" class="w-4 h-4 mr-2"></i>
+              Download Workbook (PDF)
+            </a>
+          </div>
+          <div class="p-4 bg-gray-700 rounded-lg">
+            <h3 class="text-xl font-bold mb-2 text-secondary">Pamphlet</h3>
+            <a href="https://www.scoutshop.org/cooking-merit-badge-pamphlet-35913.html" 
+               class="text-primary hover:text-primary-dark flex items-center" 
+               target="_blank">
+              <i data-feather="shopping-cart" class="w-4 h-4 mr-2"></i>
+              Purchase Pamphlet
+            </a>
+          </div>
+        </div>
+
+        <h2>Description</h2>
+        <p>The Cooking merit badge teaches Scouts essential cooking skills for both home and outdoor settings. Scouts learn about nutrition, food safety, meal planning, and different cooking methods. This merit badge emphasizes practical cooking skills that Scouts will use throughout their lives, whether at home, on campouts, or in emergency situations.</p>
+
+        <h3>Requirements</h3>
+        <ol class="list-decimal pl-6 space-y-2">
+          <li>Health and Safety. Do the following:
+            <ul class="list-disc pl-6 mt-2">
+              <li>Explain to your counselor the most likely hazards you may encounter while participating in cooking activities and what you should do to anticipate, help prevent, mitigate, and respond to these hazards.</li>
+              <li>Show that you know first aid for and how to prevent injuries or illnesses that could occur while preparing meals and eating, including burns and scalds, cuts, choking, and allergic reactions.</li>
+              <li>Describe how meat, fish, chicken, eggs, dairy products, and fresh vegetables should be stored, transported, and properly prepared for cooking. Explain how to prevent cross-contamination.</li>
+              <li>Discuss with your counselor food allergies, food intolerance, food-related diseases, and your awareness of these concerns.</li>
+              <li>Discuss with your counselor why reading food labels is important. Explain how to identify common allergens such as peanuts, tree nuts, milk, eggs, wheat, soy, and shellfish.</li>
+            </ul>
+          </li>
+          <li>Nutrition. Do the following:
+            <ul class="list-disc pl-6 mt-2">
+              <li>Using the MyPlate food guide or the current USDA nutrition model, give five examples for EACH of the following food groups, the recommended number of daily servings, and the recommended serving size:
+                <ul class="list-disc pl-6 mt-2">
+                  <li>Grains</li>
+                  <li>Vegetables</li>
+                  <li>Fruits</li>
+                  <li>Protein</li>
+                  <li>Dairy</li>
+                </ul>
+              </li>
+              <li>Explain why you should limit your intake of oils and sugars.</li>
+              <li>Determine your daily level of activity and your caloric need based on your activity level. Then, based on the MyPlate food guide, discuss with your counselor an appropriate meal plan for yourself for one day.</li>
+              <li>Discuss your current eating habits with your counselor and what you can do to eat healthier, based on the MyPlate food guide.</li>
+              <li>Discuss the following food label terms: calorie, fat, saturated fat, trans fat, cholesterol, sodium, carbohydrate, dietary fiber, sugar, protein. Explain how to calculate total carbohydrates and nutritional values for two servings, based on the serving size specified on the label.</li>
+            </ul>
+          </li>
+          <li>Cooking Basics. Do the following:
+            <ul class="list-disc pl-6 mt-2">
+              <li>Discuss EACH of the following cooking methods. For each one, describe the equipment needed, how temperature control is maintained, and name at least one food that can be cooked using that method: baking, boiling, pan frying, simmering, steaming, microwaving, grilling, foil cooking, and use of a Dutch oven.</li>
+              <li>Discuss the benefits of using a camp stove on an outing vs. a charcoal or wood fire.</li>
+              <li>Describe with your counselor how to manage your time when preparing a meal so components for each course are ready to serve at the same time.</li>
+            </ul>
+          </li>
+          <li>Cooking at Home. Using the MyPlate food guide or the current USDA nutrition model, plan a menu for three full days of meals (three breakfasts, three lunches, and three dinners) plus one dessert. Your menu should include enough to feed yourself and at least one adult, keeping in mind any special needs (such as food allergies) and how you kept your foods safe and free from cross-contamination. List the equipment and utensils needed to prepare and serve these meals. Then do the following:
+            <ul class="list-disc pl-6 mt-2">
+              <li>Create a shopping list for your meals showing the amount of food needed to prepare and serve each meal, and the cost for each meal.</li>
+              <li>Share and discuss your meal plan and shopping list with your counselor.</li>
+              <li>Using at least five of the 10 cooking methods from requirement 3, prepare and serve yourself and at least one adult (parent, family member, guardian, or other responsible adult) one breakfast, one lunch, one dinner, and one dessert from the meals you planned.</li>
+              <li>Time your cooking to have each meal ready to serve at the proper time. Have an adult verify the preparation of the meal to your counselor.</li>
+              <li>After each meal, ask a person you served to evaluate the meal on presentation and taste, then evaluate your own meal. Discuss what you learned with your counselor, including any adjustments that could have improved or enhanced your meals. Tell how better planning and preparation help ensure a successful meal.</li>
+            </ul>
+          </li>
+          <li>Cooking in the Outdoors. Using the MyPlate food guide or the current USDA nutrition model, plan a menu for your patrol (or a similar size group of up to eight youth, including you) for a camping trip. Your menu should include enough food for each person, keeping in mind any special needs (such as food allergies) and how you keep your foods safe and free from cross-contamination. These five meals must include at least one breakfast, one lunch, one dinner, AND at least one snack OR one dessert. List the equipment and utensils needed to prepare and serve these meals. Then do the following:
+            <ul class="list-disc pl-6 mt-2">
+              <li>Create a shopping list for your meals showing the amount of food needed to prepare and serve each meal, and the cost for each meal.</li>
+              <li>Share and discuss your meal plan and shopping list with your counselor.</li>
+              <li>In the outdoors, using your menu plan for this requirement, cook two of the five meals you planned using either a lightweight stove or a low-impact fire. Use a different cooking method from requirement 3 for each meal. You must also cook a third meal using either a Dutch oven OR a foil pack OR kabobs. Serve all of these meals to your patrol or a group of youth.</li>
+              <li>In the outdoors, prepare a dessert OR a snack and serve it to your patrol or a group of youth.</li>
+              <li>After each meal, have those you served evaluate the meal on presentation and taste, and then evaluate your own meal. Discuss what you learned with your counselor, including any adjustments that could have improved or enhanced your meals. Tell how better planning and preparation help ensure successful outdoor cooking.</li>
+              <li>Explain to your counselor how you kept your foods safe and free from cross-contamination.</li>
+            </ul>
+          </li>
+          <li>Trail and Backpacking Meals. Do the following:
+            <ul class="list-disc pl-6 mt-2">
+              <li>Using the MyPlate food guide or the current USDA nutrition model, plan a menu for trail hiking or backpacking that includes one breakfast, one lunch, one dinner, and one snack. These meals must not require refrigeration and are to be consumed by three to five people (including you). Be sure to keep in mind any special needs (such as food allergies) and how you will keep your foods safe and free from cross-contamination. List the equipment and utensils needed to prepare and serve these meals.</li>
+              <li>Create a shopping list for your meals, showing the amount of food needed to prepare and serve each meal, and the cost for each meal.</li>
+              <li>Share and discuss your meal plan and shopping list with your counselor. Your plan must include how to repackage foods for your hike or backpacking trip to eliminate as much bulk, weight, and garbage as possible.</li>
+              <li>While on a trail hike or backpacking trip, prepare and serve two meals and a snack from the menu planned for this requirement. At least one of those meals must be cooked over a fire, or an approved trail stove (with proper supervision).</li>
+              <li>After each meal, have those you served evaluate the meal on presentation and taste, and then evaluate your own meal. Discuss what you learned with your counselor, including any adjustments that could have improved or enhanced your meals. Tell how better planning and preparation help ensure successful trail hiking or backpacking meals.</li>
+              <li>Explain to your counselor how you kept your foods safe and free from cross-contamination.</li>
+            </ul>
+          </li>
+          <li>Food-Related Careers. Find out about three career opportunities in cooking. Select one and find out the education, training, and experience required for this profession. Discuss this with your counselor, and explain why this profession might interest you.</li>
+        </ol>
+
+        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 my-6">
+          <div class="flex">
+            <div class="flex-shrink-0">
+              <i data-feather="info" class="text-blue-500"></i>
+            </div>
+            <div class="ml-3">
+              <p class="text-sm text-blue-700">
+                <strong>Pro Tip:</strong> For requirements 4, 5, and 6, consider planning meals that can share ingredients to reduce waste and cost. Also, practice your recipes at home before trying them in the outdoors. This will help you become familiar with the cooking process and timing.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <h2>Resources</h2>
+        <ul class="list-disc pl-6 space-y-2">
+          <li><a href="https://www.myplate.gov/" class="text-primary hover:text-primary-dark" target="_blank">MyPlate - USDA Nutrition Guide</a></li>
+          <li><a href="https://www.foodsafety.gov/" class="text-primary hover:text-primary-dark" target="_blank">FoodSafety.gov</a></li>
+          <li><a href="https://www.scouting.org/outdoor-programs/camping/cooking/" class="text-primary hover:text-primary-dark" target="_blank">BSA Cooking Program</a></li>
+          <li><a href="https://www.fda.gov/food/nutrition-education-resources-materials" class="text-primary hover:text-primary-dark" target="_blank">FDA Nutrition Education Resources</a></li>
+        </ul>
+      </div>
+
+      <!-- Article Footer -->
+      <div class="mt-8 pt-6 border-t">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-4">
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="thumbs-up" class="icon-hover"></i>
+              <span>Helpful</span>
+            </button>
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="message-square" class="icon-hover"></i>
+              <span>Comment</span>
+            </button>
+          </div>
+          <div class="flex items-center space-x-4">
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="share-2" class="icon-hover"></i>
+              <span>Share</span>
+            </button>
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="bookmark" class="icon-hover"></i>
+              <span>Save</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Related Articles -->
+    <div class="mt-8">
+      <h2 class="text-2xl font-bold mb-4">Related Merit Badges</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <a href="camping.html" class="wiki-article block">
+          <h3 class="text-lg font-bold mb-2">Camping</h3>
+          <p class="text-gray-600">Learn essential outdoor skills and camping techniques.</p>
+        </a>
+        <a href="first-aid.html" class="wiki-article block">
+          <h3 class="text-lg font-bold mb-2">First Aid</h3>
+          <p class="text-gray-600">Master emergency care and prevention.</p>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Initialize Feather icons
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.feather) {
+        feather.replace();
+      }
+    });
+  </script>
+</body>
+</html> 

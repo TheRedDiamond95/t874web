@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Citizenship in Society - Merit Badge Wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Heroicons CDN for sidebar icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../../css/styles.css">
+  <!-- Common JavaScript -->
+  <script src="../../js/common.js"></script>
+  <script>
+    // Protect this page from unauthorized access
+    document.addEventListener('DOMContentLoaded', function() {
+      if (!isUserLoggedIn()) {
+        window.location.href = '../../index.html';
+      }
+    });
+  </script>
+</head>
+<body class="bg-gray-100 flex">
+  <!-- Sidebar Navigation -->
+  <aside id="sidebar" class="w-64 bg-white h-screen shadow flex flex-col transition-all duration-300 ease-in-out hover:w-64 group">
+    <div class="p-6 border-b whitespace-nowrap overflow-hidden">
+      <span class="text-2xl font-title">Troop 874</span>
+    </div>
+    <nav class="flex-1 p-4 space-y-2">
+      <a href="../../index.html" class="flex items-center p-2 rounded hover:bg-blue-100 text-blue-700 font-semibold whitespace-nowrap overflow-hidden">
+        <i data-feather="home" class="mr-3 flex-shrink-0"></i> <span class="truncate">Cover Page</span>
+      </a>
+      <a href="../../wiki.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden active">
+        <i data-feather="book-open" class="mr-3 flex-shrink-0"></i> <span class="truncate">Wiki</span>
+      </a>
+      <a href="../../dashboard.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+        <i data-feather="user" class="mr-3 flex-shrink-0"></i> <span class="truncate">Account Dashboard</span>
+      </a>
+      <a href="../../communications.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+        <i data-feather="message-circle" class="mr-3 flex-shrink-0"></i> <span class="truncate">Communications</span>
+      </a>
+      <a href="../../calendar.html" class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+        <i data-feather="calendar" class="mr-3 flex-shrink-0"></i> <span class="truncate">Calendar</span>
+      </a>
+    </nav>
+    <div class="p-4 border-t whitespace-nowrap overflow-hidden">
+      <!-- Login toggle button -->
+      <button id="loginToggle" class="w-full py-2 px-4 btn-primary rounded flex items-center justify-center">
+        <i data-feather="log-in" class="mr-2"></i>
+        <span>Login</span>
+      </button>
+      <div id="loginStatus" class="mt-2 text-center text-sm"></div>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 p-10 transition-all duration-300 ease-in-out page-transition">
+    <!-- Article Navigation -->
+    <div class="flex items-center space-x-4 mb-8">
+      <a href="../../wiki.html" class="text-blue-600 hover:text-blue-800 flex items-center">
+        <i data-feather="arrow-left" class="w-4 h-4 mr-2"></i>
+        Back to Wiki
+      </a>
+      <span class="text-gray-400">/</span>
+      <a href="index.html" class="text-blue-600 hover:text-blue-800">Merit Badges</a>
+      <span class="text-gray-400">/</span>
+      <span class="text-gray-600">Citizenship in Society</span>
+    </div>
+
+    <!-- Article Header -->
+    <div class="banner mb-8">
+      <h1 class="text-3xl font-title">Citizenship in Society</h1>
+      <div class="flex items-center space-x-4 mt-2 text-sm">
+        <span class="flex items-center"><i data-feather="award" class="w-4 h-4 mr-1"></i> Eagle Required</span>
+        <span class="flex items-center"><i data-feather="clock" class="w-4 h-4 mr-1"></i> Last updated: March 15, 2024</span>
+      </div>
+    </div>
+
+    <!-- Article Content -->
+    <div class="wiki-article">
+      <div class="prose max-w-none">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div class="p-4 bg-gray-700 rounded-lg">
+            <h3 class="text-xl font-bold mb-2 text-secondary">Workbook</h3>
+            <a href="https://www.scouting.org/merit-badges/citizenship-in-society/" 
+               class="text-primary hover:text-primary-dark flex items-center" 
+               target="_blank">
+              <i data-feather="download" class="w-4 h-4 mr-2"></i>
+              Download Workbook (PDF)
+            </a>
+          </div>
+          <div class="p-4 bg-gray-700 rounded-lg">
+            <h3 class="text-xl font-bold mb-2 text-secondary">Pamphlet</h3>
+            <a href="https://www.scouting.org/merit-badges/citizenship-in-society/" 
+               class="text-primary hover:text-primary-dark flex items-center" 
+               target="_blank">
+              <i data-feather="shopping-cart" class="w-4 h-4 mr-2"></i>
+              Purchase Pamphlet
+            </a>
+          </div>
+        </div>
+
+        <h2>Description</h2>
+        <p>The Citizenship in Society merit badge is a unique opportunity for Scouts to explore diversity, equity, and inclusion while developing their leadership skills. This merit badge helps Scouts understand how to be an upstander and make a positive impact in their communities.</p>
+
+        <h3>Requirements</h3>
+        <ol class="list-decimal pl-6 space-y-2">
+          <li>Research and Discussion
+            <ul class="list-disc pl-6 mt-2">
+              <li>Research and define key terms: diversity, equity, inclusion, ethical leadership, and upstander</li>
+              <li>Discuss with your counselor how these concepts relate to Scouting values</li>
+            </ul>
+          </li>
+          <li>Document Review
+            <ul class="list-disc pl-6 mt-2">
+              <li>Review the Scout Oath and Scout Law</li>
+              <li>Explain how they relate to citizenship in society</li>
+              <li>Discuss how these values help create inclusive environments</li>
+            </ul>
+          </li>
+          <li>Personal Experience
+            <ul class="list-disc pl-6 mt-2">
+              <li>Share a time when you experienced discrimination</li>
+              <li>Describe how you felt and how you responded</li>
+              <li>Discuss what you learned from the experience</li>
+            </ul>
+          </li>
+          <li>Community Impact
+            <ul class="list-disc pl-6 mt-2">
+              <li>Identify a community issue related to diversity, equity, or inclusion</li>
+              <li>Research the issue and develop a plan to address it</li>
+              <li>Take action to implement your plan</li>
+            </ul>
+          </li>
+          <li>Leadership Project
+            <ul class="list-disc pl-6 mt-2">
+              <li>Plan and lead a discussion or activity that promotes understanding of diversity</li>
+              <li>Include at least three different perspectives</li>
+              <li>Document the outcomes and lessons learned</li>
+            </ul>
+          </li>
+          <li>Ethical Decision Making
+            <ul class="list-disc pl-6 mt-2">
+              <li>Describe a situation where you had to make an ethical decision</li>
+              <li>Explain your thought process and the outcome</li>
+              <li>Discuss what you learned about leadership</li>
+            </ul>
+          </li>
+          <li>Documentation and Reflection
+            <ul class="list-disc pl-6 mt-2">
+              <li>Document your work on this merit badge</li>
+              <li>Reflect on what you learned about yourself and others</li>
+              <li>Share your insights with your counselor</li>
+            </ul>
+          </li>
+        </ol>
+
+        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 my-6">
+          <div class="flex">
+            <div class="flex-shrink-0">
+              <i data-feather="info" class="text-blue-500"></i>
+            </div>
+            <div class="ml-3">
+              <p class="text-sm text-blue-700">
+                <strong>Pro Tip:</strong> For requirement 5, consider organizing a diversity workshop or discussion group at your school or community center. This can provide valuable experience in leadership while making a positive impact in your community.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <h2>Resources</h2>
+        <ul class="list-disc pl-6 space-y-2">
+          <li><a href="https://www.scouting.org/merit-badges/citizenship-in-society/" class="text-primary hover:text-primary-dark" target="_blank">Official Merit Badge Pamphlet</a></li>
+          <li><a href="https://www.scouting.org/merit-badges/citizenship-in-society/" class="text-primary hover:text-primary-dark" target="_blank">Merit Badge Workbook</a></li>
+          <li><a href="https://www.scouting.org/diversity-equity-inclusion/" class="text-primary hover:text-primary-dark" target="_blank">Scouting.org Diversity, Equity, and Inclusion Resources</a></li>
+        </ul>
+
+        <h2>Pro Tips</h2>
+        <ol class="list-decimal pl-6 space-y-4">
+          <li>
+            <strong>Be Open-Minded</strong>
+            <ul class="list-disc pl-6 mt-2">
+              <li>Approach discussions with curiosity and respect</li>
+              <li>Listen actively to different perspectives</li>
+              <li>Be willing to learn from others' experiences</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Document Everything</strong>
+            <ul class="list-disc pl-6 mt-2">
+              <li>Keep detailed notes of your research</li>
+              <li>Record your thoughts and reflections</li>
+              <li>Take photos or videos of your activities (with permission)</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Choose Meaningful Projects</strong>
+            <ul class="list-disc pl-6 mt-2">
+              <li>Select issues that matter to your community</li>
+              <li>Involve diverse stakeholders</li>
+              <li>Focus on sustainable solutions</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Practice Active Listening</strong>
+            <ul class="list-disc pl-6 mt-2">
+              <li>Give others your full attention</li>
+              <li>Ask clarifying questions</li>
+              <li>Reflect back what you've heard</li>
+            </ul>
+          </li>
+        </ol>
+
+        <h2>Related Merit Badges</h2>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Citizenship in the Nation</li>
+          <li>Citizenship in the World</li>
+          <li>Citizenship in the Community</li>
+          <li>Communication</li>
+          <li>Leadership</li>
+        </ul>
+
+        <h2>Organizations to Contact</h2>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Local diversity and inclusion organizations</li>
+          <li>Community centers</li>
+          <li>School diversity clubs</li>
+          <li>Cultural organizations</li>
+          <li>Civil rights groups</li>
+        </ul>
+
+        <div class="mt-8 p-4 bg-gray-50 rounded-lg">
+          <p class="text-gray-700">
+            <strong>Remember:</strong> The Citizenship in Society merit badge is about developing the skills and understanding needed to be an ethical leader in an increasingly diverse world. Focus on learning, growing, and making a positive impact in your community.
+          </p>
+        </div>
+      </div>
+
+      <!-- Article Footer -->
+      <div class="mt-8 pt-6 border-t">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-4">
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="thumbs-up" class="icon-hover"></i>
+              <span>Helpful</span>
+            </button>
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="message-square" class="icon-hover"></i>
+              <span>Comment</span>
+            </button>
+          </div>
+          <div class="flex items-center space-x-4">
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="share-2" class="icon-hover"></i>
+              <span>Share</span>
+            </button>
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="bookmark" class="icon-hover"></i>
+              <span>Save</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Related Articles -->
+    <div class="mt-8">
+      <h2 class="text-2xl font-bold mb-4">Related Merit Badges</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <a href="citizenship-in-the-nation.html" class="wiki-article block">
+          <h3 class="text-lg font-bold mb-2">Citizenship in the Nation</h3>
+          <p class="text-gray-600">Learn about U.S. citizenship and government.</p>
+        </a>
+        <a href="citizenship-in-the-world.html" class="wiki-article block">
+          <h3 class="text-lg font-bold mb-2">Citizenship in the World</h3>
+          <p class="text-gray-600">Explore global citizenship and international relations.</p>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Initialize Feather icons
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.feather) {
+        feather.replace();
+      }
+    });
+  </script>
+</body>
+</html> 

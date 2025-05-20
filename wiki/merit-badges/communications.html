@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Communications - Merit Badge Wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Heroicons CDN for sidebar icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../../css/styles.css">
+  <!-- Common JavaScript -->
+  <script src="../../js/common.js"></script>
+  <script>
+    // Protect this page from unauthorized access
+    document.addEventListener('DOMContentLoaded', function() {
+      if (!isUserLoggedIn()) {
+        window.location.href = '../../index.html';
+      }
+    });
+  </script>
+</head>
+<body class="bg-gray-100 flex">
+  <!-- Sidebar Navigation -->
+  <aside id="sidebar" class="w-64 bg-white h-screen shadow flex flex-col transition-all duration-300 ease-in-out hover:w-64 group">
+    <div class="p-6 border-b whitespace-nowrap overflow-hidden">
+      <span class="text-2xl font-title">Troop 874</span>
+    </div>
+    <nav class="flex-1 p-4 space-y-2">
+      <a href="../../index.html" class="flex items-center p-2 rounded hover:bg-blue-100 text-blue-700 font-semibold whitespace-nowrap overflow-hidden">
+        <i data-feather="home" class="mr-3 flex-shrink-0"></i> <span class="truncate">Cover Page</span>
+      </a>
+      <a href="../../wiki.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden active">
+        <i data-feather="book-open" class="mr-3 flex-shrink-0"></i> <span class="truncate">Wiki</span>
+      </a>
+      <a href="../../dashboard.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+        <i data-feather="user" class="mr-3 flex-shrink-0"></i> <span class="truncate">Account Dashboard</span>
+      </a>
+      <a href="../../communications.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+        <i data-feather="message-circle" class="mr-3 flex-shrink-0"></i> <span class="truncate">Communications</span>
+      </a>
+      <a href="../../calendar.html" class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+        <i data-feather="calendar" class="mr-3 flex-shrink-0"></i> <span class="truncate">Calendar</span>
+      </a>
+    </nav>
+    <div class="p-4 border-t whitespace-nowrap overflow-hidden">
+      <!-- Login toggle button -->
+      <button id="loginToggle" class="w-full py-2 px-4 btn-primary rounded flex items-center justify-center">
+        <i data-feather="log-in" class="mr-2"></i>
+        <span>Login</span>
+      </button>
+      <div id="loginStatus" class="mt-2 text-center text-sm"></div>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 p-10 transition-all duration-300 ease-in-out page-transition">
+    <!-- Article Navigation -->
+    <div class="flex items-center space-x-4 mb-8">
+      <a href="../../wiki.html" class="text-blue-600 hover:text-blue-800 flex items-center">
+        <i data-feather="arrow-left" class="w-4 h-4 mr-2"></i>
+        Back to Wiki
+      </a>
+      <span class="text-gray-400">/</span>
+      <a href="index.html" class="text-blue-600 hover:text-blue-800">Merit Badges</a>
+      <span class="text-gray-400">/</span>
+      <span class="text-gray-600">Communications</span>
+    </div>
+
+    <!-- Article Header -->
+    <div class="banner mb-8">
+      <h1 class="text-3xl font-title">Communications</h1>
+      <div class="flex items-center space-x-4 mt-2 text-sm">
+        <span class="flex items-center"><i data-feather="award" class="w-4 h-4 mr-1"></i> Eagle Required</span>
+        <span class="flex items-center"><i data-feather="clock" class="w-4 h-4 mr-1"></i> Last updated: March 15, 2024</span>
+      </div>
+    </div>
+
+    <!-- Article Content -->
+    <div class="wiki-article">
+      <div class="prose max-w-none">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div class="p-4 bg-gray-700 rounded-lg">
+            <h3 class="text-xl font-bold mb-2 text-secondary">Workbook</h3>
+            <a href="https://filestore.scouting.org/filestore/merit_badge_reqandres/Communications.pdf" 
+               class="text-primary hover:text-primary-dark flex items-center" 
+               target="_blank">
+              <i data-feather="download" class="w-4 h-4 mr-2"></i>
+              Download Workbook (PDF)
+            </a>
+          </div>
+          <div class="p-4 bg-gray-700 rounded-lg">
+            <h3 class="text-xl font-bold mb-2 text-secondary">Pamphlet</h3>
+            <a href="https://www.scoutshop.org/communications-merit-badge-pamphlet-35914.html" 
+               class="text-primary hover:text-primary-dark flex items-center" 
+               target="_blank">
+              <i data-feather="shopping-cart" class="w-4 h-4 mr-2"></i>
+              Purchase Pamphlet
+            </a>
+          </div>
+        </div>
+
+        <h2>Description</h2>
+        <p>The Communications merit badge teaches Scouts how to effectively communicate in various situations and formats. Scouts learn about public speaking, writing, digital communication, and interpersonal skills. This merit badge emphasizes practical communication skills that are essential for success in school, work, and personal relationships.</p>
+
+        <h3>Requirements</h3>
+        <ol class="list-decimal pl-6 space-y-2">
+          <li>Do the following:
+            <ul class="list-disc pl-6 mt-2">
+              <li>For one day, keep a log in which you describe your communication activities. Keep track of the time and different ways you spend communicating, such as talking person-to-person, listening to teachers, the radio, or podcasts, watching television, using social media, reading books and other print media, and using any electronic communication device. Discuss with your counselor what your log reveals about the importance of communication in your life. Think of ways to improve your communications skills.</li>
+              <li>For three days, keep a journal of your listening experiences. Identify who you were listening to, where you were, how well you did at following the conversation, and what you learned from the experience.</li>
+            </ul>
+          </li>
+          <li>Do the following:
+            <ul class="list-disc pl-6 mt-2">
+              <li>Show that you know how to get and keep the attention of an audience.</li>
+              <li>Choose a topic that interests you and that you know something about. Prepare a five-minute speech on that topic. Give the speech at a meeting of your patrol, troop, or class.</li>
+              <li>Show that you know how to answer questions or objections from your audience.</li>
+            </ul>
+          </li>
+          <li>Do the following:
+            <ul class="list-disc pl-6 mt-2">
+              <li>Write a five-minute speech. Give it at a meeting of your patrol, troop, or class.</li>
+              <li>Show that you know how to use email and send a message to someone.</li>
+              <li>Use a word processor to write a letter to a friend or relative.</li>
+              <li>Use a presentation software program to create a presentation about a topic that interests you. Include at least 10 slides.</li>
+            </ul>
+          </li>
+          <li>Do the following:
+            <ul class="list-disc pl-6 mt-2">
+              <li>Show that you know how to make and keep an appointment.</li>
+              <li>Show that you know how to be on time for an appointment.</li>
+              <li>Show that you know how to plan and make a telephone call.</li>
+              <li>Show that you know how to take a telephone message.</li>
+            </ul>
+          </li>
+          <li>Do the following:
+            <ul class="list-disc pl-6 mt-2">
+              <li>Write a thank-you letter to someone who has helped you in some way.</li>
+              <li>Write a letter of complaint about a product or service.</li>
+              <li>Write a letter to a friend or relative about your Scouting activities.</li>
+            </ul>
+          </li>
+          <li>Do the following:
+            <ul class="list-disc pl-6 mt-2">
+              <li>Show that you know how to fill out a job application.</li>
+              <li>Prepare a personal résumé that you would use to apply for a job.</li>
+              <li>Be prepared to discuss your résumé with your merit badge counselor.</li>
+            </ul>
+          </li>
+          <li>Do the following:
+            <ul class="list-disc pl-6 mt-2">
+              <li>Show that you know how to properly address an envelope.</li>
+              <li>Show that you know how to properly address a postcard.</li>
+              <li>Show that you know how to properly address a package.</li>
+            </ul>
+          </li>
+          <li>Do the following:
+            <ul class="list-disc pl-6 mt-2">
+              <li>Show that you know how to properly address an envelope.</li>
+              <li>Show that you know how to properly address a postcard.</li>
+              <li>Show that you know how to properly address a package.</li>
+            </ul>
+          </li>
+          <li>Do the following:
+            <ul class="list-disc pl-6 mt-2">
+              <li>Show that you know how to properly address an envelope.</li>
+              <li>Show that you know how to properly address a postcard.</li>
+              <li>Show that you know how to properly address a package.</li>
+            </ul>
+          </li>
+        </ol>
+
+        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 my-6">
+          <div class="flex">
+            <div class="flex-shrink-0">
+              <i data-feather="info" class="text-blue-500"></i>
+            </div>
+            <div class="ml-3">
+              <p class="text-sm text-blue-700">
+                <strong>Pro Tip:</strong> For requirement 2, practice your speech multiple times before giving it to your patrol or troop. Record yourself and watch the video to identify areas for improvement. Pay attention to your body language, voice modulation, and eye contact. Remember to breathe and speak clearly.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <h2>Resources</h2>
+        <ul class="list-disc pl-6 space-y-2">
+          <li><a href="https://www.toastmasters.org/" class="text-primary hover:text-primary-dark" target="_blank">Toastmasters International</a></li>
+          <li><a href="https://www.scouting.org/communications/" class="text-primary hover:text-primary-dark" target="_blank">BSA Communications</a></li>
+          <li><a href="https://owl.purdue.edu/" class="text-primary hover:text-primary-dark" target="_blank">Purdue Online Writing Lab</a></li>
+          <li><a href="https://www.usps.com/" class="text-primary hover:text-primary-dark" target="_blank">United States Postal Service</a></li>
+        </ul>
+      </div>
+
+      <!-- Article Footer -->
+      <div class="mt-8 pt-6 border-t">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-4">
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="thumbs-up" class="icon-hover"></i>
+              <span>Helpful</span>
+            </button>
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="message-square" class="icon-hover"></i>
+              <span>Comment</span>
+            </button>
+          </div>
+          <div class="flex items-center space-x-4">
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="share-2" class="icon-hover"></i>
+              <span>Share</span>
+            </button>
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="bookmark" class="icon-hover"></i>
+              <span>Save</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Related Articles -->
+    <div class="mt-8">
+      <h2 class="text-2xl font-bold mb-4">Related Merit Badges</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <a href="public-speaking.html" class="wiki-article block">
+          <h3 class="text-lg font-bold mb-2">Public Speaking</h3>
+          <p class="text-gray-600">Develop advanced speaking skills.</p>
+        </a>
+        <a href="journalism.html" class="wiki-article block">
+          <h3 class="text-lg font-bold mb-2">Journalism</h3>
+          <p class="text-gray-600">Learn about news writing and reporting.</p>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Initialize Feather icons
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.feather) {
+        feather.replace();
+      }
+    });
+  </script>
+</body>
+</html> 
