@@ -70,31 +70,75 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Initialize card tilting effect
-  const cards = document.querySelectorAll('.card, .wiki-article, .wiki-category, .stat-card, .profile-header, .banner');
+  const tiltElements = document.querySelectorAll(`
+    .card, 
+    .wiki-article, 
+    .wiki-category, 
+    .stat-card, 
+    .profile-header, 
+    .banner,
+    .wiki-directory > div,
+    .dashboard-stats > div,
+    .announcement-card,
+    .event-card,
+    .profile-card,
+    .merit-badge-card,
+    .communication-card,
+    .notification-card,
+    .settings-card,
+    .help-card,
+    .resource-card,
+    .training-card,
+    .achievement-card,
+    .progress-card,
+    .calendar-event,
+    .email-card,
+    .message-card,
+    .document-card,
+    .media-card,
+    .gallery-item,
+    .team-card,
+    .leaderboard-card,
+    .activity-card,
+    .feedback-card,
+    .report-card,
+    .analytics-card,
+    .chart-card,
+    .metric-card,
+    .insight-card,
+    .trend-card,
+    .comparison-card,
+    .summary-card,
+    .detail-card,
+    .overview-card,
+    .status-card,
+    .alert-card,
+    .info-card,
+    .warning-card,
+    .success-card,
+    .error-card
+  `);
   
-  cards.forEach(card => {
-    card.addEventListener('mousemove', handleCardTilt);
-    card.addEventListener('mouseleave', resetCardTilt);
+  tiltElements.forEach(element => {
+    element.addEventListener('mousemove', handleCardTilt);
+    element.addEventListener('mouseleave', resetCardTilt);
   });
 
   function handleCardTilt(e) {
-    const card = this;
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left; // x position within the card
-    const y = e.clientY - rect.top; // y position within the card
+    const element = this;
+    const rect = element.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
     
-    // Calculate rotation based on mouse position
-    // Center of the card is (rect.width/2, rect.height/2)
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
     
-    // Calculate rotation angles (in degrees)
-    // Max rotation of 5 degrees in any direction
-    const rotateY = ((x - centerX) / centerX) * 5;
-    const rotateX = -((y - centerY) / centerY) * 5;
+    // Reduced max rotation to 0.5 degrees
+    const rotateY = ((x - centerX) / centerX) * 0.5;
+    const rotateX = -((y - centerY) / centerY) * 0.5;
     
-    // Apply the transform
-    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+    // Apply the transform with reduced scale
+    element.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.01, 1.01, 1.01)`;
   }
 
   function resetCardTilt() {
