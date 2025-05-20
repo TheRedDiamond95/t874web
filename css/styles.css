@@ -164,7 +164,16 @@ main {
 }
 
 #loginToggle:hover {
-  background-color: var(--primary-dark);
+  background-color: rgba(220, 38, 38, 0.2) !important; /* Lighter red with opacity */
+}
+
+#loginToggle.active {
+  background-color: transparent !important;
+  color: var(--secondary) !important;
+}
+
+#loginToggle.active i {
+  color: var(--secondary) !important;
 }
 
 /* Card styles */
@@ -591,13 +600,22 @@ a.text-blue-600:hover {
 }
 
 #sidebar a:hover {
-  background: var(--primary);
+  background-color: rgba(220, 38, 38, 0.2) !important; /* Lighter red with opacity */
   color: var(--text-light);
 }
 
 #sidebar a.active {
-  background: var(--primary);
-  color: var(--text-light);
+  background-color: transparent !important;
+  color: var(--secondary) !important; /* Yellow text for active state */
+  font-weight: 500;
+}
+
+#sidebar a.active i {
+  color: var(--secondary) !important; /* Yellow icon for active state */
+}
+
+#sidebar a.active:hover {
+  background-color: rgba(220, 38, 38, 0.2) !important; /* Keep hover effect even when active */
 }
 
 /* Rich Text Editor */
