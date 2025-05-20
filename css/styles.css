@@ -32,6 +32,11 @@ body {
 h1, h2, h3, h4, h5, h6, .font-title {
   font-family: 'Victor Mono', monospace;
   font-weight: 700;
+  background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
 }
 
 /* Sidebar styles */
@@ -88,7 +93,7 @@ h1, h2, h3, h4, h5, h6, .font-title {
 }
 
 #sidebar a:hover {
-  background-color: var(--primary);
+  background-color: #991b1b !important; /* Darker red */
   color: var(--text-light);
 }
 
@@ -152,8 +157,8 @@ main {
 }
 
 .btn-primary:hover {
-  background-color: var(--primary-dark);
-  border-color: var(--primary-dark);
+  background-color: #991b1b !important; /* Darker red */
+  border-color: #991b1b !important;
 }
 
 #loginToggle {
@@ -248,7 +253,7 @@ main h2 {
 /* Card hover effects */
 .card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 15px -3px rgba(153, 27, 27, 0.1), 0 4px 6px -2px rgba(153, 27, 27, 0.05);
 }
 
 /* Icon animations */
@@ -341,7 +346,7 @@ main h2 {
 }
 
 .wiki-category:hover {
-  background: var(--primary);
+  background: #991b1b !important; /* Darker red */
   color: var(--text-light);
 }
 
@@ -386,17 +391,17 @@ a.text-blue-600:hover {
 
 /* Update hover states for buttons */
 .hover\:bg-blue-50:hover {
-  background-color: rgba(220, 38, 38, 0.1) !important;
+  background-color: rgba(153, 27, 27, 0.05) !important; /* Even darker red with lower opacity */
 }
 
 .hover\:text-blue-600:hover {
-  color: var(--primary) !important;
+  color: #991b1b !important; /* Darker red */
 }
 
 /* Update active states */
 .active {
   color: var(--text-light) !important;
-  background-color: var(--primary) !important;
+  background-color: #991b1b !important; /* Darker red */
 }
 
 /* Update focus states */
@@ -405,7 +410,7 @@ a.text-blue-600:hover {
 }
 
 .focus\:ring-blue-200:focus {
-  --tw-ring-color: rgba(220, 38, 38, 0.2) !important;
+  --tw-ring-color: rgba(153, 27, 27, 0.2) !important; /* Darker red with opacity */
 }
 
 /* Update button colors */
@@ -429,12 +434,12 @@ a.text-blue-600:hover {
 
 /* Update background colors for hover states */
 .hover\:bg-blue-100:hover {
-  background-color: rgba(220, 38, 38, 0.1) !important;
+  background-color: rgba(153, 27, 27, 0.1) !important; /* Darker red with opacity */
 }
 
 /* Update text colors for hover states */
 .hover\:text-blue-800:hover {
-  color: var(--primary-dark) !important;
+  color: #7f1d1d !important; /* Even darker red */
 }
 
 /* Custom styles for the portal */
@@ -460,7 +465,7 @@ a.text-blue-600:hover {
 
 .card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 15px -3px rgba(153, 27, 27, 0.1), 0 4px 6px -2px rgba(153, 27, 27, 0.05);
 }
 
 /* Icons */
@@ -517,7 +522,7 @@ a.text-blue-600:hover {
 }
 
 .wiki-category:hover {
-  background: var(--primary);
+  background: #991b1b !important; /* Darker red */
   color: var(--text-light);
 }
 
@@ -626,16 +631,16 @@ input:focus, textarea:focus, select:focus {
 /* Calendar */
 .calendar-day {
   background: var(--bg-dark);
-  color: var(--text-light);
+  color: var(--text-dark) !important;
 }
 
 .calendar-event {
   background: var(--primary);
-  color: var(--text-light);
+  color: var(--text-dark) !important;
 }
 
 .calendar-event:hover {
-  background: var(--primary-dark);
+  background: #991b1b !important; /* Darker red */
 }
 
 /* User Profile */
@@ -698,5 +703,27 @@ body {
 }
 
 .context-menu-item:hover {
-  background: var(--primary);
+  background: #991b1b !important; /* Darker red */
+}
+
+/* Email sender text colors */
+#recipientSuggestions {
+  color: var(--text-dark);
+}
+
+#recipientSuggestions .font-medium {
+  color: var(--text-dark);
+}
+
+#recipientSuggestions .text-gray-500 {
+  color: var(--gray-700);
+}
+
+/* Hide elements when logged out */
+[data-requires-login] {
+  display: none;
+}
+
+body:has(#loginStatus:contains("Logged in")) [data-requires-login] {
+  display: flex;
 } 

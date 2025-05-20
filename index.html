@@ -17,7 +17,7 @@
   <!-- Sidebar Navigation -->
   <aside id="sidebar" class="w-64 bg-white h-screen shadow flex flex-col transition-all duration-300 ease-in-out hover:w-64 group">
     <div class="p-6 border-b whitespace-nowrap overflow-hidden">
-      <span class="text-2xl font-title">My Portal</span>
+      <span class="text-2xl font-title">Troop 874</span>
     </div>
     <nav class="flex-1 p-4 space-y-2">
       <a href="index.html" class="flex items-center p-2 rounded hover:bg-blue-100 text-blue-700 font-semibold whitespace-nowrap overflow-hidden active">
@@ -36,10 +36,11 @@
         <i data-feather="calendar" class="mr-3 flex-shrink-0"></i> <span class="truncate">Calendar</span>
       </a>
     </nav>
-    <div class="p-4 border-t whitespace-nowrap overflow-hidden">
+    <div class="p-4 border-t whitespace-nowrap overflow-hidden login-section">
       <!-- Login toggle button -->
-      <button id="loginToggle" class="w-full py-2 px-4 btn-primary rounded">
-        Login
+      <button id="loginToggle" class="w-full py-2 px-4 btn-primary rounded flex items-center justify-center">
+        <i data-feather="log-in" class="mr-2"></i>
+        <span>Login</span>
       </button>
       <div id="loginStatus" class="mt-2 text-center text-sm"></div>
     </div>
@@ -91,6 +92,59 @@
         extraAnnouncements.classList.toggle('hidden', !isUserLoggedIn());
       }
     });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize sidebar minimized state
+      const sidebar = document.getElementById('sidebar');
+      const isMinimized = localStorage.getItem('sidebarMinimized') === 'true';
+      if (isMinimized) {
+        sidebar.classList.add('minimized');
+      }
+
+      // Toggle sidebar on hover
+      sidebar.addEventListener('mouseenter', () => {
+        if (isMinimized) {
+          sidebar.classList.remove('minimized');
+        }
+      });
+
+      sidebar.addEventListener('mouseleave', () => {
+        if (isMinimized) {
+          sidebar.classList.add('minimized');
+        }
+      });
+
+      // Toggle sidebar minimized state
+      sidebar.addEventListener('click', (e) => {
+        if (e.target === sidebar) {
+          const newState = !sidebar.classList.contains('minimized');
+          sidebar.classList.toggle('minimized');
+          localStorage.setItem('sidebarMinimized', newState);
+        }
+      });
+
+      // Update login button icon based on state
+      const loginToggle = document.getElementById('loginToggle');
+      const loginStatus = document.getElementById('loginStatus');
+      
+      function updateLoginUI() {
+        const isLoggedIn = localStorage.getItem('isLoggedIn') === "1";
+        loginStatus.textContent = isLoggedIn ? "Logged in" : "Logged out";
+        loginToggle.innerHTML = isLoggedIn ? 
+          '<i data-feather="log-out" class="mr-2"></i><span>Logout</span>' :
+          '<i data-feather="log-in" class="mr-2"></i><span>Login</span>';
+        if (window.feather) feather.replace();
+      }
+
+      loginToggle.addEventListener('click', function() {
+        const isLoggedIn = localStorage.getItem('isLoggedIn') === "1";
+        localStorage.setItem('isLoggedIn', isLoggedIn ? "0" : "1");
+        updateLoginUI();
+      });
+
+      // Initialize
+      updateLoginUI();
+    });
   </script>
   <style>
     .hero-banner {
@@ -123,6 +177,49 @@
 
     .hero-banner p {
       text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    #sidebar.minimized .text-2xl {
+      font-size: 0;
+    }
+
+    #sidebar.minimized .text-2xl::before {
+      content: '';
+      width: 24px;
+      height: 24px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d4af37' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2L2 7l10 5 10-5-10-5z'/%3E%3Cpath d='M2 17l10 5 10-5'/%3E%3Cpath d='M2 12l10 5 10-5'/%3E%3C/svg%3E");
+      background-size: contain;
+      background-repeat: no-repeat;
+      display: inline-block;
+    }
+
+    #sidebar.minimized #loginToggle span {
+      display: none;
+    }
+
+    #sidebar.minimized #loginToggle i {
+      margin: 0;
+    }
+
+    #sidebar.minimized {
+      width: 4rem !important;
+    }
+
+    #sidebar.minimized a {
+      justify-content: center;
+      padding: 0.5rem;
+    }
+
+    #sidebar.minimized a span {
+      display: none;
+    }
+
+    #sidebar.minimized a i {
+      margin: 0;
+    }
+
+    #sidebar.minimized .login-section {
+      padding: 0.5rem;
     }
   </style>
 </body>
