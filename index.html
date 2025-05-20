@@ -61,23 +61,67 @@
 
     <!-- Rest of the content -->
     <div class="p-10">
-      <h1 class="text-3xl font-title mb-6">Public Announcements</h1>
+      <h1 class="text-3xl font-title mb-6">Troop Announcements</h1>
       <ul class="space-y-4" id="public-announcements">
         <li class="p-4 rounded card">
-          <span class="font-semibold">System Maintenance:</span> The portal will be down for maintenance on Saturday 10pm-12am.
+          <div class="flex items-start space-x-3">
+            <i data-feather="calendar" class="text-primary mt-1"></i>
+            <div>
+              <span class="font-semibold">Upcoming Campout:</span> Spring Camping Trip scheduled for April 15-17 at Lake Arrowhead. Sign up by March 30th!
+            </div>
+          </div>
         </li>
         <li class="p-4 rounded card">
-          <span class="font-semibold">Welcome:</span> New features have been added to the Communications Module!
+          <div class="flex items-start space-x-3">
+            <i data-feather="award" class="text-secondary mt-1"></i>
+            <div>
+              <span class="font-semibold">Eagle Scout Court of Honor:</span> Join us in celebrating John Smith's Eagle Scout achievement on March 25th at 2 PM in the Community Center.
+            </div>
+          </div>
+        </li>
+        <li class="p-4 rounded card">
+          <div class="flex items-start space-x-3">
+            <i data-feather="users" class="text-primary mt-1"></i>
+            <div>
+              <span class="font-semibold">New Scout Orientation:</span> Welcome meeting for new scouts and parents on March 20th at 7 PM in the Scout Hut.
+            </div>
+          </div>
+        </li>
+        <li class="p-4 rounded card">
+          <div class="flex items-start space-x-3">
+            <i data-feather="trending-up" class="text-secondary mt-1"></i>
+            <div>
+              <span class="font-semibold">Merit Badge Opportunities:</span> Sign up now for the upcoming First Aid and Emergency Preparedness merit badge workshops.
+            </div>
+          </div>
         </li>
       </ul>
       <div id="extra-announcements" class="mt-8 hidden">
-        <h2 class="text-2xl font-title mb-4">Extra Announcements for Logged-in Users</h2>
+        <h2 class="text-2xl font-title mb-4">Member-Only Updates</h2>
         <ul class="space-y-4">
           <li class="p-4 rounded card bg-blue-50">
-            <span class="font-semibold">Private Event:</span> Staff meeting on Friday at 2pm in Conference Room B.
+            <div class="flex items-start space-x-3">
+              <i data-feather="clipboard" class="text-primary mt-1"></i>
+              <div>
+                <span class="font-semibold">Service Project Planning:</span> Leadership team meeting on Friday at 6 PM to plan the upcoming community service project.
+              </div>
+            </div>
           </li>
           <li class="p-4 rounded card bg-blue-50">
-            <span class="font-semibold">Account Notice:</span> Your profile is 90% complete. <a href="dashboard.html" class="text-primary hover:text-primary-dark underline">Complete it now</a>.
+            <div class="flex items-start space-x-3">
+              <i data-feather="check-circle" class="text-secondary mt-1"></i>
+              <div>
+                <span class="font-semibold">Advancement Updates:</span> Your Scoutmaster Conference is scheduled for next Tuesday. <a href="calendar.html" class="text-primary hover:text-primary-dark underline">View details</a>
+              </div>
+            </div>
+          </li>
+          <li class="p-4 rounded card bg-blue-50">
+            <div class="flex items-start space-x-3">
+              <i data-feather="dollar-sign" class="text-primary mt-1"></i>
+              <div>
+                <span class="font-semibold">Fundraising Opportunity:</span> Sign up for the upcoming car wash fundraiser on March 23rd. <a href="dashboard.html" class="text-primary hover:text-primary-dark underline">Register now</a>
+              </div>
+            </div>
           </li>
         </ul>
       </div>

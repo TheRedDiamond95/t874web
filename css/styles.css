@@ -172,10 +172,11 @@ main {
 
 /* Card styles */
 .card {
-  background-color: var(--bg-dark);
-  border: 1px solid var(--gray-200);
+  background-color: var(--gray-700);
+  border: 1px solid var(--gray-600);
   border-radius: 0.5rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  color: var(--text-light);
 }
 
 /* Content styles */
@@ -195,16 +196,28 @@ main h2 {
 /* Announcement styles */
 #public-announcements li,
 #extra-announcements li {
-  background-color: white;
-  border: 1px solid var(--gray-200);
+  background-color: var(--gray-700);
+  border: 1px solid var(--gray-600);
   border-radius: 0.5rem;
   transition: all 0.2s ease-in-out;
+  color: var(--text-light);
 }
 
 #public-announcements li:hover,
 #extra-announcements li:hover {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   transform: translateY(-2px);
+  background-color: var(--gray-600);
+}
+
+/* Member-only announcements */
+#extra-announcements li {
+  background-color: var(--gray-600);
+  border-color: var(--gray-500);
+}
+
+#extra-announcements li:hover {
+  background-color: var(--gray-500);
 }
 
 /* Status text */
@@ -304,29 +317,28 @@ main h2 {
 
 /* Dashboard stats */
 .stat-card {
-  background: var(--bg-dark);
-  color: var(--text-light);
-  padding: 1.5rem;
+  background-color: var(--gray-700);
+  border: 1px solid var(--gray-600);
   border-radius: 0.5rem;
-  transition: transform 0.2s ease-in-out;
+  padding: 1.5rem;
+  color: var(--text-light);
 }
 
 .stat-card:hover {
-  transform: translateY(-2px);
+  background-color: var(--gray-600);
 }
 
 /* Wiki article styles */
 .wiki-article {
-  background: var(--bg-dark);
-  color: var(--text-light);
-  padding: 1.5rem;
+  background-color: var(--gray-700);
+  border: 1px solid var(--gray-600);
   border-radius: 0.5rem;
-  transition: all 0.2s ease-in-out;
+  padding: 1.5rem;
+  color: var(--text-light);
 }
 
 .wiki-article:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  background-color: var(--gray-600);
 }
 
 /* Wiki directory styles */
@@ -361,11 +373,11 @@ main h2 {
 
 /* Profile header */
 .profile-header {
-  background: var(--bg-dark);
-  color: var(--text-light);
-  padding: 2rem;
+  background-color: var(--gray-700);
+  border: 1px solid var(--gray-600);
   border-radius: 0.5rem;
-  margin-bottom: 2rem;
+  padding: 1.5rem;
+  color: var(--text-light);
 }
 
 .profile-avatar {
@@ -618,20 +630,21 @@ a.text-blue-600:hover {
 
 /* Form Elements */
 input, textarea, select {
-  background: var(--bg-dark);
-  color: var(--text-light);
-  border-color: var(--primary);
+  background-color: var(--gray-700) !important;
+  border-color: var(--gray-600) !important;
+  color: var(--text-light) !important;
 }
 
 input:focus, textarea:focus, select:focus {
-  border-color: var(--secondary);
-  box-shadow: 0 0 0 2px var(--secondary);
+  border-color: var(--primary) !important;
+  background-color: var(--gray-600) !important;
 }
 
 /* Calendar */
 .calendar-day {
-  background: var(--bg-dark);
-  color: var(--text-dark) !important;
+  background-color: var(--gray-700);
+  border: 1px solid var(--gray-600);
+  color: var(--text-light);
 }
 
 .calendar-event {
@@ -655,11 +668,11 @@ input:focus, textarea:focus, select:focus {
 
 /* Links */
 a {
-  color: var(--primary);
+  color: var(--secondary);
 }
 
 a:hover {
-  color: var(--primary-dark);
+  color: var(--primary);
 }
 
 /* Text Colors */
@@ -726,4 +739,49 @@ body {
 
 body:has(#loginStatus:contains("Logged in")) [data-requires-login] {
   display: flex;
+}
+
+/* Update text colors for better contrast */
+.text-gray-500 {
+  color: var(--gray-300) !important;
+}
+
+.text-gray-600 {
+  color: var(--gray-200) !important;
+}
+
+.text-gray-700 {
+  color: var(--gray-100) !important;
+}
+
+/* Update link colors for better visibility */
+a {
+  color: var(--secondary);
+}
+
+a:hover {
+  color: var(--primary);
+}
+
+/* Update form input backgrounds */
+input, textarea, select {
+  background-color: var(--gray-700) !important;
+  border-color: var(--gray-600) !important;
+  color: var(--text-light) !important;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--primary) !important;
+  background-color: var(--gray-600) !important;
+}
+
+/* Update dropdown backgrounds */
+.dropdown-menu {
+  background-color: var(--gray-700);
+  border-color: var(--gray-600);
+  color: var(--text-light);
+}
+
+.dropdown-item:hover {
+  background-color: var(--gray-600);
 } 
