@@ -2,7 +2,7 @@
   File: dashboard.html
 ========================= -->
 <!--
-  Simple placeholder Account Dashboard page with sidebar
+  Modern Account Dashboard with user profile and statistics
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -59,12 +59,123 @@
     </div>
   </aside>
   <!-- Main Content -->
-  <main class="flex-1 p-10 transition-all duration-300 ease-in-out">
-    <h1 class="text-3xl font-title mb-6">Account Dashboard</h1>
-    <div class="card p-6">
-      <p class="text-gray-600">Welcome to your dashboard. This content is only visible to logged-in users.</p>
+  <main class="flex-1 p-10 transition-all duration-300 ease-in-out page-transition">
+    <!-- Banner -->
+    <div class="banner mb-8">
+      <h1 class="text-3xl font-title">Welcome back, John Doe!</h1>
+      <p class="mt-2">Here's an overview of your account activity</p>
+    </div>
+
+    <!-- Profile Section -->
+    <div class="profile-header mb-8">
+      <div class="flex items-center space-x-4">
+        <img src="https://ui-avatars.com/api/?name=John+Doe&background=random" alt="Profile" class="profile-avatar">
+        <div>
+          <h2 class="text-2xl font-bold">John Doe</h2>
+          <p class="text-blue-100">john.doe@example.com</p>
+          <p class="text-sm mt-1">Member since January 2024</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      <div class="stat-card">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-gray-500 text-sm">Total Articles</p>
+            <h3 class="text-2xl font-bold mt-1">24</h3>
+          </div>
+          <i data-feather="file-text" class="text-blue-500 icon-hover"></i>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-gray-500 text-sm">Messages</p>
+            <h3 class="text-2xl font-bold mt-1">156</h3>
+          </div>
+          <i data-feather="message-square" class="text-green-500 icon-hover"></i>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-gray-500 text-sm">Calendar Events</p>
+            <h3 class="text-2xl font-bold mt-1">8</h3>
+          </div>
+          <i data-feather="calendar" class="text-purple-500 icon-hover"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Activity -->
+    <div class="card p-6 mb-8">
+      <h2 class="text-xl font-bold mb-4">Recent Activity</h2>
+      <div class="space-y-4">
+        <div class="flex items-center space-x-4 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+          <i data-feather="edit" class="text-blue-500"></i>
+          <div>
+            <p class="font-medium">Updated Wiki Article</p>
+            <p class="text-sm text-gray-500">2 hours ago</p>
+          </div>
+        </div>
+        <div class="flex items-center space-x-4 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+          <i data-feather="message-circle" class="text-green-500"></i>
+          <div>
+            <p class="font-medium">New Message Received</p>
+            <p class="text-sm text-gray-500">5 hours ago</p>
+          </div>
+        </div>
+        <div class="flex items-center space-x-4 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+          <i data-feather="calendar" class="text-purple-500"></i>
+          <div>
+            <p class="font-medium">Added Calendar Event</p>
+            <p class="text-sm text-gray-500">1 day ago</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="card p-6">
+        <h2 class="text-xl font-bold mb-4">Quick Actions</h2>
+        <div class="space-y-3">
+          <button class="w-full flex items-center space-x-3 p-3 rounded-lg hover:bg-blue-50 text-blue-600 transition-colors">
+            <i data-feather="plus-circle" class="icon-hover"></i>
+            <span>Create New Article</span>
+          </button>
+          <button class="w-full flex items-center space-x-3 p-3 rounded-lg hover:bg-green-50 text-green-600 transition-colors">
+            <i data-feather="calendar" class="icon-hover"></i>
+            <span>Schedule Meeting</span>
+          </button>
+          <button class="w-full flex items-center space-x-3 p-3 rounded-lg hover:bg-purple-50 text-purple-600 transition-colors">
+            <i data-feather="message-square" class="icon-hover"></i>
+            <span>Send Message</span>
+          </button>
+        </div>
+      </div>
+      <div class="card p-6">
+        <h2 class="text-xl font-bold mb-4">Account Settings</h2>
+        <div class="space-y-3">
+          <button class="w-full flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+            <i data-feather="user" class="text-gray-500 icon-hover"></i>
+            <span>Edit Profile</span>
+          </button>
+          <button class="w-full flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+            <i data-feather="lock" class="text-gray-500 icon-hover"></i>
+            <span>Change Password</span>
+          </button>
+          <button class="w-full flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+            <i data-feather="bell" class="text-gray-500 icon-hover"></i>
+            <span>Notification Settings</span>
+          </button>
+        </div>
+      </div>
     </div>
   </main>
+
   <script>
     let isLoggedIn = false;
     function updateLoginUI() {

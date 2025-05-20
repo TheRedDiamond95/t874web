@@ -1,0 +1,196 @@
+<!-- =========================
+  File: wiki/getting-started.html
+========================= -->
+<!--
+  Sample wiki article page with modern design
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Getting Started - My Portal Wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Heroicons CDN for sidebar icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../css/styles.css">
+  <!-- Common JavaScript -->
+  <script src="../js/common.js"></script>
+  <script>
+    // Protect this page from unauthorized access
+    document.addEventListener('DOMContentLoaded', function() {
+      if (!isUserLoggedIn()) {
+        window.location.href = '../index.html';
+      }
+    });
+  </script>
+</head>
+<body class="bg-gray-100 flex">
+  <!-- Sidebar Navigation -->
+  <aside id="sidebar" class="w-64 bg-white h-screen shadow flex flex-col transition-all duration-300 ease-in-out hover:w-64 group">
+    <div class="p-6 border-b whitespace-nowrap overflow-hidden">
+      <span class="text-2xl font-title">My Portal</span>
+    </div>
+    <nav class="flex-1 p-4 space-y-2">
+      <a href="../index.html" class="flex items-center p-2 rounded hover:bg-blue-100 text-blue-700 font-semibold whitespace-nowrap overflow-hidden">
+        <i data-feather="home" class="mr-3 flex-shrink-0"></i> <span class="truncate">Cover Page</span>
+      </a>
+      <a href="../wiki.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden active">
+        <i data-feather="book-open" class="mr-3 flex-shrink-0"></i> <span class="truncate">Wiki</span>
+      </a>
+      <a href="../dashboard.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+        <i data-feather="user" class="mr-3 flex-shrink-0"></i> <span class="truncate">Account Dashboard</span>
+      </a>
+      <a href="../communications.html" data-requires-login class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+        <i data-feather="message-circle" class="mr-3 flex-shrink-0"></i> <span class="truncate">Communications</span>
+      </a>
+      <a href="../calendar.html" class="flex items-center p-2 rounded hover:bg-blue-100 whitespace-nowrap overflow-hidden">
+        <i data-feather="calendar" class="mr-3 flex-shrink-0"></i> <span class="truncate">Calendar</span>
+      </a>
+    </nav>
+    <div class="p-4 border-t whitespace-nowrap overflow-hidden">
+      <!-- Login toggle button -->
+      <button id="loginToggle" class="w-full py-2 px-4 btn-primary rounded">
+        Login
+      </button>
+      <div id="loginStatus" class="mt-2 text-center text-sm"></div>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 p-10 transition-all duration-300 ease-in-out page-transition">
+    <!-- Article Navigation -->
+    <div class="flex items-center space-x-4 mb-8">
+      <a href="../wiki.html" class="text-blue-600 hover:text-blue-800 flex items-center">
+        <i data-feather="arrow-left" class="w-4 h-4 mr-2"></i>
+        Back to Wiki
+      </a>
+      <span class="text-gray-400">/</span>
+      <span class="text-gray-600">Getting Started</span>
+    </div>
+
+    <!-- Article Header -->
+    <div class="banner mb-8">
+      <h1 class="text-3xl font-title">Getting Started with My Portal</h1>
+      <div class="flex items-center space-x-4 mt-2 text-sm">
+        <span class="flex items-center"><i data-feather="clock" class="w-4 h-4 mr-1"></i> 5 min read</span>
+        <span class="flex items-center"><i data-feather="calendar" class="w-4 h-4 mr-1"></i> Last updated: March 15, 2024</span>
+        <span class="flex items-center"><i data-feather="user" class="w-4 h-4 mr-1"></i> By Admin Team</span>
+      </div>
+    </div>
+
+    <!-- Article Content -->
+    <div class="wiki-article">
+      <div class="prose max-w-none">
+        <h2>Introduction</h2>
+        <p>Welcome to My Portal! This guide will help you get started with our platform and make the most of its features. Whether you're a new user or just looking to refresh your knowledge, this article covers everything you need to know.</p>
+
+        <h2>Creating Your Account</h2>
+        <p>Getting started with My Portal is easy. Follow these simple steps:</p>
+        <ol>
+          <li>Click the "Login" button in the top-right corner</li>
+          <li>Select "Create New Account"</li>
+          <li>Fill in your details and verify your email</li>
+          <li>Set up your profile and preferences</li>
+        </ol>
+
+        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 my-6">
+          <div class="flex">
+            <div class="flex-shrink-0">
+              <i data-feather="info" class="text-blue-500"></i>
+            </div>
+            <div class="ml-3">
+              <p class="text-sm text-blue-700">
+                <strong>Pro Tip:</strong> Make sure to use a strong password and enable two-factor authentication for enhanced security.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <h2>Navigating the Interface</h2>
+        <p>My Portal features an intuitive interface designed for easy navigation:</p>
+        <ul>
+          <li><strong>Sidebar:</strong> Access all main features from the left sidebar</li>
+          <li><strong>Dashboard:</strong> View your activity and quick actions</li>
+          <li><strong>Calendar:</strong> Manage your schedule and events</li>
+          <li><strong>Communications:</strong> Stay connected with your team</li>
+        </ul>
+
+        <h2>Key Features</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+          <div class="p-4 bg-white rounded-lg shadow-sm border border-gray-200">
+            <i data-feather="calendar" class="text-blue-500 mb-2"></i>
+            <h3 class="font-bold mb-2">Calendar Integration</h3>
+            <p class="text-sm text-gray-600">Schedule meetings, set reminders, and manage your time effectively.</p>
+          </div>
+          <div class="p-4 bg-white rounded-lg shadow-sm border border-gray-200">
+            <i data-feather="message-circle" class="text-green-500 mb-2"></i>
+            <h3 class="font-bold mb-2">Team Communication</h3>
+            <p class="text-sm text-gray-600">Stay connected with your team through our integrated messaging system.</p>
+          </div>
+        </div>
+
+        <h2>Getting Help</h2>
+        <p>If you need assistance, we're here to help:</p>
+        <ul>
+          <li>Check our <a href="#" class="text-blue-600 hover:text-blue-800">FAQ section</a></li>
+          <li>Contact our <a href="#" class="text-blue-600 hover:text-blue-800">support team</a></li>
+          <li>Join our <a href="#" class="text-blue-600 hover:text-blue-800">community forum</a></li>
+        </ul>
+      </div>
+
+      <!-- Article Footer -->
+      <div class="mt-8 pt-6 border-t">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-4">
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="thumbs-up" class="icon-hover"></i>
+              <span>Helpful</span>
+            </button>
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="message-square" class="icon-hover"></i>
+              <span>Comment</span>
+            </button>
+          </div>
+          <div class="flex items-center space-x-4">
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="share-2" class="icon-hover"></i>
+              <span>Share</span>
+            </button>
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <i data-feather="bookmark" class="icon-hover"></i>
+              <span>Save</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Related Articles -->
+    <div class="mt-8">
+      <h2 class="text-2xl font-bold mb-4">Related Articles</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <a href="#" class="wiki-article block">
+          <h3 class="text-lg font-bold mb-2">Account Security Guide</h3>
+          <p class="text-gray-600">Learn how to keep your account secure and protect your data.</p>
+        </a>
+        <a href="#" class="wiki-article block">
+          <h3 class="text-lg font-bold mb-2">Advanced Features</h3>
+          <p class="text-gray-600">Discover advanced features and customization options.</p>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Initialize Feather icons
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.feather) {
+        feather.replace();
+      }
+    });
+  </script>
+</body>
+</html> 

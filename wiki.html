@@ -2,7 +2,7 @@
   File: wiki.html
 ========================= -->
 <!--
-  Simple placeholder Wiki page with sidebar
+  Modern Wiki system with directory and article previews
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -59,12 +59,121 @@
     </div>
   </aside>
   <!-- Main Content -->
-  <main class="flex-1 p-10 transition-all duration-300 ease-in-out">
-    <h1 class="text-3xl font-title mb-6">Wiki</h1>
-    <div class="card p-6">
-      <p class="text-gray-600">Welcome to the Wiki section. This content is only visible to logged-in users.</p>
+  <main class="flex-1 p-10 transition-all duration-300 ease-in-out page-transition">
+    <!-- Banner -->
+    <div class="banner mb-8">
+      <h1 class="text-3xl font-title">Knowledge Base</h1>
+      <p class="mt-2">Explore our comprehensive documentation and guides</p>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="mb-8">
+      <div class="relative">
+        <input type="text" placeholder="Search articles..." class="w-full p-4 pl-12 rounded-lg border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all">
+        <i data-feather="search" class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+      </div>
+    </div>
+
+    <!-- Wiki Categories -->
+    <div class="wiki-directory mb-8">
+      <div class="wiki-category">
+        <div class="flex items-center space-x-3 mb-3">
+          <i data-feather="book" class="text-blue-500 icon-hover"></i>
+          <h3 class="font-bold">Getting Started</h3>
+        </div>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#" class="text-blue-600 hover:text-blue-800">Quick Start Guide</a></li>
+          <li><a href="#" class="text-blue-600 hover:text-blue-800">Basic Navigation</a></li>
+          <li><a href="#" class="text-blue-600 hover:text-blue-800">Account Setup</a></li>
+        </ul>
+      </div>
+
+      <div class="wiki-category">
+        <div class="flex items-center space-x-3 mb-3">
+          <i data-feather="settings" class="text-green-500 icon-hover"></i>
+          <h3 class="font-bold">Features</h3>
+        </div>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#" class="text-blue-600 hover:text-blue-800">Calendar Integration</a></li>
+          <li><a href="#" class="text-blue-600 hover:text-blue-800">Message System</a></li>
+          <li><a href="#" class="text-blue-600 hover:text-blue-800">File Sharing</a></li>
+        </ul>
+      </div>
+
+      <div class="wiki-category">
+        <div class="flex items-center space-x-3 mb-3">
+          <i data-feather="shield" class="text-purple-500 icon-hover"></i>
+          <h3 class="font-bold">Security</h3>
+        </div>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#" class="text-blue-600 hover:text-blue-800">Account Security</a></li>
+          <li><a href="#" class="text-blue-600 hover:text-blue-800">Privacy Settings</a></li>
+          <li><a href="#" class="text-blue-600 hover:text-blue-800">Two-Factor Auth</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Featured Articles -->
+    <h2 class="text-2xl font-bold mb-4">Featured Articles</h2>
+    <div class="space-y-6">
+      <article class="wiki-article">
+        <div class="flex items-start justify-between">
+          <div>
+            <h3 class="text-xl font-bold mb-2">Getting Started with My Portal</h3>
+            <p class="text-gray-600 mb-4">Learn the basics of using My Portal, from account creation to navigating the interface.</p>
+            <div class="flex items-center space-x-4 text-sm text-gray-500">
+              <span class="flex items-center"><i data-feather="clock" class="w-4 h-4 mr-1"></i> 5 min read</span>
+              <span class="flex items-center"><i data-feather="calendar" class="w-4 h-4 mr-1"></i> Updated 2 days ago</span>
+            </div>
+          </div>
+          <button class="p-2 text-blue-500 hover:text-blue-700 transition-colors">
+            <i data-feather="arrow-right" class="icon-hover"></i>
+          </button>
+        </div>
+      </article>
+
+      <article class="wiki-article">
+        <div class="flex items-start justify-between">
+          <div>
+            <h3 class="text-xl font-bold mb-2">Advanced Calendar Features</h3>
+            <p class="text-gray-600 mb-4">Discover how to make the most of the calendar system, including recurring events and reminders.</p>
+            <div class="flex items-center space-x-4 text-sm text-gray-500">
+              <span class="flex items-center"><i data-feather="clock" class="w-4 h-4 mr-1"></i> 8 min read</span>
+              <span class="flex items-center"><i data-feather="calendar" class="w-4 h-4 mr-1"></i> Updated 1 week ago</span>
+            </div>
+          </div>
+          <button class="p-2 text-blue-500 hover:text-blue-700 transition-colors">
+            <i data-feather="arrow-right" class="icon-hover"></i>
+          </button>
+        </div>
+      </article>
+
+      <article class="wiki-article">
+        <div class="flex items-start justify-between">
+          <div>
+            <h3 class="text-xl font-bold mb-2">Security Best Practices</h3>
+            <p class="text-gray-600 mb-4">Essential security tips to keep your account and data safe while using My Portal.</p>
+            <div class="flex items-center space-x-4 text-sm text-gray-500">
+              <span class="flex items-center"><i data-feather="clock" class="w-4 h-4 mr-1"></i> 6 min read</span>
+              <span class="flex items-center"><i data-feather="calendar" class="w-4 h-4 mr-1"></i> Updated 3 days ago</span>
+            </div>
+          </div>
+          <button class="p-2 text-blue-500 hover:text-blue-700 transition-colors">
+            <i data-feather="arrow-right" class="icon-hover"></i>
+          </button>
+        </div>
+      </article>
+    </div>
+
+    <!-- Create New Article Button -->
+    <div class="mt-8 text-center">
+      <button class="inline-flex items-center space-x-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+        <i data-feather="plus-circle" class="icon-hover"></i>
+        <span>Create New Article</span>
+      </button>
     </div>
   </main>
+
   <script>
     // Simulated login status
     let isLoggedIn = false;
