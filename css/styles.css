@@ -1,13 +1,13 @@
 /* Import fonts */
 @import url('https://fonts.googleapis.com/css2?family=Victor+Mono:wght@400;600;700&family=Work+Sans:wght@300;400;500;600;700&display=swap');
 
-/* Greyscale template styles */
+/* Color scheme */
 :root {
-  --primary: #64a19d;
-  --primary-dark: #558b87;
-  --secondary: #6c757d;
+  --primary: #dc2626; /* Red */
+  --primary-dark: #b91c1c;
+  --secondary: #d4af37; /* Gold */
   --light: #f8f9fa;
-  --dark: #212529;
+  --dark: #000000; /* Black */
   --gray-100: #f8f9fa;
   --gray-200: #e9ecef;
   --gray-300: #dee2e6;
@@ -33,27 +33,27 @@ h1, h2, h3, h4, h5, h6, .font-title {
 
 /* Sidebar styles */
 #sidebar {
-  background-color: white;
-  border-right: 1px solid var(--gray-200);
+  background-color: var(--dark);
+  border-right: 1px solid var(--gray-800);
 }
 
 #sidebar .text-2xl {
-  color: var(--primary);
+  color: var(--secondary);
 }
 
 #sidebar a {
-  color: var(--gray-700);
+  color: white;
   transition: all 0.2s ease-in-out;
 }
 
 #sidebar a:hover {
-  background-color: var(--gray-100);
-  color: var(--primary);
+  background-color: var(--gray-800);
+  color: var(--secondary);
 }
 
 #sidebar a.active {
-  color: var(--primary);
-  background-color: var(--gray-100);
+  color: var(--secondary);
+  background-color: var(--gray-800);
 }
 
 /* Button styles */
@@ -92,8 +92,12 @@ main {
 }
 
 main h1 {
-  color: var(--gray-800);
+  color: var(--primary);
   font-weight: 700;
+}
+
+main h2 {
+  color: var(--secondary);
 }
 
 /* Announcement styles */
@@ -113,7 +117,7 @@ main h1 {
 
 /* Status text */
 #loginStatus {
-  color: var(--gray-600);
+  color: var(--gray-400);
   font-size: 0.875rem;
 }
 
@@ -175,7 +179,7 @@ main h1 {
 
 /* Banner styles */
 .banner {
-  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
   color: white;
   padding: 1rem;
   border-radius: 0.5rem;
@@ -203,10 +207,12 @@ main h1 {
   padding: 2rem;
   margin-bottom: 1.5rem;
   transition: all 0.3s ease;
+  border: 1px solid var(--gray-200);
 }
 
 .wiki-article:hover {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border-color: var(--primary);
 }
 
 /* Wiki directory styles */
@@ -222,53 +228,27 @@ main h1 {
   border-radius: 0.5rem;
   padding: 1rem;
   transition: all 0.3s ease;
+  border: 1px solid var(--gray-200);
 }
 
 .wiki-category:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border-color: var(--primary);
 }
 
-/* Button styles */
-.btn-primary {
-  background-color: #4f46e5;
-  color: white;
-  transition: all 0.2s ease;
+.wiki-category h3 {
+  color: var(--secondary);
 }
 
-.btn-primary:hover {
-  background-color: #4338ca;
-  transform: translateY(-1px);
+/* Icon colors */
+.text-blue-500, .text-green-500, .text-purple-500 {
+  color: var(--primary) !important;
 }
 
-/* Loading animation */
-.loading-spinner {
-  border: 3px solid #f3f3f3;
-  border-top: 3px solid #4f46e5;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* Slide animations for sidebar */
-.slide-in {
-  animation: slideIn 0.3s ease-out;
-}
-
-@keyframes slideIn {
-  from { transform: translateX(-100%); }
-  to { transform: translateX(0); }
-}
-
-/* User profile styles */
+/* Profile header */
 .profile-header {
-  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
   color: white;
   padding: 2rem;
   border-radius: 0.5rem;
@@ -285,4 +265,66 @@ main h1 {
 
 .profile-avatar:hover {
   transform: scale(1.05);
+}
+
+/* Links */
+a.text-blue-600 {
+  color: var(--primary) !important;
+}
+
+a.text-blue-600:hover {
+  color: var(--primary-dark) !important;
+}
+
+/* Update hover states for buttons */
+.hover\:bg-blue-50:hover {
+  background-color: rgba(220, 38, 38, 0.1) !important;
+}
+
+.hover\:text-blue-600:hover {
+  color: var(--primary) !important;
+}
+
+/* Update active states */
+.active {
+  color: var(--secondary) !important;
+  background-color: var(--gray-800) !important;
+}
+
+/* Update focus states */
+.focus\:border-blue-500:focus {
+  border-color: var(--primary) !important;
+}
+
+.focus\:ring-blue-200:focus {
+  --tw-ring-color: rgba(220, 38, 38, 0.2) !important;
+}
+
+/* Update button colors */
+.bg-blue-600 {
+  background-color: var(--primary) !important;
+}
+
+.hover\:bg-blue-700:hover {
+  background-color: var(--primary-dark) !important;
+}
+
+/* Update text colors */
+.text-blue-700 {
+  color: var(--primary) !important;
+}
+
+/* Update border colors */
+.border-blue-500 {
+  border-color: var(--primary) !important;
+}
+
+/* Update background colors for hover states */
+.hover\:bg-blue-100:hover {
+  background-color: rgba(220, 38, 38, 0.1) !important;
+}
+
+/* Update text colors for hover states */
+.hover\:text-blue-800:hover {
+  color: var(--primary-dark) !important;
 } 
