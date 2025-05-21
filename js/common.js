@@ -10,6 +10,10 @@ const PROTECTED_ROUTES = [
 
 // Check if user is logged in
 function isUserLoggedIn() {
+  // If no login state is set, set it to logged in by default
+  if (localStorage.getItem(LOGIN_STORAGE_KEY) === null) {
+    localStorage.setItem(LOGIN_STORAGE_KEY, "1");
+  }
   return localStorage.getItem(LOGIN_STORAGE_KEY) === "1";
 }
 
@@ -20,7 +24,7 @@ function updateLoginUI() {
   const protectedLinks = document.querySelectorAll('[data-requires-login]');
   
   if (loginStatus) {
-    loginStatus.textContent = isUserLoggedIn() ? "Logged in" : "Logged out";
+    loginStatus.textContent = "Logged in";
   }
   
   if (loginToggle) {
@@ -29,40 +33,29 @@ function updateLoginUI() {
     const text = loginToggle.querySelector('span');
     
     if (icon) {
-      icon.setAttribute('data-feather', isUserLoggedIn() ? 'log-out' : 'log-in');
+      icon.setAttribute('data-feather', 'log-out');
     }
     if (text) {
-      text.textContent = isUserLoggedIn() ? 'Logout' : 'Login';
+      text.textContent = 'Logout';
     }
     if (window.feather) {
       feather.replace();
     }
   }
 
-  // Update visibility of protected navigation items
+  // Show all protected navigation items
   protectedLinks.forEach(link => {
-    if (isUserLoggedIn()) {
-      link.classList.remove('hidden');
-    } else {
-      link.classList.add('hidden');
-    }
+    link.classList.remove('hidden');
   });
-}
-
-// Toggle login status
-function toggleLogin() {
-  const newLoginState = !isUserLoggedIn();
-  localStorage.setItem(LOGIN_STORAGE_KEY, newLoginState ? "1" : "0");
-  updateLoginUI();
-  
-  // Redirect to index if logging out while on a protected page
-  if (!newLoginState && PROTECTED_ROUTES.includes(window.location.pathname.split('/').pop())) {
-    window.location.href = 'index.html';
-  }
 }
 
 // Initialize common functionality
 document.addEventListener('DOMContentLoaded', function() {
+  // Set default login state to logged in
+  if (localStorage.getItem(LOGIN_STORAGE_KEY) === null) {
+    localStorage.setItem(LOGIN_STORAGE_KEY, "1");
+  }
+  
   // Initialize login UI
   updateLoginUI();
   
@@ -77,15 +70,19 @@ document.addEventListener('DOMContentLoaded', function() {
     newLoginToggle.addEventListener('click', function(e) {
       e.preventDefault();
       e.stopPropagation();
-      toggleLogin();
+      // Only allow logout, not login
+      if (isUserLoggedIn()) {
+        localStorage.setItem(LOGIN_STORAGE_KEY, "0");
+        window.location.href = 'index.html';
+      }
     });
     
-    // Add login icon if it doesn't exist
+    // Add logout icon if it doesn't exist
     if (!newLoginToggle.querySelector('i')) {
       const loginIcon = document.createElement('i');
-      loginIcon.setAttribute('data-feather', 'log-in');
+      loginIcon.setAttribute('data-feather', 'log-out');
       const textSpan = document.createElement('span');
-      textSpan.textContent = 'Login';
+      textSpan.textContent = 'Logout';
       newLoginToggle.appendChild(loginIcon);
       newLoginToggle.appendChild(textSpan);
     }
@@ -155,11 +152,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
     
-    // Increased max rotation to 1 degree
-    const rotateY = ((x - centerX) / centerX) * 1;
-    const rotateX = -((y - centerY) / centerY) * 1;
+    // Increased max rotation to 2.5 degrees
+    const rotateY = ((x - centerX) / centerX) * 2.5;
+    const rotateX = -((y - centerY) / centerY) * 2.5;
     
-    // Apply the transform
+    // Apply the transform with smooth transition
     element.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.01, 1.01, 1.01)`;
   }
 
