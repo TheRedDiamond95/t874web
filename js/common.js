@@ -24,7 +24,19 @@ function updateLoginUI() {
   }
   
   if (loginToggle) {
-    loginToggle.textContent = isUserLoggedIn() ? "Logout" : "Login";
+    // Update button text and icon
+    const icon = loginToggle.querySelector('i');
+    const text = loginToggle.querySelector('span');
+    
+    if (icon) {
+      icon.setAttribute('data-feather', isUserLoggedIn() ? 'log-out' : 'log-in');
+    }
+    if (text) {
+      text.textContent = isUserLoggedIn() ? 'Logout' : 'Login';
+    }
+    if (window.feather) {
+      feather.replace();
+    }
   }
 
   // Update visibility of protected navigation items
@@ -57,16 +69,26 @@ document.addEventListener('DOMContentLoaded', function() {
   // Add login toggle handler if button exists
   const loginToggle = document.getElementById('loginToggle');
   if (loginToggle) {
-    loginToggle.addEventListener('click', toggleLogin);
-    // Add login icon
-    const loginIcon = document.createElement('i');
-    loginIcon.setAttribute('data-feather', 'log-in');
-    loginToggle.insertBefore(loginIcon, loginToggle.firstChild);
-  }
-  
-  // Initialize Feather icons if available
-  if (window.feather) {
-    feather.replace();
+    // Remove any existing click handlers
+    loginToggle.replaceWith(loginToggle.cloneNode(true));
+    const newLoginToggle = document.getElementById('loginToggle');
+    
+    // Add new click handler
+    newLoginToggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleLogin();
+    });
+    
+    // Add login icon if it doesn't exist
+    if (!newLoginToggle.querySelector('i')) {
+      const loginIcon = document.createElement('i');
+      loginIcon.setAttribute('data-feather', 'log-in');
+      const textSpan = document.createElement('span');
+      textSpan.textContent = 'Login';
+      newLoginToggle.appendChild(loginIcon);
+      newLoginToggle.appendChild(textSpan);
+    }
   }
 
   // Initialize card tilting effect
@@ -133,11 +155,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
     
-    // Reduced max rotation to 0.5 degrees
-    const rotateY = ((x - centerX) / centerX) * 0.5;
-    const rotateX = -((y - centerY) / centerY) * 0.5;
+    // Increased max rotation to 1 degree
+    const rotateY = ((x - centerX) / centerX) * 1;
+    const rotateX = -((y - centerY) / centerY) * 1;
     
-    // Apply the transform with reduced scale
+    // Apply the transform
     element.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.01, 1.01, 1.01)`;
   }
 
@@ -148,36 +170,6 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initialize sidebar if it exists
   const sidebar = document.getElementById('sidebar');
   if (sidebar) {
-    // Remove click-based toggle
     sidebar.classList.add('minimized'); // Start minimized
-    
-    // Update login button text and icon based on state
-    function updateLoginButton() {
-      if (loginToggle) {
-        const isLoggedIn = isUserLoggedIn();
-        const icon = loginToggle.querySelector('i');
-        const text = loginToggle.querySelector('span');
-        
-        if (icon) {
-          icon.setAttribute('data-feather', isLoggedIn ? 'log-out' : 'log-in');
-        }
-        if (text) {
-          text.textContent = isLoggedIn ? 'Logout' : 'Login';
-        }
-        if (window.feather) {
-          feather.replace();
-        }
-      }
-    }
-    
-    // Update login button when login state changes
-    const originalUpdateLoginUI = updateLoginUI;
-    updateLoginUI = function() {
-      originalUpdateLoginUI();
-      updateLoginButton();
-    };
-    
-    // Initial update
-    updateLoginButton();
   }
 }); 
